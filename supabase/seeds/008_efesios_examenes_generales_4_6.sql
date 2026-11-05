@@ -890,7 +890,7 @@ VALUES
 -- Pregunta 7 (MC)
 (
     'c0060000-0000-0000-0000-000000000007',
-    'c0060000-0000-0000-0000-000000000006',
+    'c0000000-0000-0000-0000-000000000006',
     'multiple_choice',
     '¿Para qué sirve el escudo de la fe según Efesios 6:16?',
     'Efesios 6:16',
@@ -900,7 +900,7 @@ VALUES
 -- Pregunta 8 (MC)
 (
     'c0060000-0000-0000-0000-000000000008',
-    'c0060000-0000-0000-0000-000000000006',
+    'c0000000-0000-0000-0000-000000000006',
     'multiple_choice',
     '¿A quién envía Pablo a Éfeso para informar sobre su estado y consolar los corazones según Efesios 6:21-22?',
     'Efesios 6:21-22',

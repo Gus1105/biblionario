@@ -970,7 +970,7 @@ VALUES
 -- Pregunta 15 (Fill blank)
 (
     'c0030000-0000-0000-0000-000000000015',
-    'c0030000-0000-0000-0000-000000000003',
+    'c0000000-0000-0000-0000-000000000003',
     'fill_blank',
     'Completa Efesios 3:19: "Y de conocer el amor de Cristo, que excede a todo ________".',
     'Efesios 3:19',
@@ -980,7 +980,7 @@ VALUES
 -- Pregunta 16 (Fill blank)
 (
     'c0030000-0000-0000-0000-000000000016',
-    'c0030000-0000-0000-0000-000000000003',
+    'c0000000-0000-0000-0000-000000000003',
     'fill_blank',
     'Completa Efesios 3:21: "A él sea ________ en la iglesia en Cristo Jesús por todas las edades, por los siglos de los siglos. Amén".',
     'Efesios 3:21',
@@ -990,7 +990,7 @@ VALUES
 -- Pregunta 17 (True/False)
 (
     'c0030000-0000-0000-0000-000000000017',
-    'c0030000-0000-0000-0000-000000000003',
+    'c0000000-0000-0000-0000-000000000003',
     'true_false',
     'Pablo pide a los creyentes en Efesios 3:13 que no desmayen a causa de sus tribulaciones, pues ellas son la gloria de ellos.',
     'Efesios 3:13',
@@ -1000,7 +1000,7 @@ VALUES
 -- Pregunta 18 (True/False)
 (
     'c0030000-0000-0000-0000-000000000018',
-    'c0030000-0000-0000-0000-000000000003',
+    'c0000000-0000-0000-0000-000000000003',
     'true_false',
     'El misterio de Cristo mencionado en Efesios 3 había sido revelado con todos sus detalles a los patriarcas en el Antiguo Testamento.',
     'Efesios 3:5',
@@ -1010,7 +1010,7 @@ VALUES
 -- Pregunta 19 (True/False)
 (
     'c0030000-0000-0000-0000-000000000019',
-    'c0030000-0000-0000-0000-000000000003',
+    'c0000000-0000-0000-0000-000000000003',
     'true_false',
     'Según Efesios 3:12, en Cristo tenemos seguridad y acceso a Dios con confianza por medio de la fe en él.',
     'Efesios 3:12',
@@ -1020,7 +1020,7 @@ VALUES
 -- Pregunta 20 (True/False)
 (
     'c0030000-0000-0000-0000-000000000020',
-    'c0030000-0000-0000-0000-000000000003',
+    'c0000000-0000-0000-0000-000000000003',
     'true_false',
     'En Efesios 3:14-15, de Dios Padre toma nombre toda familia en los cielos y en la tierra.',
     'Efesios 3:14-15',
@@ -1030,7 +1030,7 @@ VALUES
 -- Pregunta 21 (True/False)
 (
     'c0030000-0000-0000-0000-000000000021',
-    'c0030000-0000-0000-0000-000000000003',
+    'c0000000-0000-0000-0000-000000000003',
     'true_false',
     'En Efesios 3:19, Pablo declara que es imposible experimentar el amor de Cristo de ninguna manera práctica.',
     'Efesios 3:19',
@@ -1040,7 +1040,7 @@ VALUES
 -- Pregunta 22 (True/False)
 (
     'c0030000-0000-0000-0000-000000000022',
-    'c0030000-0000-0000-0000-000000000003',
+    'c0000000-0000-0000-0000-000000000003',
     'true_false',
     'El poder divino manifestado en Efesios 3:20 actúa exclusivamente fuera del creyente sin obrar en su interior.',
     'Efesios 3:20',
@@ -1050,7 +1050,7 @@ VALUES
 -- Pregunta 23 (Ref Ident)
 (
     'c0030000-0000-0000-0000-000000000023',
-    'c0030000-0000-0000-0000-000000000003',
+    'c0000000-0000-0000-0000-000000000003',
     'reference_identification',
     '¿En qué versículo declara Pablo: "A mí, que soy menos que el más pequeño de todos los santos, me fue dada esta gracia de anunciar entre los gentiles el evangelio de las inescrutables riquezas de Cristo"?',
     'Efesios 3:8',
@@ -1060,7 +1060,7 @@ VALUES
 -- Pregunta 24 (Ref Ident)
 (
     'c0030000-0000-0000-0000-000000000024',
-    'c0030000-0000-0000-0000-000000000003',
+    'c0000000-0000-0000-0000-000000000003',
     'reference_identification',
     '¿En qué versículo se encuentra la doxología: "Y a Aquel que es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos"?',
     'Efesios 3:20',
@@ -1070,7 +1070,7 @@ VALUES
 -- Pregunta 25 (Ordering)
 (
     'c0030000-0000-0000-0000-000000000025',
-    'c0030000-0000-0000-0000-000000000003',
+    'c0000000-0000-0000-0000-000000000003',
     'order_events',
     'Ordena los temas principales de la revelación y oración apostólica en Efesios 3:',
     'Efesios 3:1-21',
