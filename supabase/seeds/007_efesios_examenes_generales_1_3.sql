@@ -255,7 +255,7 @@ VALUES
 (
     'c0010000-0000-0000-0000-000000000025',
     'c0000000-0000-0000-0000-000000000001',
-    'ordering',
+    'order_events',
     'Ordena cronológicamente los acontecimientos y temas teológicos conforme se desarrollan a lo largo de Efesios 1:',
     'Efesios 1:4-22',
     '1. Elección antes de la fundación del mundo (v. 4). 2. Redención y perdón por la sangre de Cristo (v. 7). 3. Escuchar la palabra y ser sellados con el Espíritu Santo (v. 13). 4. Cristo exaltado a la diestra de Dios sobre toda potestad (v. 20-22).',
@@ -663,7 +663,7 @@ VALUES
 (
     'c0020000-0000-0000-0000-000000000025',
     'c0000000-0000-0000-0000-000000000002',
-    'ordering',
+    'order_events',
     'Ordena la transición de la salvación y la edificación según la estructura de Efesios 2:',
     'Efesios 2:1-22',
     '1. Muertos en delitos y pecados viviendo según la corriente del mundo (v. 1-3). 2. Resucitados y salvos por gracia por medio de la fe (v. 4-9). 3. Hechos cercanos por la sangre de Cristo y reconciliados en la cruz (v. 13-16). 4. Conciudadanos edificados como morada de Dios en el Espíritu (v. 19-22).',
@@ -1071,7 +1071,7 @@ VALUES
 (
     'c0030000-0000-0000-0000-000000000025',
     'c0030000-0000-0000-0000-000000000003',
-    'ordering',
+    'order_events',
     'Ordena los temas principales de la revelación y oración apostólica en Efesios 3:',
     'Efesios 3:1-21',
     '1. El misterio revelado: gentiles coherederos en un mismo cuerpo (v. 1-6). 2. El anuncio de las inescrutables riquezas de Cristo (v. 8-11). 3. Oración de rodillas pidiendo fortaleza en el hombre interior (v. 14-17). 4. Doxología de gloria a Dios por los siglos en la iglesia y en Cristo (v. 20-21).',

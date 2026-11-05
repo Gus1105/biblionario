@@ -1,6 +1,6 @@
 -- ==============================================================================
 -- BIBLIONARIO - COMPREHENSIVE DATABASE SEED (RVR1960)
--- Efesios completo: 6 capítulos, 22 bloques de estudio, 340 preguntas objetivas
+-- Efesios completo: 6 capítulos, 22 bloques de estudio, 339 preguntas objetivas
 -- ==============================================================================
 
 
@@ -4572,7 +4572,7 @@ VALUES
 (
     'c0010000-0000-0000-0000-000000000025',
     'c0000000-0000-0000-0000-000000000001',
-    'ordering',
+    'order_events',
     'Ordena cronológicamente los acontecimientos y temas teológicos conforme se desarrollan a lo largo de Efesios 1:',
     'Efesios 1:4-22',
     '1. Elección antes de la fundación del mundo (v. 4). 2. Redención y perdón por la sangre de Cristo (v. 7). 3. Escuchar la palabra y ser sellados con el Espíritu Santo (v. 13). 4. Cristo exaltado a la diestra de Dios sobre toda potestad (v. 20-22).',
@@ -4980,7 +4980,7 @@ VALUES
 (
     'c0020000-0000-0000-0000-000000000025',
     'c0000000-0000-0000-0000-000000000002',
-    'ordering',
+    'order_events',
     'Ordena la transición de la salvación y la edificación según la estructura de Efesios 2:',
     'Efesios 2:1-22',
     '1. Muertos en delitos y pecados viviendo según la corriente del mundo (v. 1-3). 2. Resucitados y salvos por gracia por medio de la fe (v. 4-9). 3. Hechos cercanos por la sangre de Cristo y reconciliados en la cruz (v. 13-16). 4. Conciudadanos edificados como morada de Dios en el Espíritu (v. 19-22).',
@@ -5388,7 +5388,7 @@ VALUES
 (
     'c0030000-0000-0000-0000-000000000025',
     'c0030000-0000-0000-0000-000000000003',
-    'ordering',
+    'order_events',
     'Ordena los temas principales de la revelación y oración apostólica en Efesios 3:',
     'Efesios 3:1-21',
     '1. El misterio revelado: gentiles coherederos en un mismo cuerpo (v. 1-6). 2. El anuncio de las inescrutables riquezas de Cristo (v. 8-11). 3. Oración de rodillas pidiendo fortaleza en el hombre interior (v. 14-17). 4. Doxología de gloria a Dios por los siglos en la iglesia y en Cristo (v. 20-21).',
@@ -5804,7 +5804,7 @@ VALUES
 (
     'c0040000-0000-0000-0000-000000000025',
     'c0000000-0000-0000-0000-000000000004',
-    'ordering',
+    'order_events',
     'Ordena las enseñanzas prácticas sobre la vida cristiana presentadas en Efesios 4:',
     'Efesios 4:1-32',
     '1. Andar en humildad guardando la unidad del Espíritu en paz (v. 1-3). 2. Dones ministeriales para la edificación y madurez del cuerpo (v. 11-13). 3. Despojarse del viejo hombre y vestirse del nuevo hombre (v. 22-24). 4. Desechar mentira, ira y amargura, perdonando como Cristo perdonó (v. 25-32).',
@@ -6212,7 +6212,7 @@ VALUES
 (
     'c0050000-0000-0000-0000-000000000025',
     'c0000000-0000-0000-0000-000000000005',
-    'ordering',
+    'order_events',
     'Ordena las enseñanzas morales y familiares de Efesios 5 conforme a su aparición en el texto:',
     'Efesios 5:1-33',
     '1. Andar en amor e imitar a Dios huyendo de toda inmundicia (v. 1-5). 2. Andar como hijos de luz reprobando las tinieblas (v. 8-14). 3. Vivir sabiamente y ser llenos del Espíritu con alabanza continua (v. 15-21). 4. El orden conyugal: el matrimonio como reflejo de Cristo y la iglesia (v. 22-33).',
@@ -6620,7 +6620,7 @@ VALUES
 (
     'c0060000-0000-0000-0000-000000000025',
     'c0000000-0000-0000-0000-000000000006',
-    'ordering',
+    'order_events',
     'Ordena las piezas de la armadura de Dios tal como son presentadas en Efesios 6:14-17:',
     'Efesios 6:14-17',
     '1. Cinto de la verdad y coraza de justicia (v. 14). 2. Calzado con el apresto del evangelio de la paz (v. 15). 3. Escudo de la fe para apagar los dardos del maligno (v. 16). 4. Yelmo de la salvación y espada del Espíritu (v. 17).',
@@ -7255,7 +7255,7 @@ VALUES
 (
     'f0000000-0000-0000-0000-000000000050',
     'c0000000-0000-0000-0000-000000000006',
-    'ordering',
+    'order_events',
     'Ordena cronológicamente los seis grandes ejes temáticos que componen los seis capítulos del libro de Efesios:',
     'Efesios 1-6',
     '1. Las bendiciones celestiales y la soberanía de Cristo (Cap. 1). 2. De muerte a vida: salvos por gracia para buenas obras y reconciliados en la cruz (Cap. 2). 3. El misterio revelado de los gentiles coherederos y la sabiduría divina (Cap. 3). 4. La unidad del Espíritu, dones ministeriales y el nuevo hombre (Cap. 4). 5. Andar en luz, llenos del Espíritu y el orden conyugal (Cap. 5). 6. Relaciones familiares, la armadura de Dios y la victoria espiritual (Cap. 6).',

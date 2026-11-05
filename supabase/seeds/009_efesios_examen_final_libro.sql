@@ -474,7 +474,7 @@ VALUES
 (
     'f0000000-0000-0000-0000-000000000050',
     'c0000000-0000-0000-0000-000000000006',
-    'ordering',
+    'order_events',
     'Ordena cronológicamente los seis grandes ejes temáticos que componen los seis capítulos del libro de Efesios:',
     'Efesios 1-6',
     '1. Las bendiciones celestiales y la soberanía de Cristo (Cap. 1). 2. De muerte a vida: salvos por gracia para buenas obras y reconciliados en la cruz (Cap. 2). 3. El misterio revelado de los gentiles coherederos y la sabiduría divina (Cap. 3). 4. La unidad del Espíritu, dones ministeriales y el nuevo hombre (Cap. 4). 5. Andar en luz, llenos del Espíritu y el orden conyugal (Cap. 5). 6. Relaciones familiares, la armadura de Dios y la victoria espiritual (Cap. 6).',

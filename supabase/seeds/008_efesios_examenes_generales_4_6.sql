@@ -255,7 +255,7 @@ VALUES
 (
     'c0040000-0000-0000-0000-000000000025',
     'c0000000-0000-0000-0000-000000000004',
-    'ordering',
+    'order_events',
     'Ordena las enseñanzas prácticas sobre la vida cristiana presentadas en Efesios 4:',
     'Efesios 4:1-32',
     '1. Andar en humildad guardando la unidad del Espíritu en paz (v. 1-3). 2. Dones ministeriales para la edificación y madurez del cuerpo (v. 11-13). 3. Despojarse del viejo hombre y vestirse del nuevo hombre (v. 22-24). 4. Desechar mentira, ira y amargura, perdonando como Cristo perdonó (v. 25-32).',
@@ -663,7 +663,7 @@ VALUES
 (
     'c0050000-0000-0000-0000-000000000025',
     'c0000000-0000-0000-0000-000000000005',
-    'ordering',
+    'order_events',
     'Ordena las enseñanzas morales y familiares de Efesios 5 conforme a su aparición en el texto:',
     'Efesios 5:1-33',
     '1. Andar en amor e imitar a Dios huyendo de toda inmundicia (v. 1-5). 2. Andar como hijos de luz reprobando las tinieblas (v. 8-14). 3. Vivir sabiamente y ser llenos del Espíritu con alabanza continua (v. 15-21). 4. El orden conyugal: el matrimonio como reflejo de Cristo y la iglesia (v. 22-33).',
@@ -1071,7 +1071,7 @@ VALUES
 (
     'c0060000-0000-0000-0000-000000000025',
     'c0000000-0000-0000-0000-000000000006',
-    'ordering',
+    'order_events',
     'Ordena las piezas de la armadura de Dios tal como son presentadas en Efesios 6:14-17:',
     'Efesios 6:14-17',
     '1. Cinto de la verdad y coraza de justicia (v. 14). 2. Calzado con el apresto del evangelio de la paz (v. 15). 3. Escudo de la fe para apagar los dardos del maligno (v. 16). 4. Yelmo de la salvación y espada del Espíritu (v. 17).',
