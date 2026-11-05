@@ -112,13 +112,14 @@ export async function getCurrentUser() {
     .eq("id", user.id)
     .single();
 
-  const { data: userRole } = await supabase
+  const { data: userRoles } = await supabase
     .from("user_roles")
     .select("role")
-    .eq("user_id", user.id)
-    .maybeSingle<{ role: "admin" | "participant" }>();
+    .eq("user_id", user.id);
 
-  const role = userRole?.role || "participant";
+  const roles = (userRoles || []) as { role: string }[];
+  const isAdmin = roles.some((r) => r.role === "admin");
+  const role: "admin" | "participant" = isAdmin ? "admin" : "participant";
 
   return {
     user,
