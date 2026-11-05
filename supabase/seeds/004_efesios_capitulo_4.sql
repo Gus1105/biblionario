@@ -295,8 +295,8 @@ ON CONFLICT (block_id) DO UPDATE SET
 INSERT INTO public.questions (id, block_id, chapter_id, question_type, prompt, verse_reference, explanation, points, difficulty, order_index, is_active)
 VALUES
 (
-    'q0004001-0001-0000-0000-000000000001',
-    'b0000004-0001-0000-0000-000000000004',
+    'd0004001-0001-0000-0000-000000000001',
+    'b0000004-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000004',
     'multiple_choice',
     '¿Qué virtudes menciona Pablo en Efesios 4:2 como necesarias para andar como es digno de nuestra vocación?',
@@ -305,8 +305,8 @@ VALUES
     10, 'easy', 1, true
 ),
 (
-    'q0004001-0002-0000-0000-000000000002',
-    'b0000004-0001-0000-0000-000000000004',
+    'd0004001-0002-0000-0000-000000000002',
+    'b0000004-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000004',
     'fill_blank',
     'Completa Efesios 4:3: "solícitos en guardar la unidad del Espíritu en el vínculo de la ________".',
@@ -315,8 +315,8 @@ VALUES
     10, 'easy', 2, true
 ),
 (
-    'q0004001-0003-0000-0000-000000000003',
-    'b0000004-0001-0000-0000-000000000004',
+    'd0004001-0003-0000-0000-000000000003',
+    'b0000004-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000004',
     'multiple_choice',
     '¿Cuáles son las tres realidades unificadas que Pablo junta en Efesios 4:5?',
@@ -325,8 +325,8 @@ VALUES
     10, 'easy', 3, true
 ),
 (
-    'q0004001-0004-0000-0000-000000000004',
-    'b0000004-0001-0000-0000-000000000004',
+    'd0004001-0004-0000-0000-000000000004',
+    'b0000004-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000004',
     'true_false',
     'Según Efesios 4:6, Dios el Padre es sobre todos, y por todos, y en todos.',
@@ -335,8 +335,8 @@ VALUES
     10, 'easy', 4, true
 ),
 (
-    'q0004001-0005-0000-0000-000000000005',
-    'b0000004-0001-0000-0000-000000000004',
+    'd0004001-0005-0000-0000-000000000005',
+    'b0000004-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000004',
     'reference_identification',
     '¿En qué versículo de Efesios se encuentra la expresión "un Señor, una fe, un bautismo"?',
@@ -345,8 +345,8 @@ VALUES
     10, 'easy', 5, true
 ),
 (
-    'q0004001-0006-0000-0000-000000000006',
-    'b0000004-0001-0000-0000-000000000004',
+    'd0004001-0006-0000-0000-000000000006',
+    'b0000004-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000004',
     'multiple_choice',
     '¿Cómo se describe a sí mismo Pablo al iniciar su ruego ético en Efesios 4:1?',
@@ -360,54 +360,54 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO public.question_options (question_id, option_text, is_correct, order_index)
 VALUES
 -- q1: multiple_choice
-('q0004001-0001-0000-0000-000000000001', 'Con toda humildad y mansedumbre, soportándoos con paciencia los unos a los otros en amor', true, 1),
-('q0004001-0001-0000-0000-000000000001', 'Con elocuencia, riquezas materiales y sabiduría humana', false, 2),
-('q0004001-0001-0000-0000-000000000001', 'Con imposición de autoridad militar y fuerza física', false, 3),
-('q0004001-0001-0000-0000-000000000001', 'Con aislamiento de la sociedad en conventos', false, 4),
+('d0004001-0001-0000-0000-000000000001', 'Con toda humildad y mansedumbre, soportándoos con paciencia los unos a los otros en amor', true, 1),
+('d0004001-0001-0000-0000-000000000001', 'Con elocuencia, riquezas materiales y sabiduría humana', false, 2),
+('d0004001-0001-0000-0000-000000000001', 'Con imposición de autoridad militar y fuerza física', false, 3),
+('d0004001-0001-0000-0000-000000000001', 'Con aislamiento de la sociedad en conventos', false, 4),
 
 -- q2: fill_blank
-('q0004001-0002-0000-0000-000000000002', 'paz', true, 1),
+('d0004001-0002-0000-0000-000000000002', 'paz', true, 1),
 
 -- q3: multiple_choice
-('q0004001-0003-0000-0000-000000000003', 'Un Señor, una fe, un bautismo', true, 1),
-('q0004001-0003-0000-0000-000000000003', 'Un templo, un sacerdote, un altar', false, 2),
-('q0004001-0003-0000-0000-000000000003', 'Un líder, una nación, un idioma', false, 3),
-('q0004001-0003-0000-0000-000000000003', 'Un día de reposo, un sacrificio, una ofrenda', false, 4),
+('d0004001-0003-0000-0000-000000000003', 'Un Señor, una fe, un bautismo', true, 1),
+('d0004001-0003-0000-0000-000000000003', 'Un templo, un sacerdote, un altar', false, 2),
+('d0004001-0003-0000-0000-000000000003', 'Un líder, una nación, un idioma', false, 3),
+('d0004001-0003-0000-0000-000000000003', 'Un día de reposo, un sacrificio, una ofrenda', false, 4),
 
 -- q4: true_false
-('q0004001-0004-0000-0000-000000000004', 'Verdadero', true, 1),
-('q0004001-0004-0000-0000-000000000004', 'Falso', false, 2),
+('d0004001-0004-0000-0000-000000000004', 'Verdadero', true, 1),
+('d0004001-0004-0000-0000-000000000004', 'Falso', false, 2),
 
 -- q5: reference_identification
-('q0004001-0005-0000-0000-000000000005', 'Efesios 4:5', true, 1),
-('q0004001-0005-0000-0000-000000000005', 'Efesios 4:1', false, 2),
-('q0004001-0005-0000-0000-000000000005', 'Efesios 4:3', false, 3),
-('q0004001-0005-0000-0000-000000000005', 'Efesios 4:7', false, 4),
+('d0004001-0005-0000-0000-000000000005', 'Efesios 4:5', true, 1),
+('d0004001-0005-0000-0000-000000000005', 'Efesios 4:1', false, 2),
+('d0004001-0005-0000-0000-000000000005', 'Efesios 4:3', false, 3),
+('d0004001-0005-0000-0000-000000000005', 'Efesios 4:7', false, 4),
 
 -- q6: multiple_choice
-('q0004001-0006-0000-0000-000000000006', 'Preso en el Señor', true, 1),
-('q0004001-0006-0000-0000-000000000006', 'Gobernador en Asia', false, 2),
-('q0004001-0006-0000-0000-000000000006', 'Profeta de las naciones', false, 3),
-('q0004001-0006-0000-0000-000000000006', 'Doctor de la ley judía', false, 4)
+('d0004001-0006-0000-0000-000000000006', 'Preso en el Señor', true, 1),
+('d0004001-0006-0000-0000-000000000006', 'Gobernador en Asia', false, 2),
+('d0004001-0006-0000-0000-000000000006', 'Profeta de las naciones', false, 3),
+('d0004001-0006-0000-0000-000000000006', 'Doctor de la ley judía', false, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas Bloque 4.1
 INSERT INTO public.assessment_questions (assessment_id, question_id, order_index)
 VALUES
-('e0000004-0001-0000-0000-000000000001', 'q0004001-0001-0000-0000-000000000001', 1),
-('e0000004-0001-0000-0000-000000000001', 'q0004001-0002-0000-0000-000000000002', 2),
-('e0000004-0001-0000-0000-000000000001', 'q0004001-0003-0000-0000-000000000003', 3),
-('e0000004-0001-0000-0000-000000000001', 'q0004001-0004-0000-0000-000000000004', 4),
-('e0000004-0001-0000-0000-000000000001', 'q0004001-0005-0000-0000-000000000005', 5),
-('e0000004-0001-0000-0000-000000000001', 'q0004001-0006-0000-0000-000000000006', 6)
+('e0000004-0001-0000-0000-000000000001', 'd0004001-0001-0000-0000-000000000001', 1),
+('e0000004-0001-0000-0000-000000000001', 'd0004001-0002-0000-0000-000000000002', 2),
+('e0000004-0001-0000-0000-000000000001', 'd0004001-0003-0000-0000-000000000003', 3),
+('e0000004-0001-0000-0000-000000000001', 'd0004001-0004-0000-0000-000000000004', 4),
+('e0000004-0001-0000-0000-000000000001', 'd0004001-0005-0000-0000-000000000005', 5),
+('e0000004-0001-0000-0000-000000000001', 'd0004001-0006-0000-0000-000000000006', 6)
 ON CONFLICT DO NOTHING;
 
 -- PREGUNTAS BLOQUE 4.2 (Efesios 4:7-16)
 INSERT INTO public.questions (id, block_id, chapter_id, question_type, prompt, verse_reference, explanation, points, difficulty, order_index, is_active)
 VALUES
 (
-    'q0004002-0001-0000-0000-000000000001',
-    'b0000004-0002-0000-0000-000000000004',
+    'd0004002-0001-0000-0000-000000000001',
+    'b0000004-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000004',
     'multiple_choice',
     '¿Cuáles son los ministerios que Cristo mismo constituyó en la iglesia según Efesios 4:11?',
@@ -416,8 +416,8 @@ VALUES
     10, 'easy', 1, true
 ),
 (
-    'q0004002-0002-0000-0000-000000000002',
-    'b0000004-0002-0000-0000-000000000004',
+    'd0004002-0002-0000-0000-000000000002',
+    'b0000004-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000004',
     'multiple_choice',
     'De acuerdo con Efesios 4:12, ¿cuál es el propósito primordial de los dones ministeriales?',
@@ -426,8 +426,8 @@ VALUES
     10, 'medium', 2, true
 ),
 (
-    'q0004002-0003-0000-0000-000000000003',
-    'b0000004-0002-0000-0000-000000000004',
+    'd0004002-0003-0000-0000-000000000003',
+    'b0000004-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000004',
     'fill_blank',
     'Completa Efesios 4:13: "hasta que todos lleguemos a la unidad de la fe... a la medida de la estatura de la ________ de Cristo".',
@@ -436,8 +436,8 @@ VALUES
     10, 'medium', 3, true
 ),
 (
-    'q0004002-0004-0000-0000-000000000004',
-    'b0000004-0002-0000-0000-000000000004',
+    'd0004002-0004-0000-0000-000000000004',
+    'b0000004-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000004',
     'multiple_choice',
     '¿Qué peligro advierte Pablo que sufrirán quienes permanecen como "niños fluctuantes" según Efesios 4:14?',
@@ -446,8 +446,8 @@ VALUES
     10, 'medium', 4, true
 ),
 (
-    'q0004002-0005-0000-0000-000000000005',
-    'b0000004-0002-0000-0000-000000000004',
+    'd0004002-0005-0000-0000-000000000005',
+    'b0000004-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000004',
     'true_false',
     'Efesios 4:15 enseña que el crecimiento del creyente se produce siguiendo la verdad en amor para crecer en Cristo.',
@@ -456,8 +456,8 @@ VALUES
     10, 'easy', 5, true
 ),
 (
-    'q0004002-0006-0000-0000-000000000006',
-    'b0000004-0002-0000-0000-000000000004',
+    'd0004002-0006-0000-0000-000000000006',
+    'b0000004-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000004',
     'reference_identification',
     '¿En qué versículo de Efesios se encuentra la lista de los cinco ministerios (apóstoles, profetas, evangelistas, pastores y maestros)?',
@@ -466,8 +466,8 @@ VALUES
     10, 'easy', 6, true
 ),
 (
-    'q0004002-0007-0000-0000-000000000007',
-    'b0000004-0002-0000-0000-000000000004',
+    'd0004002-0007-0000-0000-000000000007',
+    'b0000004-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000004',
     'multiple_choice',
     'Según Efesios 4:8, ¿qué hizo Cristo al subir a lo alto según la cita del Salmo 68:18?',
@@ -481,61 +481,61 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO public.question_options (question_id, option_text, is_correct, order_index)
 VALUES
 -- q1: multiple_choice
-('q0004002-0001-0000-0000-000000000001', 'Apóstoles, profetas, evangelistas, pastores y maestros', true, 1),
-('q0004002-0001-0000-0000-000000000001', 'Reyes, generales, sacerdotes y escribas', false, 2),
-('q0004002-0001-0000-0000-000000000001', 'Filósofos, oradores, jueces y magistrados', false, 3),
-('q0004002-0001-0000-0000-000000000001', 'Levitas, cantores y porteros del templo', false, 4),
+('d0004002-0001-0000-0000-000000000001', 'Apóstoles, profetas, evangelistas, pastores y maestros', true, 1),
+('d0004002-0001-0000-0000-000000000001', 'Reyes, generales, sacerdotes y escribas', false, 2),
+('d0004002-0001-0000-0000-000000000001', 'Filósofos, oradores, jueces y magistrados', false, 3),
+('d0004002-0001-0000-0000-000000000001', 'Levitas, cantores y porteros del templo', false, 4),
 
 -- q2: multiple_choice
-('q0004002-0002-0000-0000-000000000002', 'Perfeccionar a los santos para la obra del ministerio, para la edificación del cuerpo de Cristo', true, 1),
-('q0004002-0002-0000-0000-000000000002', 'Concentrar todo el gobierno en una sola jerarquía sacerdotal', false, 2),
-('q0004002-0002-0000-0000-000000000002', 'Recaudar tributos civiles para la ciudad de Éfeso', false, 3),
-('q0004002-0002-0000-0000-000000000002', 'Sustituir la lectura personal de la Biblia por discursos humanos', false, 4),
+('d0004002-0002-0000-0000-000000000002', 'Perfeccionar a los santos para la obra del ministerio, para la edificación del cuerpo de Cristo', true, 1),
+('d0004002-0002-0000-0000-000000000002', 'Concentrar todo el gobierno en una sola jerarquía sacerdotal', false, 2),
+('d0004002-0002-0000-0000-000000000002', 'Recaudar tributos civiles para la ciudad de Éfeso', false, 3),
+('d0004002-0002-0000-0000-000000000002', 'Sustituir la lectura personal de la Biblia por discursos humanos', false, 4),
 
 -- q3: fill_blank
-('q0004002-0003-0000-0000-000000000003', 'plenitud', true, 1),
+('d0004002-0003-0000-0000-000000000003', 'plenitud', true, 1),
 
 -- q4: multiple_choice
-('q0004002-0004-0000-0000-000000000004', 'Ser llevados por doquiera de todo viento de doctrina por artimañas del error', true, 1),
-('q0004002-0004-0000-0000-000000000004', 'Perder sus posesiones materiales en el mercado de Éfeso', false, 2),
-('q0004002-0004-0000-0000-000000000004', 'Olvidar cómo orar en público', false, 3),
-('q0004002-0004-0000-0000-000000000004', 'Enfermar físicamente por falta de alimentos', false, 4),
+('d0004002-0004-0000-0000-000000000004', 'Ser llevados por doquiera de todo viento de doctrina por artimañas del error', true, 1),
+('d0004002-0004-0000-0000-000000000004', 'Perder sus posesiones materiales en el mercado de Éfeso', false, 2),
+('d0004002-0004-0000-0000-000000000004', 'Olvidar cómo orar en público', false, 3),
+('d0004002-0004-0000-0000-000000000004', 'Enfermar físicamente por falta de alimentos', false, 4),
 
 -- q5: true_false
-('q0004002-0005-0000-0000-000000000005', 'Verdadero', true, 1),
-('q0004002-0005-0000-0000-000000000005', 'Falso', false, 2),
+('d0004002-0005-0000-0000-000000000005', 'Verdadero', true, 1),
+('d0004002-0005-0000-0000-000000000005', 'Falso', false, 2),
 
 -- q6: reference_identification
-('q0004002-0006-0000-0000-000000000006', 'Efesios 4:11', true, 1),
-('q0004002-0006-0000-0000-000000000006', 'Efesios 4:7', false, 2),
-('q0004002-0006-0000-0000-000000000006', 'Efesios 4:13', false, 3),
-('q0004002-0006-0000-0000-000000000006', 'Efesios 4:16', false, 4),
+('d0004002-0006-0000-0000-000000000006', 'Efesios 4:11', true, 1),
+('d0004002-0006-0000-0000-000000000006', 'Efesios 4:7', false, 2),
+('d0004002-0006-0000-0000-000000000006', 'Efesios 4:13', false, 3),
+('d0004002-0006-0000-0000-000000000006', 'Efesios 4:16', false, 4),
 
 -- q7: multiple_choice
-('q0004002-0007-0000-0000-000000000007', 'Llevó cautiva la cautividad y dio dones a los hombres', true, 1),
-('q0004002-0007-0000-0000-000000000007', 'Condenó a todos los habitantes de la tierra', false, 2),
-('q0004002-0007-0000-0000-000000000007', 'Exigió ofrendas de oro a los emperadores', false, 3),
-('q0004002-0007-0000-0000-000000000007', 'Estableció un ejército terrenal invencible', false, 4)
+('d0004002-0007-0000-0000-000000000007', 'Llevó cautiva la cautividad y dio dones a los hombres', true, 1),
+('d0004002-0007-0000-0000-000000000007', 'Condenó a todos los habitantes de la tierra', false, 2),
+('d0004002-0007-0000-0000-000000000007', 'Exigió ofrendas de oro a los emperadores', false, 3),
+('d0004002-0007-0000-0000-000000000007', 'Estableció un ejército terrenal invencible', false, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas Bloque 4.2
 INSERT INTO public.assessment_questions (assessment_id, question_id, order_index)
 VALUES
-('e0000004-0002-0000-0000-000000000002', 'q0004002-0001-0000-0000-000000000001', 1),
-('e0000004-0002-0000-0000-000000000002', 'q0004002-0002-0000-0000-000000000002', 2),
-('e0000004-0002-0000-0000-000000000002', 'q0004002-0003-0000-0000-000000000003', 3),
-('e0000004-0002-0000-0000-000000000002', 'q0004002-0004-0000-0000-000000000004', 4),
-('e0000004-0002-0000-0000-000000000002', 'q0004002-0005-0000-0000-000000000005', 5),
-('e0000004-0002-0000-0000-000000000002', 'q0004002-0006-0000-0000-000000000006', 6),
-('e0000004-0002-0000-0000-000000000002', 'q0004002-0007-0000-0000-000000000007', 7)
+('e0000004-0002-0000-0000-000000000002', 'd0004002-0001-0000-0000-000000000001', 1),
+('e0000004-0002-0000-0000-000000000002', 'd0004002-0002-0000-0000-000000000002', 2),
+('e0000004-0002-0000-0000-000000000002', 'd0004002-0003-0000-0000-000000000003', 3),
+('e0000004-0002-0000-0000-000000000002', 'd0004002-0004-0000-0000-000000000004', 4),
+('e0000004-0002-0000-0000-000000000002', 'd0004002-0005-0000-0000-000000000005', 5),
+('e0000004-0002-0000-0000-000000000002', 'd0004002-0006-0000-0000-000000000006', 6),
+('e0000004-0002-0000-0000-000000000002', 'd0004002-0007-0000-0000-000000000007', 7)
 ON CONFLICT DO NOTHING;
 
 -- PREGUNTAS BLOQUE 4.3 (Efesios 4:17-24)
 INSERT INTO public.questions (id, block_id, chapter_id, question_type, prompt, verse_reference, explanation, points, difficulty, order_index, is_active)
 VALUES
 (
-    'q0004003-0001-0000-0000-000000000001',
-    'b0000004-0003-0000-0000-000000000004',
+    'd0004003-0001-0000-0000-000000000001',
+    'b0000004-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000004',
     'multiple_choice',
     'Según Efesios 4:17-18, ¿cómo andan los otros gentiles y qué caracteriza su entendimiento?',
@@ -544,8 +544,8 @@ VALUES
     10, 'easy', 1, true
 ),
 (
-    'q0004003-0002-0000-0000-000000000002',
-    'b0000004-0003-0000-0000-000000000004',
+    'd0004003-0002-0000-0000-000000000002',
+    'b0000004-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000004',
     'multiple_choice',
     'De acuerdo con Efesios 4:22, ¿de qué debe despojarse el creyente en cuanto a su pasada manera de vivir?',
@@ -554,8 +554,8 @@ VALUES
     10, 'easy', 2, true
 ),
 (
-    'q0004003-0003-0000-0000-000000000003',
-    'b0000004-0003-0000-0000-000000000004',
+    'd0004003-0003-0000-0000-000000000003',
+    'b0000004-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000004',
     'fill_blank',
     'Completa Efesios 4:24: "y vestíos del nuevo hombre, creado según Dios en la justicia y ________ de la verdad".',
@@ -564,8 +564,8 @@ VALUES
     10, 'medium', 3, true
 ),
 (
-    'q0004003-0004-0000-0000-000000000004',
-    'b0000004-0003-0000-0000-000000000004',
+    'd0004003-0004-0000-0000-000000000004',
+    'b0000004-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000004',
     'true_false',
     'Efesios 4:23 manda al creyente: "y renovaos en el espíritu de vuestra mente".',
@@ -574,8 +574,8 @@ VALUES
     10, 'easy', 4, true
 ),
 (
-    'q0004003-0005-0000-0000-000000000005',
-    'b0000004-0003-0000-0000-000000000004',
+    'd0004003-0005-0000-0000-000000000005',
+    'b0000004-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000004',
     'reference_identification',
     '¿En qué versículo de Efesios se encuentra la expresión: "despojaos del viejo hombre, que está viciado conforme a los deseos engañosos"?',
@@ -584,8 +584,8 @@ VALUES
     10, 'easy', 5, true
 ),
 (
-    'q0004003-0006-0000-0000-000000000004',
-    'b0000004-0003-0000-0000-000000000004',
+    'd0004003-0006-0000-0000-000000000006',
+    'b0000004-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000004',
     'multiple_choice',
     '¿Qué consecuencia moral sufrieron los gentiles tras perder toda sensibilidad según Efesios 4:19?',
@@ -599,53 +599,53 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO public.question_options (question_id, option_text, is_correct, order_index)
 VALUES
 -- q1: multiple_choice
-('q0004003-0001-0000-0000-000000000001', 'En la vanidad de su mente, teniendo el entendimiento entenebrecido y ajenos de la vida de Dios', true, 1),
-('q0004003-0001-0000-0000-000000000001', 'En profunda devoción piadosa buscando la verdad', false, 2),
-('q0004003-0001-0000-0000-000000000001', 'Guardando los diez mandamientos con rigor moral', false, 3),
-('q0004003-0001-0000-0000-000000000001', 'Esperando la redención de Israel con ayunos', false, 4),
+('d0004003-0001-0000-0000-000000000001', 'En la vanidad de su mente, teniendo el entendimiento entenebrecido y ajenos de la vida de Dios', true, 1),
+('d0004003-0001-0000-0000-000000000001', 'En profunda devoción piadosa buscando la verdad', false, 2),
+('d0004003-0001-0000-0000-000000000001', 'Guardando los diez mandamientos con rigor moral', false, 3),
+('d0004003-0001-0000-0000-000000000001', 'Esperando la redención de Israel con ayunos', false, 4),
 
 -- q2: multiple_choice
-('q0004003-0002-0000-0000-000000000002', 'Del viejo hombre, que está viciado conforme a los deseos engañosos', true, 1),
-('q0004003-0002-0000-0000-000000000002', 'De sus bienes terrenales y vestiduras físicas', false, 2),
-('q0004003-0002-0000-0000-000000000002', 'De sus deberes familiares y laborales', false, 3),
-('q0004003-0002-0000-0000-000000000002', 'De sus amistades cristianas en la iglesia', false, 4),
+('d0004003-0002-0000-0000-000000000002', 'Del viejo hombre, que está viciado conforme a los deseos engañosos', true, 1),
+('d0004003-0002-0000-0000-000000000002', 'De sus bienes terrenales y vestiduras físicas', false, 2),
+('d0004003-0002-0000-0000-000000000002', 'De sus deberes familiares y laborales', false, 3),
+('d0004003-0002-0000-0000-000000000002', 'De sus amistades cristianas en la iglesia', false, 4),
 
 -- q3: fill_blank
-('q0004003-0003-0000-0000-000000000003', 'santidad', true, 1),
+('d0004003-0003-0000-0000-000000000003', 'santidad', true, 1),
 
 -- q4: true_false
-('q0004003-0004-0000-0000-000000000004', 'Verdadero', true, 1),
-('q0004003-0004-0000-0000-000000000004', 'Falso', false, 2),
+('d0004003-0004-0000-0000-000000000004', 'Verdadero', true, 1),
+('d0004003-0004-0000-0000-000000000004', 'Falso', false, 2),
 
 -- q5: reference_identification
-('q0004003-0005-0000-0000-000000000005', 'Efesios 4:22', true, 1),
-('q0004003-0005-0000-0000-000000000005', 'Efesios 4:17', false, 2),
-('q0004003-0005-0000-0000-000000000005', 'Efesios 4:20', false, 3),
-('q0004003-0005-0000-0000-000000000005', 'Efesios 4:24', false, 4),
+('d0004003-0005-0000-0000-000000000005', 'Efesios 4:22', true, 1),
+('d0004003-0005-0000-0000-000000000005', 'Efesios 4:17', false, 2),
+('d0004003-0005-0000-0000-000000000005', 'Efesios 4:20', false, 3),
+('d0004003-0005-0000-0000-000000000005', 'Efesios 4:24', false, 4),
 
 -- q6: multiple_choice
-('q0004003-0006-0000-0000-000000000006', 'Se entregaron a la lascivia para cometer con avidez toda clase de impureza', true, 1),
-('q0004003-0006-0000-0000-000000000006', 'Construyeron templos monásticos de retiro', false, 2),
-('q0004003-0006-0000-0000-000000000006', 'Buscaron la ayuda de los profetas de Jerusalén', false, 3),
-('q0004003-0006-0000-0000-000000000006', 'Decidieron no pecar más por fuerza de voluntad', false, 4)
+('d0004003-0006-0000-0000-000000000006', 'Se entregaron a la lascivia para cometer con avidez toda clase de impureza', true, 1),
+('d0004003-0006-0000-0000-000000000006', 'Construyeron templos monásticos de retiro', false, 2),
+('d0004003-0006-0000-0000-000000000006', 'Buscaron la ayuda de los profetas de Jerusalén', false, 3),
+('d0004003-0006-0000-0000-000000000006', 'Decidieron no pecar más por fuerza de voluntad', false, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas Bloque 4.3
 INSERT INTO public.assessment_questions (assessment_id, question_id, order_index)
 VALUES
-('e0000004-0003-0000-0000-000000000003', 'q0004003-0001-0000-0000-000000000001', 1),
-('e0000004-0003-0000-0000-000000000003', 'q0004003-0002-0000-0000-000000000002', 2),
-('e0000004-0003-0000-0000-000000000003', 'q0004003-0003-0000-0000-000000000003', 3),
-('e0000004-0003-0000-0000-000000000003', 'q0004003-0004-0000-0000-000000000004', 4),
-('e0000004-0003-0000-0000-000000000003', 'q0004003-0005-0000-0000-000000000005', 5),
-('e0000004-0003-0000-0000-000000000003', 'q0004003-0006-0000-0000-000000000006', 6)
+('e0000004-0003-0000-0000-000000000003', 'd0004003-0001-0000-0000-000000000001', 1),
+('e0000004-0003-0000-0000-000000000003', 'd0004003-0002-0000-0000-000000000002', 2),
+('e0000004-0003-0000-0000-000000000003', 'd0004003-0003-0000-0000-000000000003', 3),
+('e0000004-0003-0000-0000-000000000003', 'd0004003-0004-0000-0000-000000000004', 4),
+('e0000004-0003-0000-0000-000000000003', 'd0004003-0005-0000-0000-000000000005', 5),
+('e0000004-0003-0000-0000-000000000003', 'd0004003-0006-0000-0000-000000000006', 6)
 ON CONFLICT DO NOTHING;
 
 -- PREGUNTAS BLOQUE 4.4 (Efesios 4:25-32)
 INSERT INTO public.questions (id, block_id, chapter_id, question_type, prompt, verse_reference, explanation, points, difficulty, order_index, is_active)
 VALUES
 (
-    'q0004004-0001-0000-0000-000000000001',
+    'd0004004-0001-0000-0000-000000000001',
     'b0000004-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000004',
     'multiple_choice',
@@ -655,7 +655,7 @@ VALUES
     10, 'easy', 1, true
 ),
 (
-    'q0004004-0002-0000-0000-000000000002',
+    'd0004004-0002-0000-0000-000000000002',
     'b0000004-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000004',
     'fill_blank',
@@ -665,7 +665,7 @@ VALUES
     10, 'easy', 2, true
 ),
 (
-    'q0004004-0003-0000-0000-000000000003',
+    'd0004004-0003-0000-0000-000000000003',
     'b0000004-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000004',
     'multiple_choice',
@@ -675,7 +675,7 @@ VALUES
     10, 'easy', 3, true
 ),
 (
-    'q0004004-0004-0000-0000-000000000004',
+    'd0004004-0004-0000-0000-000000000004',
     'b0000004-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000004',
     'multiple_choice',
@@ -685,7 +685,7 @@ VALUES
     10, 'medium', 4, true
 ),
 (
-    'q0004004-0005-0000-0000-000000000005',
+    'd0004004-0005-0000-0000-000000000005',
     'b0000004-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000004',
     'true_false',
@@ -695,7 +695,7 @@ VALUES
     10, 'easy', 5, true
 ),
 (
-    'q0004004-0006-0000-0000-000000000006',
+    'd0004004-0006-0000-0000-000000000006',
     'b0000004-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000004',
     'reference_identification',
@@ -705,7 +705,7 @@ VALUES
     10, 'easy', 6, true
 ),
 (
-    'q0004004-0007-0000-0000-000000000007',
+    'd0004004-0007-0000-0000-000000000007',
     'b0000004-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000004',
     'multiple_choice',
@@ -720,51 +720,51 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO public.question_options (question_id, option_text, is_correct, order_index)
 VALUES
 -- q1: multiple_choice
-('q0004004-0001-0000-0000-000000000001', 'Porque somos miembros los unos de los otros', true, 1),
-('q0004004-0001-0000-0000-000000000001', 'Para evitar multas de las autoridades civiles', false, 2),
-('q0004004-0001-0000-0000-000000000001', 'Porque la mentira disminuye las ventas en el comercio', false, 3),
-('q0004004-0001-0000-0000-000000000001', 'Para ganar fama de intelectuales honestos', false, 4),
+('d0004004-0001-0000-0000-000000000001', 'Porque somos miembros los unos de los otros', true, 1),
+('d0004004-0001-0000-0000-000000000001', 'Para evitar multas de las autoridades civiles', false, 2),
+('d0004004-0001-0000-0000-000000000001', 'Porque la mentira disminuye las ventas en el comercio', false, 3),
+('d0004004-0001-0000-0000-000000000001', 'Para ganar fama de intelectuales honestos', false, 4),
 
 -- q2: fill_blank
-('q0004004-0002-0000-0000-000000000002', 'sol', true, 1),
+('d0004004-0002-0000-0000-000000000002', 'sol', true, 1),
 
 -- q3: multiple_choice
-('q0004004-0003-0000-0000-000000000003', 'No hurte más, sino trabaje con sus manos para tener qué compartir con el necesitado', true, 1),
-('q0004004-0003-0000-0000-000000000003', 'Pida limosna en las puertas de la iglesia', false, 2),
-('q0004004-0003-0000-0000-000000000003', 'Huya de la ciudad de Éfeso para no ser arrestado', false, 3),
-('q0004004-0003-0000-0000-000000000003', 'Haga sacrificios de animales para expiar su culpa', false, 4),
+('d0004004-0003-0000-0000-000000000003', 'No hurte más, sino trabaje con sus manos para tener qué compartir con el necesitado', true, 1),
+('d0004004-0003-0000-0000-000000000003', 'Pida limosna en las puertas de la iglesia', false, 2),
+('d0004004-0003-0000-0000-000000000003', 'Huya de la ciudad de Éfeso para no ser arrestado', false, 3),
+('d0004004-0003-0000-0000-000000000003', 'Haga sacrificios de animales para expiar su culpa', false, 4),
 
 -- q4: multiple_choice
-('q0004004-0004-0000-0000-000000000004', 'No contristéis al Espíritu Santo de Dios', true, 1),
-('q0004004-0004-0000-0000-000000000004', 'No descuidéis el templo material de Jerusalén', false, 2),
-('q0004004-0004-0000-0000-000000000004', 'No discuta con los filósofos griegos', false, 3),
-('q0004004-0004-0000-0000-000000000004', 'No viaje en días de tormenta marina', false, 4),
+('d0004004-0004-0000-0000-000000000004', 'No contristéis al Espíritu Santo de Dios', true, 1),
+('d0004004-0004-0000-0000-000000000004', 'No descuidéis el templo material de Jerusalén', false, 2),
+('d0004004-0004-0000-0000-000000000004', 'No discuta con los filósofos griegos', false, 3),
+('d0004004-0004-0000-0000-000000000004', 'No viaje en días de tormenta marina', false, 4),
 
 -- q5: true_false
-('q0004004-0005-0000-0000-000000000005', 'Verdadero', true, 1),
-('q0004004-0005-0000-0000-000000000005', 'Falso', false, 2),
+('d0004004-0005-0000-0000-000000000005', 'Verdadero', true, 1),
+('d0004004-0005-0000-0000-000000000005', 'Falso', false, 2),
 
 -- q6: reference_identification
-('q0004004-0006-0000-0000-000000000006', 'Efesios 4:29', true, 1),
-('q0004004-0006-0000-0000-000000000006', 'Efesios 4:25', false, 2),
-('q0004004-0006-0000-0000-000000000006', 'Efesios 4:27', false, 3),
-('q0004004-0006-0000-0000-000000000006', 'Efesios 4:31', false, 4),
+('d0004004-0006-0000-0000-000000000006', 'Efesios 4:29', true, 1),
+('d0004004-0006-0000-0000-000000000006', 'Efesios 4:25', false, 2),
+('d0004004-0006-0000-0000-000000000006', 'Efesios 4:27', false, 3),
+('d0004004-0006-0000-0000-000000000006', 'Efesios 4:31', false, 4),
 
 -- q7: multiple_choice
-('q0004004-0007-0000-0000-000000000007', 'Toda amargura, enojo, ira, gritería y maledicencia, y toda malicia', true, 1),
-('q0004004-0007-0000-0000-000000000007', 'Todo trabajo físico y esfuerzo manual', false, 2),
-('q0004004-0007-0000-0000-000000000007', 'Toda conversación con personas inconversas', false, 3),
-('q0004004-0007-0000-0000-000000000007', 'Toda alabanza musical en la congregación', false, 4)
+('d0004004-0007-0000-0000-000000000007', 'Toda amargura, enojo, ira, gritería y maledicencia, y toda malicia', true, 1),
+('d0004004-0007-0000-0000-000000000007', 'Todo trabajo físico y esfuerzo manual', false, 2),
+('d0004004-0007-0000-0000-000000000007', 'Toda conversación con personas inconversas', false, 3),
+('d0004004-0007-0000-0000-000000000007', 'Toda alabanza musical en la congregación', false, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas Bloque 4.4
 INSERT INTO public.assessment_questions (assessment_id, question_id, order_index)
 VALUES
-('e0000004-0004-0000-0000-000000000004', 'q0004004-0001-0000-0000-000000000001', 1),
-('e0000004-0004-0000-0000-000000000004', 'q0004004-0002-0000-0000-000000000002', 2),
-('e0000004-0004-0000-0000-000000000004', 'q0004004-0003-0000-0000-000000000003', 3),
-('e0000004-0004-0000-0000-000000000004', 'q0004004-0004-0000-0000-000000000004', 4),
-('e0000004-0004-0000-0000-000000000004', 'q0004004-0005-0000-0000-000000000005', 5),
-('e0000004-0004-0000-0000-000000000004', 'q0004004-0006-0000-0000-000000000006', 6),
-('e0000004-0004-0000-0000-000000000004', 'q0004004-0007-0000-0000-000000000007', 7)
+('e0000004-0004-0000-0000-000000000004', 'd0004004-0001-0000-0000-000000000001', 1),
+('e0000004-0004-0000-0000-000000000004', 'd0004004-0002-0000-0000-000000000002', 2),
+('e0000004-0004-0000-0000-000000000004', 'd0004004-0003-0000-0000-000000000003', 3),
+('e0000004-0004-0000-0000-000000000004', 'd0004004-0004-0000-0000-000000000004', 4),
+('e0000004-0004-0000-0000-000000000004', 'd0004004-0005-0000-0000-000000000005', 5),
+('e0000004-0004-0000-0000-000000000004', 'd0004004-0006-0000-0000-000000000006', 6),
+('e0000004-0004-0000-0000-000000000004', 'd0004004-0007-0000-0000-000000000007', 7)
 ON CONFLICT DO NOTHING;

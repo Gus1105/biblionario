@@ -454,7 +454,7 @@ VALUES
     10, 'easy', 47, true
 ),
 (
-    'f0000000-0000-0000-0000-000000000006',
+    'f0000000-0000-0000-0000-000000000048',
     'c0000000-0000-0000-0000-000000000006',
     'true_false',
     'Pablo pide oración en Efesios 6:19 para que al abrir su boca le sea dada palabra para dar a conocer con denuedo el misterio del evangelio.',

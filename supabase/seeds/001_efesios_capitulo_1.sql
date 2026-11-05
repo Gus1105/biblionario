@@ -263,7 +263,7 @@ ON CONFLICT (block_id) DO UPDATE SET
 INSERT INTO public.questions (id, block_id, chapter_id, question_type, prompt, verse_reference, explanation, points, difficulty, order_index, is_active)
 VALUES
 (
-    'q0001001-0001-0000-0000-000000000001',
+    'd0001001-0001-0000-0000-000000000001',
     'b0000001-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000001',
     'multiple_choice',
@@ -273,7 +273,7 @@ VALUES
     10, 'easy', 1, true
 ),
 (
-    'q0001001-0002-0000-0000-000000000002',
+    'd0001001-0002-0000-0000-000000000002',
     'b0000001-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000001',
     'multiple_choice',
@@ -283,7 +283,7 @@ VALUES
     10, 'easy', 2, true
 ),
 (
-    'q0001001-0003-0000-0000-000000000003',
+    'd0001001-0003-0000-0000-000000000003',
     'b0000001-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000001',
     'fill_blank',
@@ -293,7 +293,7 @@ VALUES
     10, 'easy', 3, true
 ),
 (
-    'q0001001-0004-0000-0000-000000000004',
+    'd0001001-0004-0000-0000-000000000004',
     'b0000001-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000001',
     'true_false',
@@ -303,7 +303,7 @@ VALUES
     10, 'easy', 4, true
 ),
 (
-    'q0001001-0005-0000-0000-000000000005',
+    'd0001001-0005-0000-0000-000000000005',
     'b0000001-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000001',
     'reference_identification',
@@ -318,46 +318,46 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO public.question_options (question_id, option_text, is_correct, order_index)
 VALUES
 -- q1: multiple_choice
-('q0001001-0001-0000-0000-000000000001', 'Por la voluntad de Dios', true, 1),
-('q0001001-0001-0000-0000-000000000001', 'Por decisión del concilio de Jerusalén', false, 2),
-('q0001001-0001-0000-0000-000000000001', 'Por sus propios méritos fariseos', false, 3),
-('q0001001-0001-0000-0000-000000000001', 'Por elección de la iglesia de Éfeso', false, 4),
+('d0001001-0001-0000-0000-000000000001', 'Por la voluntad de Dios', true, 1),
+('d0001001-0001-0000-0000-000000000001', 'Por decisión del concilio de Jerusalén', false, 2),
+('d0001001-0001-0000-0000-000000000001', 'Por sus propios méritos fariseos', false, 3),
+('d0001001-0001-0000-0000-000000000001', 'Por elección de la iglesia de Éfeso', false, 4),
 
 -- q2: multiple_choice
-('q0001001-0002-0000-0000-000000000002', 'A los santos y fieles en Cristo Jesús', true, 1),
-('q0001001-0002-0000-0000-000000000002', 'A los sabios y entendidos de Asia', false, 2),
-('q0001001-0002-0000-0000-000000000002', 'A los discípulos y ancianos de Éfeso', false, 3),
-('q0001001-0002-0000-0000-000000000002', 'A los justos y gobernantes de la ciudad', false, 4),
+('d0001001-0002-0000-0000-000000000002', 'A los santos y fieles en Cristo Jesús', true, 1),
+('d0001001-0002-0000-0000-000000000002', 'A los sabios y entendidos de Asia', false, 2),
+('d0001001-0002-0000-0000-000000000002', 'A los discípulos y ancianos de Éfeso', false, 3),
+('d0001001-0002-0000-0000-000000000002', 'A los justos y gobernantes de la ciudad', false, 4),
 
 -- q3: fill_blank
-('q0001001-0003-0000-0000-000000000003', 'Gracia', true, 1),
+('d0001001-0003-0000-0000-000000000003', 'Gracia', true, 1),
 
 -- q4: true_false
-('q0001001-0004-0000-0000-000000000004', 'Verdadero', true, 1),
-('q0001001-0004-0000-0000-000000000004', 'Falso', false, 2),
+('d0001001-0004-0000-0000-000000000004', 'Verdadero', true, 1),
+('d0001001-0004-0000-0000-000000000004', 'Falso', false, 2),
 
 -- q5: reference_identification
-('q0001001-0005-0000-0000-000000000005', 'Efesios 1:1', true, 1),
-('q0001001-0005-0000-0000-000000000005', 'Efesios 1:2', false, 2),
-('q0001001-0005-0000-0000-000000000005', 'Efesios 1:3', false, 3),
-('q0001001-0005-0000-0000-000000000005', 'Efesios 1:7', false, 4)
+('d0001001-0005-0000-0000-000000000005', 'Efesios 1:1', true, 1),
+('d0001001-0005-0000-0000-000000000005', 'Efesios 1:2', false, 2),
+('d0001001-0005-0000-0000-000000000005', 'Efesios 1:3', false, 3),
+('d0001001-0005-0000-0000-000000000005', 'Efesios 1:7', false, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas de Bloque 1.1 con su evaluación
 INSERT INTO public.assessment_questions (assessment_id, question_id, order_index)
 VALUES
-('e0000001-0001-0000-0000-000000000001', 'q0001001-0001-0000-0000-000000000001', 1),
-('e0000001-0001-0000-0000-000000000002', 'q0001001-0002-0000-0000-000000000002', 2),
-('e0000001-0001-0000-0000-000000000003', 'q0001001-0003-0000-0000-000000000003', 3),
-('e0000001-0001-0000-0000-000000000004', 'q0001001-0004-0000-0000-000000000004', 4),
-('e0000001-0001-0000-0000-000000000005', 'q0001001-0005-0000-0000-000000000005', 5)
+('e0000001-0001-0000-0000-000000000001', 'd0001001-0001-0000-0000-000000000001', 1),
+('e0000001-0001-0000-0000-000000000001', 'd0001001-0002-0000-0000-000000000002', 2),
+('e0000001-0001-0000-0000-000000000001', 'd0001001-0003-0000-0000-000000000003', 3),
+('e0000001-0001-0000-0000-000000000001', 'd0001001-0004-0000-0000-000000000004', 4),
+('e0000001-0001-0000-0000-000000000001', 'd0001001-0005-0000-0000-000000000005', 5)
 ON CONFLICT DO NOTHING;
 
 -- PREGUNTAS BLOQUE 1.2 (Efesios 1:3-6)
 INSERT INTO public.questions (id, block_id, chapter_id, question_type, prompt, verse_reference, explanation, points, difficulty, order_index, is_active)
 VALUES
 (
-    'q0001002-0001-0000-0000-000000000001',
+    'd0001002-0001-0000-0000-000000000001',
     'b0000001-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000001',
     'multiple_choice',
@@ -367,7 +367,7 @@ VALUES
     10, 'easy', 1, true
 ),
 (
-    'q0001002-0002-0000-0000-000000000002',
+    'd0001002-0002-0000-0000-000000000002',
     'b0000001-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000001',
     'multiple_choice',
@@ -377,7 +377,7 @@ VALUES
     10, 'easy', 2, true
 ),
 (
-    'q0001002-0003-0000-0000-000000000003',
+    'd0001002-0003-0000-0000-000000000003',
     'b0000001-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000001',
     'fill_blank',
@@ -387,7 +387,7 @@ VALUES
     10, 'medium', 3, true
 ),
 (
-    'q0001002-0004-0000-0000-000000000004',
+    'd0001002-0004-0000-0000-000000000004',
     'b0000001-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000001',
     'multiple_choice',
@@ -397,7 +397,7 @@ VALUES
     10, 'medium', 4, true
 ),
 (
-    'q0001002-0005-0000-0000-000000000005',
+    'd0001002-0005-0000-0000-000000000005',
     'b0000001-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000001',
     'true_false',
@@ -407,7 +407,7 @@ VALUES
     10, 'easy', 5, true
 ),
 (
-    'q0001002-0006-0000-0000-000000000006',
+    'd0001002-0006-0000-0000-000000000006',
     'b0000001-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000001',
     'reference_identification',
@@ -422,53 +422,53 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO public.question_options (question_id, option_text, is_correct, order_index)
 VALUES
 -- q1: multiple_choice
-('q0001002-0001-0000-0000-000000000001', 'Con toda bendición espiritual en los lugares celestiales en Cristo', true, 1),
-('q0001002-0001-0000-0000-000000000001', 'Con riquezas materiales en la tierra prometida', false, 2),
-('q0001002-0001-0000-0000-000000000001', 'Con bendiciones temporales según la ley de Moisés', false, 3),
-('q0001002-0001-0000-0000-000000000001', 'Con honra terrenal y poder sobre las naciones', false, 4),
+('d0001002-0001-0000-0000-000000000001', 'Con toda bendición espiritual en los lugares celestiales en Cristo', true, 1),
+('d0001002-0001-0000-0000-000000000001', 'Con riquezas materiales en la tierra prometida', false, 2),
+('d0001002-0001-0000-0000-000000000001', 'Con bendiciones temporales según la ley de Moisés', false, 3),
+('d0001002-0001-0000-0000-000000000001', 'Con honra terrenal y poder sobre las naciones', false, 4),
 
 -- q2: multiple_choice
-('q0001002-0002-0000-0000-000000000002', 'Antes de la fundación del mundo', true, 1),
-('q0001002-0002-0000-0000-000000000002', 'Al momento de bautizarnos en agua', false, 2),
-('q0001002-0002-0000-0000-000000000002', 'Cuando el hombre demostró hacer buenas obras', false, 3),
-('q0001002-0002-0000-0000-000000000002', 'Durante el ministerio terrenal de los apóstoles', false, 4),
+('d0001002-0002-0000-0000-000000000002', 'Antes de la fundación del mundo', true, 1),
+('d0001002-0002-0000-0000-000000000002', 'Al momento de bautizarnos en agua', false, 2),
+('d0001002-0002-0000-0000-000000000002', 'Cuando el hombre demostró hacer buenas obras', false, 3),
+('d0001002-0002-0000-0000-000000000002', 'Durante el ministerio terrenal de los apóstoles', false, 4),
 
 -- q3: fill_blank
-('q0001002-0003-0000-0000-000000000003', 'mancha', true, 1),
+('d0001002-0003-0000-0000-000000000003', 'mancha', true, 1),
 
 -- q4: multiple_choice
-('q0001002-0004-0000-0000-000000000004', 'Para ser adoptados hijos suyos por medio de Jesucristo, según el puro afecto de su voluntad', true, 1),
-('q0001002-0004-0000-0000-000000000004', 'Para ser siervos bajo el yugo de la condenación legal', false, 2),
-('q0001002-0004-0000-0000-000000000004', 'Para gobernar Éfeso según las leyes del imperio romano', false, 3),
-('q0001002-0004-0000-0000-000000000004', 'Para recibir dones sin necesidad de santidad', false, 4),
+('d0001002-0004-0000-0000-000000000004', 'Para ser adoptados hijos suyos por medio de Jesucristo, según el puro afecto de su voluntad', true, 1),
+('d0001002-0004-0000-0000-000000000004', 'Para ser siervos bajo el yugo de la condenación legal', false, 2),
+('d0001002-0004-0000-0000-000000000004', 'Para gobernar Éfeso según las leyes del imperio romano', false, 3),
+('d0001002-0004-0000-0000-000000000004', 'Para recibir dones sin necesidad de santidad', false, 4),
 
 -- q5: true_false
-('q0001002-0005-0000-0000-000000000005', 'Verdadero', true, 1),
-('q0001002-0005-0000-0000-000000000005', 'Falso', false, 2),
+('d0001002-0005-0000-0000-000000000005', 'Verdadero', true, 1),
+('d0001002-0005-0000-0000-000000000005', 'Falso', false, 2),
 
 -- q6: reference_identification
-('q0001002-0006-0000-0000-000000000006', 'Efesios 1:6', true, 1),
-('q0001002-0006-0000-0000-000000000006', 'Efesios 1:3', false, 2),
-('q0001002-0006-0000-0000-000000000006', 'Efesios 1:4', false, 3),
-('q0001002-0006-0000-0000-000000000006', 'Efesios 1:5', false, 4)
+('d0001002-0006-0000-0000-000000000006', 'Efesios 1:6', true, 1),
+('d0001002-0006-0000-0000-000000000006', 'Efesios 1:3', false, 2),
+('d0001002-0006-0000-0000-000000000006', 'Efesios 1:4', false, 3),
+('d0001002-0006-0000-0000-000000000006', 'Efesios 1:5', false, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas Bloque 1.2
 INSERT INTO public.assessment_questions (assessment_id, question_id, order_index)
 VALUES
-('e0000001-0002-0000-0000-000000000002', 'q0001002-0001-0000-0000-000000000001', 1),
-('e0000001-0002-0000-0000-000000000002', 'q0001002-0002-0000-0000-000000000002', 2),
-('e0000001-0002-0000-0000-000000000002', 'q0001002-0003-0000-0000-000000000003', 3),
-('e0000001-0002-0000-0000-000000000002', 'q0001002-0004-0000-0000-000000000004', 4),
-('e0000001-0002-0000-0000-000000000002', 'q0001002-0005-0000-0000-000000000005', 5),
-('e0000001-0002-0000-0000-000000000002', 'q0001002-0006-0000-0000-000000000006', 6)
+('e0000001-0002-0000-0000-000000000002', 'd0001002-0001-0000-0000-000000000001', 1),
+('e0000001-0002-0000-0000-000000000002', 'd0001002-0002-0000-0000-000000000002', 2),
+('e0000001-0002-0000-0000-000000000002', 'd0001002-0003-0000-0000-000000000003', 3),
+('e0000001-0002-0000-0000-000000000002', 'd0001002-0004-0000-0000-000000000004', 4),
+('e0000001-0002-0000-0000-000000000002', 'd0001002-0005-0000-0000-000000000005', 5),
+('e0000001-0002-0000-0000-000000000002', 'd0001002-0006-0000-0000-000000000006', 6)
 ON CONFLICT DO NOTHING;
 
 -- PREGUNTAS BLOQUE 1.3 (Efesios 1:7-14)
 INSERT INTO public.questions (id, block_id, chapter_id, question_type, prompt, verse_reference, explanation, points, difficulty, order_index, is_active)
 VALUES
 (
-    'q0001003-0001-0000-0000-000000000001',
+    'd0001003-0001-0000-0000-000000000001',
     'b0000001-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000001',
     'multiple_choice',
@@ -478,7 +478,7 @@ VALUES
     10, 'easy', 1, true
 ),
 (
-    'q0001003-0002-0000-0000-000000000002',
+    'd0001003-0002-0000-0000-000000000002',
     'b0000001-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000001',
     'multiple_choice',
@@ -488,7 +488,7 @@ VALUES
     10, 'medium', 2, true
 ),
 (
-    'q0001003-0003-0000-0000-000000000003',
+    'd0001003-0003-0000-0000-000000000003',
     'b0000001-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000001',
     'fill_blank',
@@ -498,7 +498,7 @@ VALUES
     10, 'medium', 3, true
 ),
 (
-    'q0001003-0004-0000-0000-000000000004',
+    'd0001003-0004-0000-0000-000000000004',
     'b0000001-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000001',
     'multiple_choice',
@@ -508,7 +508,7 @@ VALUES
     10, 'medium', 4, true
 ),
 (
-    'q0001003-0005-0000-0000-000000000005',
+    'd0001003-0005-0000-0000-000000000005',
     'b0000001-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000001',
     'true_false',
@@ -518,7 +518,7 @@ VALUES
     10, 'easy', 5, true
 ),
 (
-    'q0001003-0006-0000-0000-000000000006',
+    'd0001003-0006-0000-0000-000000000006',
     'b0000001-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000001',
     'reference_identification',
@@ -528,7 +528,7 @@ VALUES
     10, 'easy', 6, true
 ),
 (
-    'q0001003-0007-0000-0000-000000000007',
+    'd0001003-0007-0000-0000-000000000007',
     'b0000001-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000001',
     'order_events',
@@ -543,59 +543,59 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO public.question_options (question_id, option_text, is_correct, order_index, correct_order_position)
 VALUES
 -- q1: multiple_choice
-('q0001003-0001-0000-0000-000000000001', 'Por su sangre', true, 1, null),
-('q0001003-0001-0000-0000-000000000001', 'Por nuestras buenas obras', false, 2, null),
-('q0001003-0001-0000-0000-000000000001', 'Por sacrificios de la ley ceremonial', false, 3, null),
-('q0001003-0001-0000-0000-000000000001', 'Por cumplir las tradiciones religiosas', false, 4, null),
+('d0001003-0001-0000-0000-000000000001', 'Por su sangre', true, 1, null),
+('d0001003-0001-0000-0000-000000000001', 'Por nuestras buenas obras', false, 2, null),
+('d0001003-0001-0000-0000-000000000001', 'Por sacrificios de la ley ceremonial', false, 3, null),
+('d0001003-0001-0000-0000-000000000001', 'Por cumplir las tradiciones religiosas', false, 4, null),
 
 -- q2: multiple_choice
-('q0001003-0002-0000-0000-000000000002', 'Reunir todas las cosas en Cristo, en los cielos y en la tierra', true, 1, null),
-('q0001003-0002-0000-0000-000000000002', 'Restaurar el templo material de Jerusalén', false, 2, null),
-('q0001003-0002-0000-0000-000000000002', 'Destruir a todas las naciones gentiles', false, 3, null),
-('q0001003-0002-0000-0000-000000000002', 'Separar a los creyentes en dos pueblos distintos', false, 4, null),
+('d0001003-0002-0000-0000-000000000002', 'Reunir todas las cosas en Cristo, en los cielos y en la tierra', true, 1, null),
+('d0001003-0002-0000-0000-000000000002', 'Restaurar el templo material de Jerusalén', false, 2, null),
+('d0001003-0002-0000-0000-000000000002', 'Destruir a todas las naciones gentiles', false, 3, null),
+('d0001003-0002-0000-0000-000000000002', 'Separar a los creyentes en dos pueblos distintos', false, 4, null),
 
 -- q3: fill_blank
-('q0001003-0003-0000-0000-000000000003', 'sellados', true, 1, null),
+('d0001003-0003-0000-0000-000000000003', 'sellados', true, 1, null),
 
 -- q4: multiple_choice
-('q0001003-0004-0000-0000-000000000004', 'Es las arras de nuestra herencia hasta la redención de la posesión adquirida', true, 1, null),
-('q0001003-0004-0000-0000-000000000004', 'Un testigo acusador de nuestras faltas diarias', false, 2, null),
-('q0001003-0004-0000-0000-000000000004', 'Una señal visible temporal que caduca en la muerte', false, 3, null),
-('q0001003-0004-0000-0000-000000000004', 'Un premio exclusivo para los apóstoles', false, 4, null),
+('d0001003-0004-0000-0000-000000000004', 'Es las arras de nuestra herencia hasta la redención de la posesión adquirida', true, 1, null),
+('d0001003-0004-0000-0000-000000000004', 'Un testigo acusador de nuestras faltas diarias', false, 2, null),
+('d0001003-0004-0000-0000-000000000004', 'Una señal visible temporal que caduca en la muerte', false, 3, null),
+('d0001003-0004-0000-0000-000000000004', 'Un premio exclusivo para los apóstoles', false, 4, null),
 
 -- q5: true_false
-('q0001003-0005-0000-0000-000000000005', 'Verdadero', true, 1, null),
-('q0001003-0005-0000-0000-000000000005', 'Falso', false, 2, null),
+('d0001003-0005-0000-0000-000000000005', 'Verdadero', true, 1, null),
+('d0001003-0005-0000-0000-000000000005', 'Falso', false, 2, null),
 
 -- q6: reference_identification
-('q0001003-0006-0000-0000-000000000006', 'Efesios 1:7', true, 1, null),
-('q0001003-0006-0000-0000-000000000006', 'Efesios 1:11', false, 2, null),
-('q0001003-0006-0000-0000-000000000006', 'Efesios 1:13', false, 3, null),
-('q0001003-0006-0000-0000-000000000006', 'Efesios 1:15', false, 4, null),
+('d0001003-0006-0000-0000-000000000006', 'Efesios 1:7', true, 1, null),
+('d0001003-0006-0000-0000-000000000006', 'Efesios 1:11', false, 2, null),
+('d0001003-0006-0000-0000-000000000006', 'Efesios 1:13', false, 3, null),
+('d0001003-0006-0000-0000-000000000006', 'Efesios 1:15', false, 4, null),
 
 -- q7: order_events
-('q0001003-0007-0000-0000-000000000007', 'Habiendo oído la palabra de verdad (el evangelio)', true, 1, 1),
-('q0001003-0007-0000-0000-000000000007', 'Habiendo creído en Cristo', true, 2, 2),
-('q0001003-0007-0000-0000-000000000007', 'Fuisteis sellados con el Espíritu Santo de la promesa', true, 3, 3)
+('d0001003-0007-0000-0000-000000000007', 'Habiendo oído la palabra de verdad (el evangelio)', true, 1, 1),
+('d0001003-0007-0000-0000-000000000007', 'Habiendo creído en Cristo', true, 2, 2),
+('d0001003-0007-0000-0000-000000000007', 'Fuisteis sellados con el Espíritu Santo de la promesa', true, 3, 3)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas Bloque 1.3
 INSERT INTO public.assessment_questions (assessment_id, question_id, order_index)
 VALUES
-('e0000001-0003-0000-0000-000000000003', 'q0001003-0001-0000-0000-000000000001', 1),
-('e0000001-0003-0000-0000-000000000003', 'q0001003-0002-0000-0000-000000000002', 2),
-('e0000001-0003-0000-0000-000000000003', 'q0001003-0003-0000-0000-000000000003', 3),
-('e0000001-0003-0000-0000-000000000003', 'q0001003-0004-0000-0000-000000000004', 4),
-('e0000001-0003-0000-0000-000000000003', 'q0001003-0005-0000-0000-000000000005', 5),
-('e0000001-0003-0000-0000-000000000003', 'q0001003-0006-0000-0000-000000000006', 6),
-('e0000001-0003-0000-0000-000000000003', 'q0001003-0007-0000-0000-000000000007', 7)
+('e0000001-0003-0000-0000-000000000003', 'd0001003-0001-0000-0000-000000000001', 1),
+('e0000001-0003-0000-0000-000000000003', 'd0001003-0002-0000-0000-000000000002', 2),
+('e0000001-0003-0000-0000-000000000003', 'd0001003-0003-0000-0000-000000000003', 3),
+('e0000001-0003-0000-0000-000000000003', 'd0001003-0004-0000-0000-000000000004', 4),
+('e0000001-0003-0000-0000-000000000003', 'd0001003-0005-0000-0000-000000000005', 5),
+('e0000001-0003-0000-0000-000000000003', 'd0001003-0006-0000-0000-000000000006', 6),
+('e0000001-0003-0000-0000-000000000003', 'd0001003-0007-0000-0000-000000000007', 7)
 ON CONFLICT DO NOTHING;
 
 -- PREGUNTAS BLOQUE 1.4 (Efesios 1:15-23)
 INSERT INTO public.questions (id, block_id, chapter_id, question_type, prompt, verse_reference, explanation, points, difficulty, order_index, is_active)
 VALUES
 (
-    'q0001004-0001-0000-0000-000000000001',
+    'd0001004-0001-0000-0000-000000000001',
     'b0000001-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000001',
     'multiple_choice',
@@ -605,7 +605,7 @@ VALUES
     10, 'easy', 1, true
 ),
 (
-    'q0001004-0002-0000-0000-000000000002',
+    'd0001004-0002-0000-0000-000000000002',
     'b0000001-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000001',
     'multiple_choice',
@@ -615,7 +615,7 @@ VALUES
     10, 'medium', 2, true
 ),
 (
-    'q0001004-0003-0000-0000-000000000003',
+    'd0001004-0003-0000-0000-000000000003',
     'b0000001-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000001',
     'fill_blank',
@@ -625,7 +625,7 @@ VALUES
     10, 'medium', 3, true
 ),
 (
-    'q0001004-0004-0000-0000-000000000004',
+    'd0001004-0004-0000-0000-000000000004',
     'b0000001-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000001',
     'multiple_choice',
@@ -635,7 +635,7 @@ VALUES
     10, 'medium', 4, true
 ),
 (
-    'q0001004-0005-0000-0000-000000000005',
+    'd0001004-0005-0000-0000-000000000005',
     'b0000001-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000001',
     'multiple_choice',
@@ -645,7 +645,7 @@ VALUES
     10, 'easy', 5, true
 ),
 (
-    'q0001004-0006-0000-0000-000000000004',
+    'd0001004-0006-0000-0000-000000000004',
     'b0000001-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000001',
     'true_false',
@@ -655,7 +655,7 @@ VALUES
     10, 'easy', 6, true
 ),
 (
-    'q0001004-0007-0000-0000-000000000004',
+    'd0001004-0007-0000-0000-000000000004',
     'b0000001-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000001',
     'reference_identification',
@@ -670,51 +670,51 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO public.question_options (question_id, option_text, is_correct, order_index)
 VALUES
 -- q1: multiple_choice
-('q0001004-0001-0000-0000-000000000001', 'De su fe en el Señor Jesús y de su amor para con todos los santos', true, 1),
-('q0001004-0001-0000-0000-000000000001', 'De sus riquezas y de su posición social en Éfeso', false, 2),
-('q0001004-0001-0000-0000-000000000001', 'De su habilidad retórica y conocimiento filosófico', false, 3),
-('q0001004-0001-0000-0000-000000000001', 'De la cantidad de miembros que asistían a sus reuniones', false, 4),
+('d0001004-0001-0000-0000-000000000001', 'De su fe en el Señor Jesús y de su amor para con todos los santos', true, 1),
+('d0001004-0001-0000-0000-000000000001', 'De sus riquezas y de su posición social en Éfeso', false, 2),
+('d0001004-0001-0000-0000-000000000001', 'De su habilidad retórica y conocimiento filosófico', false, 3),
+('d0001004-0001-0000-0000-000000000001', 'De la cantidad de miembros que asistían a sus reuniones', false, 4),
 
 -- q2: multiple_choice
-('q0001004-0002-0000-0000-000000000002', 'Espíritu de sabiduría y de revelación en el conocimiento de él', true, 1),
-('q0001004-0002-0000-0000-000000000002', 'Bienes materiales para no padecer necesidad', false, 2),
-('q0001004-0002-0000-0000-000000000002', 'Poder político para derrotar a los gobernantes romanos', false, 3),
-('q0001004-0002-0000-0000-000000000002', 'Visión profética sobre el fin de Éfeso', false, 4),
+('d0001004-0002-0000-0000-000000000002', 'Espíritu de sabiduría y de revelación en el conocimiento de él', true, 1),
+('d0001004-0002-0000-0000-000000000002', 'Bienes materiales para no padecer necesidad', false, 2),
+('d0001004-0002-0000-0000-000000000002', 'Poder político para derrotar a los gobernantes romanos', false, 3),
+('d0001004-0002-0000-0000-000000000002', 'Visión profética sobre el fin de Éfeso', false, 4),
 
 -- q3: fill_blank
-('q0001004-0003-0000-0000-000000000003', 'entendimiento', true, 1),
+('d0001004-0003-0000-0000-000000000003', 'entendimiento', true, 1),
 
 -- q4: multiple_choice
-('q0001004-0004-0000-0000-000000000004', 'Resucitándole de los muertos y sentándole a su diestra en los lugares celestiales', true, 1),
-('q0001004-0004-0000-0000-000000000004', 'Multiplicando los panes y los peces en Galilea', false, 2),
-('q0001004-0004-0000-0000-000000000004', 'Derribando los muros de Jericó', false, 3),
-('q0001004-0004-0000-0000-000000000004', 'Abriendo el mar Rojo ante Moisés', false, 4),
+('d0001004-0004-0000-0000-000000000004', 'Resucitándole de los muertos y sentándole a su diestra en los lugares celestiales', true, 1),
+('d0001004-0004-0000-0000-000000000004', 'Multiplicando los panes y los peces en Galilea', false, 2),
+('d0001004-0004-0000-0000-000000000004', 'Derribando los muros de Jericó', false, 3),
+('d0001004-0004-0000-0000-000000000004', 'Abriendo el mar Rojo ante Moisés', false, 4),
 
 -- q5: multiple_choice
-('q0001004-0005-0000-0000-000000000005', 'A Cristo, como cabeza sobre todas las cosas a la iglesia', true, 1),
-('q0001004-0005-0000-0000-000000000005', 'A Pedro, como cabeza universal de la cristiandad', false, 2),
-('q0001004-0005-0000-0000-000000000005', 'A los ángeles, como gobernantes de las iglesias locales', false, 3),
-('q0001004-0005-0000-0000-000000000005', 'Al emperador de Roma, como protector de la religión', false, 4),
+('d0001004-0005-0000-0000-000000000005', 'A Cristo, como cabeza sobre todas las cosas a la iglesia', true, 1),
+('d0001004-0005-0000-0000-000000000005', 'A Pedro, como cabeza universal de la cristiandad', false, 2),
+('d0001004-0005-0000-0000-000000000005', 'A los ángeles, como gobernantes de las iglesias locales', false, 3),
+('d0001004-0005-0000-0000-000000000005', 'Al emperador de Roma, como protector de la religión', false, 4),
 
 -- q6: true_false
-('q0001004-0006-0000-0000-000000000004', 'Verdadero', true, 1),
-('q0001004-0006-0000-0000-000000000004', 'Falso', false, 2),
+('d0001004-0006-0000-0000-000000000004', 'Verdadero', true, 1),
+('d0001004-0006-0000-0000-000000000004', 'Falso', false, 2),
 
 -- q7: reference_identification
-('q0001004-0007-0000-0000-000000000004', 'Efesios 1:21', true, 1),
-('q0001004-0007-0000-0000-000000000004', 'Efesios 1:16', false, 2),
-('q0001004-0007-0000-0000-000000000004', 'Efesios 1:18', false, 3),
-('q0001004-0007-0000-0000-000000000004', 'Efesios 1:19', false, 4)
+('d0001004-0007-0000-0000-000000000004', 'Efesios 1:21', true, 1),
+('d0001004-0007-0000-0000-000000000004', 'Efesios 1:16', false, 2),
+('d0001004-0007-0000-0000-000000000004', 'Efesios 1:18', false, 3),
+('d0001004-0007-0000-0000-000000000004', 'Efesios 1:19', false, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas Bloque 1.4
 INSERT INTO public.assessment_questions (assessment_id, question_id, order_index)
 VALUES
-('e0000001-0004-0000-0000-000000000004', 'q0001004-0001-0000-0000-000000000001', 1),
-('e0000001-0004-0000-0000-000000000004', 'q0001004-0002-0000-0000-000000000002', 2),
-('e0000001-0004-0000-0000-000000000004', 'q0001004-0003-0000-0000-000000000003', 3),
-('e0000001-0004-0000-0000-000000000004', 'q0001004-0004-0000-0000-000000000004', 4),
-('e0000001-0004-0000-0000-000000000004', 'q0001004-0005-0000-0000-000000000005', 5),
-('e0000001-0004-0000-0000-000000000004', 'q0001004-0006-0000-0000-000000000004', 6),
-('e0000001-0004-0000-0000-000000000004', 'q0001004-0007-0000-0000-000000000004', 7)
+('e0000001-0004-0000-0000-000000000004', 'd0001004-0001-0000-0000-000000000001', 1),
+('e0000001-0004-0000-0000-000000000004', 'd0001004-0002-0000-0000-000000000002', 2),
+('e0000001-0004-0000-0000-000000000004', 'd0001004-0003-0000-0000-000000000003', 3),
+('e0000001-0004-0000-0000-000000000004', 'd0001004-0004-0000-0000-000000000004', 4),
+('e0000001-0004-0000-0000-000000000004', 'd0001004-0005-0000-0000-000000000005', 5),
+('e0000001-0004-0000-0000-000000000004', 'd0001004-0006-0000-0000-000000000004', 6),
+('e0000001-0004-0000-0000-000000000004', 'd0001004-0007-0000-0000-000000000004', 7)
 ON CONFLICT DO NOTHING;

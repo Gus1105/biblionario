@@ -264,7 +264,7 @@ ON CONFLICT (block_id) DO UPDATE SET
 INSERT INTO public.questions (id, block_id, chapter_id, question_type, prompt, verse_reference, explanation, points, difficulty, order_index, is_active)
 VALUES
 (
-    'q0006001-0001-0000-0000-000000000001',
+    'd0006001-0001-0000-0000-000000000001',
     'b0000006-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000006',
     'multiple_choice',
@@ -274,7 +274,7 @@ VALUES
     10, 'easy', 1, true
 ),
 (
-    'q0006001-0002-0000-0000-000000000002',
+    'd0006001-0002-0000-0000-000000000002',
     'b0000006-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000006',
     'fill_blank',
@@ -284,7 +284,7 @@ VALUES
     10, 'easy', 2, true
 ),
 (
-    'q0006001-0003-0000-0000-000000000003',
+    'd0006001-0003-0000-0000-000000000003',
     'b0000006-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000006',
     'multiple_choice',
@@ -294,7 +294,7 @@ VALUES
     10, 'easy', 3, true
 ),
 (
-    'q0006001-0004-0000-0000-000000000004',
+    'd0006001-0004-0000-0000-000000000004',
     'b0000006-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000006',
     'multiple_choice',
@@ -304,7 +304,7 @@ VALUES
     10, 'medium', 4, true
 ),
 (
-    'q0006001-0005-0000-0000-000000000005',
+    'd0006001-0005-0000-0000-000000000005',
     'b0000006-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000006',
     'true_false',
@@ -314,7 +314,7 @@ VALUES
     10, 'easy', 5, true
 ),
 (
-    'q0006001-0006-0000-0000-000000000006',
+    'd0006001-0006-0000-0000-000000000006',
     'b0000006-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000006',
     'reference_identification',
@@ -329,54 +329,54 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO public.question_options (question_id, option_text, is_correct, order_index)
 VALUES
 -- q1: multiple_choice
-('q0006001-0001-0000-0000-000000000001', 'A sus padres, porque esto es justo', true, 1),
-('q0006001-0001-0000-0000-000000000001', 'A los magistrados de Éfeso para no pagar impuestos', false, 2),
-('q0006001-0001-0000-0000-000000000001', 'A los soldados romanos por miedo al castigo', false, 3),
-('q0006001-0001-0000-0000-000000000001', 'A sus amigos para tener popularidad', false, 4),
+('d0006001-0001-0000-0000-000000000001', 'A sus padres, porque esto es justo', true, 1),
+('d0006001-0001-0000-0000-000000000001', 'A los magistrados de Éfeso para no pagar impuestos', false, 2),
+('d0006001-0001-0000-0000-000000000001', 'A los soldados romanos por miedo al castigo', false, 3),
+('d0006001-0001-0000-0000-000000000001', 'A sus amigos para tener popularidad', false, 4),
 
 -- q2: fill_blank
-('q0006001-0002-0000-0000-000000000002', 'promesa', true, 1),
+('d0006001-0002-0000-0000-000000000002', 'promesa', true, 1),
 
 -- q3: multiple_choice
-('q0006001-0003-0000-0000-000000000003', 'Para que te vaya bien y seas de larga vida sobre la tierra', true, 1),
-('q0006001-0003-0000-0000-000000000003', 'Para que heredes tierras de oro en Roma', false, 2),
-('q0006001-0003-0000-0000-000000000003', 'Para que nunca experimentes ninguna enfermedad física', false, 3),
-('q0006001-0003-0000-0000-000000000003', 'Para que seas nombrado gobernante de tu ciudad', false, 4),
+('d0006001-0003-0000-0000-000000000003', 'Para que te vaya bien y seas de larga vida sobre la tierra', true, 1),
+('d0006001-0003-0000-0000-000000000003', 'Para que heredes tierras de oro en Roma', false, 2),
+('d0006001-0003-0000-0000-000000000003', 'Para que nunca experimentes ninguna enfermedad física', false, 3),
+('d0006001-0003-0000-0000-000000000003', 'Para que seas nombrado gobernante de tu ciudad', false, 4),
 
 -- q4: multiple_choice
-('q0006001-0004-0000-0000-000000000004', 'No provoquéis a ira a vuestros hijos, sino criadlos en disciplina y amonestación del Señor', true, 1),
-('q0006001-0004-0000-0000-000000000004', 'Dejad a vuestros hijos en libertad absoluta sin ninguna corrección', false, 2),
-('q0006001-0004-0000-0000-000000000004', 'Enviad a vuestros hijos a los cuarteles militares de Roma', false, 3),
-('q0006001-0004-0000-0000-000000000004', 'Exigidles que trabajen desde pequeños para enriquecer el hogar', false, 4),
+('d0006001-0004-0000-0000-000000000004', 'No provoquéis a ira a vuestros hijos, sino criadlos en disciplina y amonestación del Señor', true, 1),
+('d0006001-0004-0000-0000-000000000004', 'Dejad a vuestros hijos en libertad absoluta sin ninguna corrección', false, 2),
+('d0006001-0004-0000-0000-000000000004', 'Enviad a vuestros hijos a los cuarteles militares de Roma', false, 3),
+('d0006001-0004-0000-0000-000000000004', 'Exigidles que trabajen desde pequeños para enriquecer el hogar', false, 4),
 
 -- q5: true_false
-('q0006001-0005-0000-0000-000000000005', 'Verdadero', false, 1),
-('q0006001-0005-0000-0000-000000000005', 'Falso', true, 2),
+('d0006001-0005-0000-0000-000000000005', 'Verdadero', false, 1),
+('d0006001-0005-0000-0000-000000000005', 'Falso', true, 2),
 
 -- q6: reference_identification
-('q0006001-0006-0000-0000-000000000006', 'Efesios 6:2', true, 1),
-('q0006001-0006-0000-0000-000000000006', 'Efesios 6:1', false, 2),
-('q0006001-0006-0000-0000-000000000006', 'Efesios 6:3', false, 3),
-('q0006001-0006-0000-0000-000000000006', 'Efesios 6:4', false, 4)
+('d0006001-0006-0000-0000-000000000006', 'Efesios 6:2', true, 1),
+('d0006001-0006-0000-0000-000000000006', 'Efesios 6:1', false, 2),
+('d0006001-0006-0000-0000-000000000006', 'Efesios 6:3', false, 3),
+('d0006001-0006-0000-0000-000000000006', 'Efesios 6:4', false, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas Bloque 6.1
 INSERT INTO public.assessment_questions (assessment_id, question_id, order_index)
 VALUES
-('e0000006-0001-0000-0000-000000000001', 'q0006001-0001-0000-0000-000000000001', 1),
-('e0000006-0001-0000-0000-000000000001', 'q0006001-0002-0000-0000-000000000002', 2),
-('e0000006-0001-0000-0000-000000000001', 'q0006001-0003-0000-0000-000000000003', 3),
-('e0000006-0001-0000-0000-000000000001', 'q0006001-0004-0000-0000-000000000004', 4),
-('e0000006-0001-0000-0000-000000000001', 'q0006001-0005-0000-0000-000000000005', 5),
-('e0000006-0001-0000-0000-000000000001', 'q0006001-0006-0000-0000-000000000006', 6)
+('e0000006-0001-0000-0000-000000000001', 'd0006001-0001-0000-0000-000000000001', 1),
+('e0000006-0001-0000-0000-000000000001', 'd0006001-0002-0000-0000-000000000002', 2),
+('e0000006-0001-0000-0000-000000000001', 'd0006001-0003-0000-0000-000000000003', 3),
+('e0000006-0001-0000-0000-000000000001', 'd0006001-0004-0000-0000-000000000004', 4),
+('e0000006-0001-0000-0000-000000000001', 'd0006001-0005-0000-0000-000000000005', 5),
+('e0000006-0001-0000-0000-000000000001', 'd0006001-0006-0000-0000-000000000006', 6)
 ON CONFLICT DO NOTHING;
 
 -- PREGUNTAS BLOQUE 6.2 (Efesios 6:5-9)
 INSERT INTO public.questions (id, block_id, chapter_id, question_type, prompt, verse_reference, explanation, points, difficulty, order_index, is_active)
 VALUES
 (
-    'q0006002-0001-0000-0000-000000000001',
-    'b0000006-0002-0000-0000-000000000006',
+    'd0006002-0001-0000-0000-000000000001',
+    'b0000006-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000006',
     'multiple_choice',
     '¿Cómo deben obedecer los siervos a sus amos terrenales según Efesios 6:5-6?',
@@ -385,8 +385,8 @@ VALUES
     10, 'easy', 1, true
 ),
 (
-    'q0006002-0002-0000-0000-000000000002',
-    'b0000006-0002-0000-0000-000000000006',
+    'd0006002-0002-0000-0000-000000000002',
+    'b0000006-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000006',
     'fill_blank',
     'Completa Efesios 6:7: "sirviendo de buena voluntad, como al ________ y no a los hombres".',
@@ -395,8 +395,8 @@ VALUES
     10, 'easy', 2, true
 ),
 (
-    'q0006002-0003-0000-0000-000000000003',
-    'b0000006-0002-0000-0000-000000000006',
+    'd0006002-0003-0000-0000-000000000003',
+    'b0000006-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000006',
     'multiple_choice',
     '¿Qué deben dejar los amos hacia sus siervos según Efesios 6:9?',
@@ -405,8 +405,8 @@ VALUES
     10, 'easy', 3, true
 ),
 (
-    'q0006002-0004-0000-0000-000000000004',
-    'b0000006-0002-0000-0000-000000000006',
+    'd0006002-0004-0000-0000-000000000004',
+    'b0000006-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000006',
     'true_false',
     'Efesios 6:9 concluye afirmando que para con Dios no hay acepción de personas.',
@@ -415,8 +415,8 @@ VALUES
     10, 'easy', 4, true
 ),
 (
-    'q0006002-0005-0000-0000-000000000005',
-    'b0000006-0002-0000-0000-000000000006',
+    'd0006002-0005-0000-0000-000000000005',
+    'b0000006-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000006',
     'reference_identification',
     '¿En qué versículo se encuentra la amonestación: "no sirviendo al ojo, como los que quieren agradar a los hombres, sino como siervos de Cristo"?',
@@ -425,8 +425,8 @@ VALUES
     10, 'easy', 5, true
 ),
 (
-    'q0006002-0006-0000-0000-000000000006',
-    'b0000006-0002-0000-0000-000000000006',
+    'd0006002-0006-0000-0000-000000000006',
+    'b0000006-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000006',
     'multiple_choice',
     'Según Efesios 6:8, ¿qué certeza tienen tanto el siervo como el libre respecto a sus obras buenas?',
@@ -440,54 +440,54 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO public.question_options (question_id, option_text, is_correct, order_index)
 VALUES
 -- q1: multiple_choice
-('q0006002-0001-0000-0000-000000000001', 'Con temor y temblor, con sencillez de corazón, como a Cristo; no sirviendo al ojo', true, 1),
-('q0006002-0001-0000-0000-000000000001', 'Con desgano y quejas constantes en el trabajo', false, 2),
-('q0006002-0001-0000-0000-000000000001', 'Trabajando únicamente cuando el amo está ausente', false, 3),
-('q0006002-0001-0000-0000-000000000001', 'Haciendo huelgas y desórdenes civiles en la ciudad', false, 4),
+('d0006002-0001-0000-0000-000000000001', 'Con temor y temblor, con sencillez de corazón, como a Cristo; no sirviendo al ojo', true, 1),
+('d0006002-0001-0000-0000-000000000001', 'Con desgano y quejas constantes en el trabajo', false, 2),
+('d0006002-0001-0000-0000-000000000001', 'Trabajando únicamente cuando el amo está ausente', false, 3),
+('d0006002-0001-0000-0000-000000000001', 'Haciendo huelgas y desórdenes civiles en la ciudad', false, 4),
 
 -- q2: fill_blank
-('q0006002-0002-0000-0000-000000000002', 'Señor', true, 1),
+('d0006002-0002-0000-0000-000000000002', 'Señor', true, 1),
 
 -- q3: multiple_choice
-('q0006002-0003-0000-0000-000000000003', 'Dejando las amenazas', true, 1),
-('q0006002-0003-0000-0000-000000000003', 'Imponiendo más castigos físicos', false, 2),
-('q0006002-0003-0000-0000-000000000003', 'Exigiendo jornadas dobles de trabajo', false, 3),
-('q0006002-0003-0000-0000-000000000003', 'Reteniendo los alimentos de los siervos', false, 4),
+('d0006002-0003-0000-0000-000000000003', 'Dejando las amenazas', true, 1),
+('d0006002-0003-0000-0000-000000000003', 'Imponiendo más castigos físicos', false, 2),
+('d0006002-0003-0000-0000-000000000003', 'Exigiendo jornadas dobles de trabajo', false, 3),
+('d0006002-0003-0000-0000-000000000003', 'Reteniendo los alimentos de los siervos', false, 4),
 
 -- q4: true_false
-('q0006002-0004-0000-0000-000000000004', 'Verdadero', true, 1),
-('q0006002-0004-0000-0000-000000000004', 'Falso', false, 2),
+('d0006002-0004-0000-0000-000000000004', 'Verdadero', true, 1),
+('d0006002-0004-0000-0000-000000000004', 'Falso', false, 2),
 
 -- q5: reference_identification
-('q0006002-0005-0000-0000-000000000005', 'Efesios 6:6', true, 1),
-('q0006002-0005-0000-0000-000000000005', 'Efesios 6:5', false, 2),
-('q0006002-0005-0000-0000-000000000005', 'Efesios 6:7', false, 3),
-('q0006002-0005-0000-0000-000000000005', 'Efesios 6:8', false, 4),
+('d0006002-0005-0000-0000-000000000005', 'Efesios 6:6', true, 1),
+('d0006002-0005-0000-0000-000000000005', 'Efesios 6:5', false, 2),
+('d0006002-0005-0000-0000-000000000005', 'Efesios 6:7', false, 3),
+('d0006002-0005-0000-0000-000000000005', 'Efesios 6:8', false, 4),
 
 -- q6: multiple_choice
-('q0006002-0006-0000-0000-000000000006', 'Que el bien que cada uno hiciere, ése recibirá del Señor', true, 1),
-('q0006002-0006-0000-0000-000000000006', 'Que el amo terrenal puede arrebatarle su herencia celestial', false, 2),
-('q0006002-0006-0000-0000-000000000006', 'Que los siervos no recibirán ninguna recompensa divina', false, 3),
-('q0006002-0006-0000-0000-000000000006', 'Que el trabajo manual carece de valor ante Dios', false, 4)
+('d0006002-0006-0000-0000-000000000006', 'Que el bien que cada uno hiciere, ése recibirá del Señor', true, 1),
+('d0006002-0006-0000-0000-000000000006', 'Que el amo terrenal puede arrebatarle su herencia celestial', false, 2),
+('d0006002-0006-0000-0000-000000000006', 'Que los siervos no recibirán ninguna recompensa divina', false, 3),
+('d0006002-0006-0000-0000-000000000006', 'Que el trabajo manual carece de valor ante Dios', false, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas Bloque 6.2
 INSERT INTO public.assessment_questions (assessment_id, question_id, order_index)
 VALUES
-('e0000006-0002-0000-0000-000000000002', 'q0006002-0001-0000-0000-000000000001', 1),
-('e0000006-0002-0000-0000-000000000002', 'q0006002-0002-0000-0000-000000000002', 2),
-('e0000006-0002-0000-0000-000000000002', 'q0006002-0003-0000-0000-000000000003', 3),
-('e0000006-0002-0000-0000-000000000002', 'q0006002-0004-0000-0000-000000000004', 4),
-('e0000006-0002-0000-0000-000000000002', 'q0006002-0005-0000-0000-000000000005', 5),
-('e0000006-0002-0000-0000-000000000002', 'q0006002-0006-0000-0000-000000000006', 6)
+('e0000006-0002-0000-0000-000000000002', 'd0006002-0001-0000-0000-000000000001', 1),
+('e0000006-0002-0000-0000-000000000002', 'd0006002-0002-0000-0000-000000000002', 2),
+('e0000006-0002-0000-0000-000000000002', 'd0006002-0003-0000-0000-000000000003', 3),
+('e0000006-0002-0000-0000-000000000002', 'd0006002-0004-0000-0000-000000000004', 4),
+('e0000006-0002-0000-0000-000000000002', 'd0006002-0005-0000-0000-000000000005', 5),
+('e0000006-0002-0000-0000-000000000002', 'd0006002-0006-0000-0000-000000000006', 6)
 ON CONFLICT DO NOTHING;
 
 -- PREGUNTAS BLOQUE 6.3 (Efesios 6:10-20)
 INSERT INTO public.questions (id, block_id, chapter_id, question_type, prompt, verse_reference, explanation, points, difficulty, order_index, is_active)
 VALUES
 (
-    'q0006003-0001-0000-0000-000000000001',
-    'b0000006-0003-0000-0000-000000000006',
+    'd0006003-0001-0000-0000-000000000001',
+    'b0000006-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000006',
     'multiple_choice',
     'Según Efesios 6:12, ¿contra quiénes NO es nuestra lucha y contra quiénes SÍ es?',
@@ -496,8 +496,8 @@ VALUES
     10, 'easy', 1, true
 ),
 (
-    'q0006003-0002-0000-0000-000000000002',
-    'b0000006-0003-0000-0000-000000000006',
+    'd0006003-0002-0000-0000-000000000002',
+    'b0000006-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000006',
     'multiple_choice',
     '¿Qué pieza de la armadura tiene el poder de apagar todos los dardos de fuego del maligno según Efesios 6:16?',
@@ -506,8 +506,8 @@ VALUES
     10, 'easy', 2, true
 ),
 (
-    'q0006003-0003-0000-0000-000000000003',
-    'b0000006-0003-0000-0000-000000000006',
+    'd0006003-0003-0000-0000-000000000003',
+    'b0000006-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000006',
     'fill_blank',
     'Completa Efesios 6:17: "Y tomad el yelmo de la salvación, y la espada del Espíritu, que es la ________ de Dios".',
@@ -516,8 +516,8 @@ VALUES
     10, 'easy', 3, true
 ),
 (
-    'q0006003-0004-0000-0000-000000000004',
-    'b0000006-0003-0000-0000-000000000006',
+    'd0006003-0004-0000-0000-000000000004',
+    'b0000006-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000006',
     'multiple_choice',
     '¿Cuáles son las seis piezas de la armadura de Dios enumeradas en Efesios 6:14-17?',
@@ -526,8 +526,8 @@ VALUES
     10, 'medium', 4, true
 ),
 (
-    'q0006003-0005-0000-0000-000000000005',
-    'b0000006-0003-0000-0000-000000000006',
+    'd0006003-0005-0000-0000-000000000005',
+    'b0000006-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000006',
     'multiple_choice',
     '¿Cómo debe acompañarse el uso de la armadura espiritual según la exhortación de Efesios 6:18?',
@@ -536,8 +536,8 @@ VALUES
     10, 'easy', 5, true
 ),
 (
-    'q0006003-0006-0000-0000-000000000006',
-    'b0000006-0003-0000-0000-000000000006',
+    'd0006003-0006-0000-0000-000000000006',
+    'b0000006-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000006',
     'multiple_choice',
     '¿Qué petición de oración personal hace Pablo para sí mismo en Efesios 6:19-20?',
@@ -546,8 +546,8 @@ VALUES
     10, 'medium', 6, true
 ),
 (
-    'q0006003-0007-0000-0000-000000000007',
-    'b0000006-0003-0000-0000-000000000006',
+    'd0006003-0007-0000-0000-000000000007',
+    'b0000006-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000006',
     'true_false',
     'Efesios 6:10 manda al creyente fortalecerse en sus propias capacidades intelectuales y físicas para vencer al enemigo.',
@@ -556,8 +556,8 @@ VALUES
     10, 'easy', 7, true
 ),
 (
-    'q0006003-0008-0000-0000-000000000008',
-    'b0000006-0003-0000-0000-000000000006',
+    'd0006003-0008-0000-0000-000000000008',
+    'b0000006-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000006',
     'reference_identification',
     '¿En qué versículo se encuentra la afirmación: "Porque no tenemos lucha contra sangre y carne, sino contra principados, contra potestades"?',
@@ -571,68 +571,68 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO public.question_options (question_id, option_text, is_correct, order_index)
 VALUES
 -- q1: multiple_choice
-('q0006003-0001-0000-0000-000000000001', 'No es contra sangre y carne, sino contra principados, potestades, gobernadores de las tinieblas y huestes espirituales de maldad', true, 1),
-('q0006003-0001-0000-0000-000000000001', 'Es exclusivamente contra los gobernantes políticos del imperio romano', false, 2),
-('q0006003-0001-0000-0000-000000000001', 'Es contra los sacerdotes paganos de Éfeso en combates físicos', false, 3),
-('q0006003-0001-0000-0000-000000000001', 'Es contra las naciones vecinas por territorios de siembra', false, 4),
+('d0006003-0001-0000-0000-000000000001', 'No es contra sangre y carne, sino contra principados, potestades, gobernadores de las tinieblas y huestes espirituales de maldad', true, 1),
+('d0006003-0001-0000-0000-000000000001', 'Es exclusivamente contra los gobernantes políticos del imperio romano', false, 2),
+('d0006003-0001-0000-0000-000000000001', 'Es contra los sacerdotes paganos de Éfeso en combates físicos', false, 3),
+('d0006003-0001-0000-0000-000000000001', 'Es contra las naciones vecinas por territorios de siembra', false, 4),
 
 -- q2: multiple_choice
-('q0006003-0002-0000-0000-000000000002', 'El escudo de la fe', true, 1),
-('q0006003-0002-0000-0000-000000000002', 'El cinturón de cuero terrenal', false, 2),
-('q0006003-0002-0000-0000-000000000002', 'La lanza de bronce de los soldados romanos', false, 3),
-('q0006003-0002-0000-0000-000000000002', 'El carro de guerra de hierro', false, 4),
+('d0006003-0002-0000-0000-000000000002', 'El escudo de la fe', true, 1),
+('d0006003-0002-0000-0000-000000000002', 'El cinturón de cuero terrenal', false, 2),
+('d0006003-0002-0000-0000-000000000002', 'La lanza de bronce de los soldados romanos', false, 3),
+('d0006003-0002-0000-0000-000000000002', 'El carro de guerra de hierro', false, 4),
 
 -- q3: fill_blank
-('q0006003-0003-0000-0000-000000000003', 'palabra', true, 1),
+('d0006003-0003-0000-0000-000000000003', 'palabra', true, 1),
 
 -- q4: multiple_choice
-('q0006003-0004-0000-0000-000000000004', 'Cinturón de la verdad, coraza de justicia, calzado del evangelio, escudo de la fe, yelmo de la salvación y espada del Espíritu', true, 1),
-('q0006003-0004-0000-0000-000000000004', 'Arco de madera, flechas de plata, lanza de hierro, escudo de bronce, manto de lino y sandalias de oro', false, 2),
-('q0006003-0004-0000-0000-000000000004', 'Túnica sacerdotal, efod, pectoral de juicio, mitra de oro, cinto y campanillas', false, 3),
-('q0006003-0004-0000-0000-000000000004', 'Leyes de Moisés, ordenanzas levíticas, sacrificios, diezmos, fiestas solemnes y ayunos', false, 4),
+('d0006003-0004-0000-0000-000000000004', 'Cinturón de la verdad, coraza de justicia, calzado del evangelio, escudo de la fe, yelmo de la salvación y espada del Espíritu', true, 1),
+('d0006003-0004-0000-0000-000000000004', 'Arco de madera, flechas de plata, lanza de hierro, escudo de bronce, manto de lino y sandalias de oro', false, 2),
+('d0006003-0004-0000-0000-000000000004', 'Túnica sacerdotal, efod, pectoral de juicio, mitra de oro, cinto y campanillas', false, 3),
+('d0006003-0004-0000-0000-000000000004', 'Leyes de Moisés, ordenanzas levíticas, sacrificios, diezmos, fiestas solemnes y ayunos', false, 4),
 
 -- q5: multiple_choice
-('q0006003-0005-0000-0000-000000000005', 'Orando en todo tiempo con toda oración y súplica en el Espíritu, velando con perseverancia', true, 1),
-('q0006003-0005-0000-0000-000000000005', 'Descansando sin prestar atención al adversario', false, 2),
-('q0006003-0005-0000-0000-000000000005', 'Debatiendo con los sofistas griegos en el ágora', false, 3),
-('q0006003-0005-0000-0000-000000000005', 'Haciendo penitencias corporales severas', false, 4),
+('d0006003-0005-0000-0000-000000000005', 'Orando en todo tiempo con toda oración y súplica en el Espíritu, velando con perseverancia', true, 1),
+('d0006003-0005-0000-0000-000000000005', 'Descansando sin prestar atención al adversario', false, 2),
+('d0006003-0005-0000-0000-000000000005', 'Debatiendo con los sofistas griegos en el ágora', false, 3),
+('d0006003-0005-0000-0000-000000000005', 'Haciendo penitencias corporales severas', false, 4),
 
 -- q6: multiple_choice
-('q0006003-0006-0000-0000-000000000006', 'Que le sea dada palabra para dar a conocer con denuedo el misterio del evangelio como embajador en cadenas', true, 1),
-('q0006003-0006-0000-0000-000000000006', 'Que los efesios recolecten dinero para pagar su fianza ante el César', false, 2),
-('q0006003-0006-0000-0000-000000000006', 'Que le lleven alimentos y ropa costosa a Roma', false, 3),
-('q0006003-0006-0000-0000-000000000006', 'Que la iglesia ataque militarmente la cárcel para liberarlo', false, 4),
+('d0006003-0006-0000-0000-000000000006', 'Que le sea dada palabra para dar a conocer con denuedo el misterio del evangelio como embajador en cadenas', true, 1),
+('d0006003-0006-0000-0000-000000000006', 'Que los efesios recolecten dinero para pagar su fianza ante el César', false, 2),
+('d0006003-0006-0000-0000-000000000006', 'Que le lleven alimentos y ropa costosa a Roma', false, 3),
+('d0006003-0006-0000-0000-000000000006', 'Que la iglesia ataque militarmente la cárcel para liberarlo', false, 4),
 
 -- q7: true_false
-('q0006003-0007-0000-0000-000000000004', 'Verdadero', false, 1),
-('q0006003-0007-0000-0000-000000000004', 'Falso', true, 2),
+('d0006003-0007-0000-0000-000000000007', 'Verdadero', false, 1),
+('d0006003-0007-0000-0000-000000000007', 'Falso', true, 2),
 
 -- q8: reference_identification
-('q0006003-0008-0000-0000-000000000004', 'Efesios 6:12', true, 1),
-('q0006003-0008-0000-0000-000000000004', 'Efesios 6:10', false, 2),
-('q0006003-0008-0000-0000-000000000004', 'Efesios 6:14', false, 3),
-('q0006003-0008-0000-0000-000000000004', 'Efesios 6:16', false, 4)
+('d0006003-0008-0000-0000-000000000008', 'Efesios 6:12', true, 1),
+('d0006003-0008-0000-0000-000000000008', 'Efesios 6:10', false, 2),
+('d0006003-0008-0000-0000-000000000008', 'Efesios 6:14', false, 3),
+('d0006003-0008-0000-0000-000000000008', 'Efesios 6:16', false, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas Bloque 6.3
 INSERT INTO public.assessment_questions (assessment_id, question_id, order_index)
 VALUES
-('e0000006-0003-0000-0000-000000000003', 'q0006003-0001-0000-0000-000000000001', 1),
-('e0000006-0003-0000-0000-000000000003', 'q0006003-0002-0000-0000-000000000002', 2),
-('e0000006-0003-0000-0000-000000000003', 'q0006003-0003-0000-0000-000000000003', 3),
-('e0000006-0003-0000-0000-000000000003', 'q0006003-0004-0000-0000-000000000004', 4),
-('e0000006-0003-0000-0000-000000000003', 'q0006003-0005-0000-0000-000000000005', 5),
-('e0000006-0003-0000-0000-000000000003', 'q0006003-0006-0000-0000-000000000006', 6),
-('e0000006-0003-0000-0000-000000000003', 'q0006003-0007-0000-0000-000000000007', 7),
-('e0000006-0003-0000-0000-000000000003', 'q0006003-0008-0000-0000-000000000008', 8)
+('e0000006-0003-0000-0000-000000000003', 'd0006003-0001-0000-0000-000000000001', 1),
+('e0000006-0003-0000-0000-000000000003', 'd0006003-0002-0000-0000-000000000002', 2),
+('e0000006-0003-0000-0000-000000000003', 'd0006003-0003-0000-0000-000000000003', 3),
+('e0000006-0003-0000-0000-000000000003', 'd0006003-0004-0000-0000-000000000004', 4),
+('e0000006-0003-0000-0000-000000000003', 'd0006003-0005-0000-0000-000000000005', 5),
+('e0000006-0003-0000-0000-000000000003', 'd0006003-0006-0000-0000-000000000006', 6),
+('e0000006-0003-0000-0000-000000000003', 'd0006003-0007-0000-0000-000000000007', 7),
+('e0000006-0003-0000-0000-000000000003', 'd0006003-0008-0000-0000-000000000008', 8)
 ON CONFLICT DO NOTHING;
 
 -- PREGUNTAS BLOQUE 6.4 (Efesios 6:21-24)
 INSERT INTO public.questions (id, block_id, chapter_id, question_type, prompt, verse_reference, explanation, points, difficulty, order_index, is_active)
 VALUES
 (
-    'q0006004-0001-0000-0000-000000000001',
-    'b0000006-0004-0000-0000-000000000006',
+    'd0006004-0001-0000-0000-000000000001',
+    'b0000006-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000006',
     'multiple_choice',
     '¿Quién fue enviado por Pablo para hacer saber a los efesios sus asuntos y consolar sus corazones (Efesios 6:21-22)?',
@@ -641,8 +641,8 @@ VALUES
     10, 'easy', 1, true
 ),
 (
-    'q0006004-0002-0000-0000-000000000002',
-    'b0000006-0004-0000-0000-000000000006',
+    'd0006004-0002-0000-0000-000000000002',
+    'b0000006-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000006',
     'fill_blank',
     'Completa Efesios 6:24: "La gracia sea con todos los que aman a nuestro Señor Jesucristo con amor ________. Amén".',
@@ -651,8 +651,8 @@ VALUES
     10, 'medium', 2, true
 ),
 (
-    'q0006004-0003-0000-0000-000000000003',
-    'b0000006-0004-0000-0000-000000000006',
+    'd0006004-0003-0000-0000-000000000003',
+    'b0000006-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000006',
     'multiple_choice',
     '¿Qué bendiciones conjuntas invoca Pablo sobre los hermanos en Efesios 6:23?',
@@ -661,8 +661,8 @@ VALUES
     10, 'easy', 3, true
 ),
 (
-    'q0006004-0004-0000-0000-000000000004',
-    'b0000006-0004-0000-0000-000000000006',
+    'd0006004-0004-0000-0000-000000000004',
+    'b0000006-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000006',
     'true_false',
     'En Efesios 6:21, Tíquico es llamado por Pablo "hermano amado y fiel ministro en el Señor".',
@@ -671,8 +671,8 @@ VALUES
     10, 'easy', 4, true
 ),
 (
-    'q0006004-0005-0000-0000-000000000005',
-    'b0000006-0004-0000-0000-000000000006',
+    'd0006004-0005-0000-0000-000000000005',
+    'b0000006-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000006',
     'reference_identification',
     '¿En qué versículo termina la epístola a los efesios con la bendición de la gracia para los que aman a Cristo con amor inalterable?',
@@ -686,37 +686,37 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO public.question_options (question_id, option_text, is_correct, order_index)
 VALUES
 -- q1: multiple_choice
-('q0006004-0001-0000-0000-000000000001', 'Tíquico', true, 1),
-('q0006004-0001-0000-0000-000000000001', 'Bernabé', false, 2),
-('q0006004-0001-0000-0000-000000000001', 'Apolos', false, 3),
-('q0006004-0001-0000-0000-000000000001', 'Filemón', false, 4),
+('d0006004-0001-0000-0000-000000000001', 'Tíquico', true, 1),
+('d0006004-0001-0000-0000-000000000001', 'Bernabé', false, 2),
+('d0006004-0001-0000-0000-000000000001', 'Apolos', false, 3),
+('d0006004-0001-0000-0000-000000000001', 'Filemón', false, 4),
 
 -- q2: fill_blank
-('q0006004-0002-0000-0000-000000000002', 'inalterable', true, 1),
+('d0006004-0002-0000-0000-000000000002', 'inalterable', true, 1),
 
 -- q3: multiple_choice
-('q0006004-0003-0000-0000-000000000003', 'Paz sea a los hermanos, y amor con fe, de Dios Padre y del Señor Jesucristo', true, 1),
-('q0006004-0003-0000-0000-000000000003', 'Victorias militares sobre los centuriones romanos', false, 2),
-('q0006004-0003-0000-0000-000000000003', 'Riquezas terrenales abundantes en el puerto de Éfeso', false, 3),
-('q0006004-0003-0000-0000-000000000003', 'Fama entre todas las escuelas filosóficas de Grecia', false, 4),
+('d0006004-0003-0000-0000-000000000003', 'Paz sea a los hermanos, y amor con fe, de Dios Padre y del Señor Jesucristo', true, 1),
+('d0006004-0003-0000-0000-000000000003', 'Victorias militares sobre los centuriones romanos', false, 2),
+('d0006004-0003-0000-0000-000000000003', 'Riquezas terrenales abundantes en el puerto de Éfeso', false, 3),
+('d0006004-0003-0000-0000-000000000003', 'Fama entre todas las escuelas filosóficas de Grecia', false, 4),
 
 -- q4: true_false
-('q0006004-0004-0000-0000-000000000004', 'Verdadero', true, 1),
-('q0006004-0004-0000-0000-000000000004', 'Falso', false, 2),
+('d0006004-0004-0000-0000-000000000004', 'Verdadero', true, 1),
+('d0006004-0004-0000-0000-000000000004', 'Falso', false, 2),
 
 -- q5: reference_identification
-('q0006004-0005-0000-0000-000000000005', 'Efesios 6:24', true, 1),
-('q0006004-0005-0000-0000-000000000005', 'Efesios 6:20', false, 2),
-('q0006004-0005-0000-0000-000000000005', 'Efesios 6:22', false, 3),
-('q0006004-0005-0000-0000-000000000005', 'Efesios 6:23', false, 4)
+('d0006004-0005-0000-0000-000000000005', 'Efesios 6:24', true, 1),
+('d0006004-0005-0000-0000-000000000005', 'Efesios 6:20', false, 2),
+('d0006004-0005-0000-0000-000000000005', 'Efesios 6:22', false, 3),
+('d0006004-0005-0000-0000-000000000005', 'Efesios 6:23', false, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas Bloque 6.4
 INSERT INTO public.assessment_questions (assessment_id, question_id, order_index)
 VALUES
-('e0000006-0004-0000-0000-000000000004', 'q0006004-0001-0000-0000-000000000001', 1),
-('e0000006-0004-0000-0000-000000000004', 'q0006004-0002-0000-0000-000000000002', 2),
-('e0000006-0004-0000-0000-000000000004', 'q0006004-0003-0000-0000-000000000003', 3),
-('e0000006-0004-0000-0000-000000000004', 'q0006004-0004-0000-0000-000000000004', 4),
-('e0000006-0004-0000-0000-000000000004', 'q0006004-0005-0000-0000-000000000005', 5)
+('e0000006-0004-0000-0000-000000000004', 'd0006004-0001-0000-0000-000000000001', 1),
+('e0000006-0004-0000-0000-000000000004', 'd0006004-0002-0000-0000-000000000002', 2),
+('e0000006-0004-0000-0000-000000000004', 'd0006004-0003-0000-0000-000000000003', 3),
+('e0000006-0004-0000-0000-000000000004', 'd0006004-0004-0000-0000-000000000004', 4),
+('e0000006-0004-0000-0000-000000000004', 'd0006004-0005-0000-0000-000000000005', 5)
 ON CONFLICT DO NOTHING;

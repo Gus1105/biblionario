@@ -163,9 +163,11 @@ CREATE TABLE IF NOT EXISTS public.assessments (
     time_limit_minutes INT DEFAULT NULL,
     is_published BOOLEAN NOT NULL DEFAULT true,
     created_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now()),
-    CONSTRAINT uq_assessment_block UNIQUE (block_id, type),
-    CONSTRAINT uq_assessment_chapter UNIQUE (chapter_id, type)
+    CONSTRAINT uq_assessment_block UNIQUE (block_id, type)
 );
+
+CREATE UNIQUE INDEX IF NOT EXISTS uq_chapter_exam ON public.assessments (chapter_id) WHERE type = 'chapter_exam';
+CREATE UNIQUE INDEX IF NOT EXISTS uq_book_final ON public.assessments (book_id) WHERE type = 'book_final';
 
 -- 12. Tabla: assessment_questions (asociación entre examen y preguntas)
 CREATE TABLE IF NOT EXISTS public.assessment_questions (
@@ -256,6 +258,7 @@ CREATE INDEX IF NOT EXISTS idx_assessment_answers_attempt_id ON public.assessmen
 CREATE INDEX IF NOT EXISTS idx_user_block_progress_user_id ON public.user_block_progress(user_id);
 CREATE INDEX IF NOT EXISTS idx_user_chapter_progress_user_id ON public.user_chapter_progress(user_id);
 CREATE INDEX IF NOT EXISTS idx_user_book_progress_user_id ON public.user_book_progress(user_id);
+
 
 
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -480,6 +483,7 @@ CREATE POLICY "Actualizar progreso de libro propio"
     ON public.user_book_progress FOR ALL
     USING (auth.uid() = user_id OR public.is_current_user_admin())
     WITH CHECK (auth.uid() = user_id);
+
 
 
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -729,3 +733,4 @@ BEGIN
     RETURN v_assessment;
 END;
 $$;
+

@@ -297,7 +297,7 @@ ON CONFLICT (block_id) DO UPDATE SET
 INSERT INTO public.questions (id, block_id, chapter_id, question_type, prompt, verse_reference, explanation, points, difficulty, order_index, is_active)
 VALUES
 (
-    'q0005001-0001-0000-0000-000000000001',
+    'd0005001-0001-0000-0000-000000000001',
     'b0000005-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000005',
     'multiple_choice',
@@ -307,7 +307,7 @@ VALUES
     10, 'easy', 1, true
 ),
 (
-    'q0005001-0002-0000-0000-000000000002',
+    'd0005001-0002-0000-0000-000000000002',
     'b0000005-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000005',
     'fill_blank',
@@ -317,7 +317,7 @@ VALUES
     10, 'medium', 2, true
 ),
 (
-    'q0005001-0003-0000-0000-000000000003',
+    'd0005001-0003-0000-0000-000000000003',
     'b0000005-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000005',
     'multiple_choice',
@@ -327,7 +327,7 @@ VALUES
     10, 'easy', 3, true
 ),
 (
-    'q0005001-0004-0000-0000-000000000004',
+    'd0005001-0004-0000-0000-000000000004',
     'b0000005-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000005',
     'true_false',
@@ -337,7 +337,7 @@ VALUES
     10, 'easy', 4, true
 ),
 (
-    'q0005001-0005-0000-0000-000000000005',
+    'd0005001-0005-0000-0000-000000000005',
     'b0000005-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000005',
     'reference_identification',
@@ -347,7 +347,7 @@ VALUES
     10, 'easy', 5, true
 ),
 (
-    'q0005001-0006-0000-0000-000000000006',
+    'd0005001-0006-0000-0000-000000000006',
     'b0000005-0001-0000-0000-000000000001',
     'c0000000-0000-0000-0000-000000000005',
     'multiple_choice',
@@ -362,54 +362,54 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO public.question_options (question_id, option_text, is_correct, order_index)
 VALUES
 -- q1: multiple_choice
-('q0005001-0001-0000-0000-000000000001', 'Imitadores de Dios como hijos amados, andando en amor como Cristo nos amó', true, 1),
-('q0005001-0001-0000-0000-000000000001', 'Imitadores de los sabios griegos, andando según la filosofía estoica', false, 2),
-('q0005001-0001-0000-0000-000000000001', 'Imitadores de los fariseos, andando conforme a los ayunos rituales', false, 3),
-('q0005001-0001-0000-0000-000000000001', 'Imitadores de los sacerdotes paganos de Éfeso', false, 4),
+('d0005001-0001-0000-0000-000000000001', 'Imitadores de Dios como hijos amados, andando en amor como Cristo nos amó', true, 1),
+('d0005001-0001-0000-0000-000000000001', 'Imitadores de los sabios griegos, andando según la filosofía estoica', false, 2),
+('d0005001-0001-0000-0000-000000000001', 'Imitadores de los fariseos, andando conforme a los ayunos rituales', false, 3),
+('d0005001-0001-0000-0000-000000000001', 'Imitadores de los sacerdotes paganos de Éfeso', false, 4),
 
 -- q2: fill_blank
-('q0005001-0002-0000-0000-000000000002', 'idólatra', true, 1),
+('d0005001-0002-0000-0000-000000000002', 'idólatra', true, 1),
 
 -- q3: multiple_choice
-('q0005001-0003-0000-0000-000000000003', 'Palabras deshonestas, necedades y truhanerías; en su lugar, acciones de gracias', true, 1),
-('q0005001-0003-0000-0000-000000000003', 'Cánticos espirituales; en su lugar, discursos políticos', false, 2),
-('q0005001-0003-0000-0000-000000000003', 'Salmos e himnos; en su lugar, silencio monástico absoluto', false, 3),
-('q0005001-0003-0000-0000-000000000003', 'Lecturas proféticas; en su lugar, poesía romana', false, 4),
+('d0005001-0003-0000-0000-000000000003', 'Palabras deshonestas, necedades y truhanerías; en su lugar, acciones de gracias', true, 1),
+('d0005001-0003-0000-0000-000000000003', 'Cánticos espirituales; en su lugar, discursos políticos', false, 2),
+('d0005001-0003-0000-0000-000000000003', 'Salmos e himnos; en su lugar, silencio monástico absoluto', false, 3),
+('d0005001-0003-0000-0000-000000000003', 'Lecturas proféticas; en su lugar, poesía romana', false, 4),
 
 -- q4: true_false
-('q0005001-0004-0000-0000-000000000004', 'Verdadero', true, 1),
-('q0005001-0004-0000-0000-000000000004', 'Falso', false, 2),
+('d0005001-0004-0000-0000-000000000004', 'Verdadero', true, 1),
+('d0005001-0004-0000-0000-000000000004', 'Falso', false, 2),
 
 -- q5: reference_identification
-('q0005001-0005-0000-0000-000000000005', 'Efesios 5:1', true, 1),
-('q0005001-0005-0000-0000-000000000005', 'Efesios 5:3', false, 2),
-('q0005001-0005-0000-0000-000000000005', 'Efesios 5:5', false, 3),
-('q0005001-0005-0000-0000-000000000005', 'Efesios 5:7', false, 4),
+('d0005001-0005-0000-0000-000000000005', 'Efesios 5:1', true, 1),
+('d0005001-0005-0000-0000-000000000005', 'Efesios 5:3', false, 2),
+('d0005001-0005-0000-0000-000000000005', 'Efesios 5:5', false, 3),
+('d0005001-0005-0000-0000-000000000005', 'Efesios 5:7', false, 4),
 
 -- q6: multiple_choice
-('q0005001-0006-0000-0000-000000000006', 'En olor fragante', true, 1),
-('q0005001-0006-0000-0000-000000000006', 'Como un tributo de plata terrenal', false, 2),
-('q0005001-0006-0000-0000-000000000006', 'Como una ordenanza transitoria del templo', false, 3),
-('q0005001-0006-0000-0000-000000000006', 'Como un misterio reservado solo a los ángeles', false, 4)
+('d0005001-0006-0000-0000-000000000006', 'En olor fragante', true, 1),
+('d0005001-0006-0000-0000-000000000006', 'Como un tributo de plata terrenal', false, 2),
+('d0005001-0006-0000-0000-000000000006', 'Como una ordenanza transitoria del templo', false, 3),
+('d0005001-0006-0000-0000-000000000006', 'Como un misterio reservado solo a los ángeles', false, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas Bloque 5.1
 INSERT INTO public.assessment_questions (assessment_id, question_id, order_index)
 VALUES
-('e0000005-0001-0000-0000-000000000001', 'q0005001-0001-0000-0000-000000000001', 1),
-('e0000005-0001-0000-0000-000000000001', 'q0005001-0002-0000-0000-000000000002', 2),
-('e0000005-0001-0000-0000-000000000001', 'q0005001-0003-0000-0000-000000000003', 3),
-('e0000005-0001-0000-0000-000000000001', 'q0005001-0004-0000-0000-000000000004', 4),
-('e0000005-0001-0000-0000-000000000001', 'q0005001-0005-0000-0000-000000000005', 5),
-('e0000005-0001-0000-0000-000000000001', 'q0005001-0006-0000-0000-000000000006', 6)
+('e0000005-0001-0000-0000-000000000001', 'd0005001-0001-0000-0000-000000000001', 1),
+('e0000005-0001-0000-0000-000000000001', 'd0005001-0002-0000-0000-000000000002', 2),
+('e0000005-0001-0000-0000-000000000001', 'd0005001-0003-0000-0000-000000000003', 3),
+('e0000005-0001-0000-0000-000000000001', 'd0005001-0004-0000-0000-000000000004', 4),
+('e0000005-0001-0000-0000-000000000001', 'd0005001-0005-0000-0000-000000000005', 5),
+('e0000005-0001-0000-0000-000000000001', 'd0005001-0006-0000-0000-000000000006', 6)
 ON CONFLICT DO NOTHING;
 
 -- PREGUNTAS BLOQUE 5.2 (Efesios 5:8-14)
 INSERT INTO public.questions (id, block_id, chapter_id, question_type, prompt, verse_reference, explanation, points, difficulty, order_index, is_active)
 VALUES
 (
-    'q0005002-0001-0000-0000-000000000001',
-    'b0000005-0002-0000-0000-000000000005',
+    'd0005002-0001-0000-0000-000000000001',
+    'b0000005-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000005',
     'multiple_choice',
     'Según Efesios 5:8, ¿qué eran los creyentes en otro tiempo y qué son ahora en el Señor?',
@@ -418,8 +418,8 @@ VALUES
     10, 'easy', 1, true
 ),
 (
-    'q0005002-0002-0000-0000-000000000002',
-    'b0000005-0002-0000-0000-000000000005',
+    'd0005002-0002-0000-0000-000000000002',
+    'b0000005-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000005',
     'multiple_choice',
     '¿En qué consiste el fruto del Espíritu según Efesios 5:9?',
@@ -428,8 +428,8 @@ VALUES
     10, 'easy', 2, true
 ),
 (
-    'q0005002-0003-0000-0000-000000000003',
-    'b0000005-0002-0000-0000-000000000005',
+    'd0005002-0003-0000-0000-000000000003',
+    'b0000005-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000005',
     'fill_blank',
     'Completa Efesios 5:11: "Y no participéis en las obras infructuosas de las tinieblas, sino más bien ________".',
@@ -438,8 +438,8 @@ VALUES
     10, 'medium', 3, true
 ),
 (
-    'q0005002-0004-0000-0000-000000000004',
-    'b0000005-0002-0000-0000-000000000005',
+    'd0005002-0004-0000-0000-000000000004',
+    'b0000005-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000005',
     'true_false',
     'Efesios 5:10 manda al creyente andar "comprobando lo que es agradable al Señor".',
@@ -448,8 +448,8 @@ VALUES
     10, 'easy', 4, true
 ),
 (
-    'q0005002-0005-0000-0000-000000000005',
-    'b0000005-0002-0000-0000-000000000005',
+    'd0005002-0005-0000-0000-000000000005',
+    'b0000005-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000005',
     'reference_identification',
     '¿En qué versículo se encuentra el llamado: "Despiértate, tú que duermes, y levántate de los muertos, y te alumbrará Cristo"?',
@@ -458,8 +458,8 @@ VALUES
     10, 'easy', 5, true
 ),
 (
-    'q0005002-0006-0000-0000-000000000006',
-    'b0000005-0002-0000-0000-000000000005',
+    'd0005002-0006-0000-0000-000000000006',
+    'b0000005-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000005',
     'multiple_choice',
     '¿Qué efecto tiene la luz sobre las cosas ocultas según Efesios 5:13?',
@@ -473,54 +473,54 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO public.question_options (question_id, option_text, is_correct, order_index)
 VALUES
 -- q1: multiple_choice
-('q0005002-0001-0000-0000-000000000001', 'En otro tiempo erais tinieblas, mas ahora sois luz en el Señor', true, 1),
-('q0005002-0001-0000-0000-000000000001', 'En otro tiempo erais sabios, mas ahora sois ignorantes', false, 2),
-('q0005002-0001-0000-0000-000000000001', 'En otro tiempo erais libres, mas ahora estáis presos bajo la ley', false, 3),
-('q0005002-0001-0000-0000-000000000001', 'En otro tiempo erais prósperos, mas ahora sois mendigos', false, 4),
+('d0005002-0001-0000-0000-000000000001', 'En otro tiempo erais tinieblas, mas ahora sois luz en el Señor', true, 1),
+('d0005002-0001-0000-0000-000000000001', 'En otro tiempo erais sabios, mas ahora sois ignorantes', false, 2),
+('d0005002-0001-0000-0000-000000000001', 'En otro tiempo erais libres, mas ahora estáis presos bajo la ley', false, 3),
+('d0005002-0001-0000-0000-000000000001', 'En otro tiempo erais prósperos, mas ahora sois mendigos', false, 4),
 
 -- q2: multiple_choice
-('q0005002-0002-0000-0000-000000000002', 'En toda bondad, justicia y verdad', true, 1),
-('q0005002-0002-0000-0000-000000000002', 'En sacrificios, ayunos y vigilias físicas', false, 2),
-('q0005002-0002-0000-0000-000000000002', 'En riquezas, honras terrenales y títulos', false, 3),
-('q0005002-0002-0000-0000-000000000002', 'En elocuencia oratoria y debates públicos', false, 4),
+('d0005002-0002-0000-0000-000000000002', 'En toda bondad, justicia y verdad', true, 1),
+('d0005002-0002-0000-0000-000000000002', 'En sacrificios, ayunos y vigilias físicas', false, 2),
+('d0005002-0002-0000-0000-000000000002', 'En riquezas, honras terrenales y títulos', false, 3),
+('d0005002-0002-0000-0000-000000000002', 'En elocuencia oratoria y debates públicos', false, 4),
 
 -- q3: fill_blank
-('q0005002-0003-0000-0000-000000000003', 'reprendedlas', true, 1),
+('d0005002-0003-0000-0000-000000000003', 'reprendedlas', true, 1),
 
 -- q4: true_false
-('q0005002-0004-0000-0000-000000000004', 'Verdadero', true, 1),
-('q0005002-0004-0000-0000-000000000004', 'Falso', false, 2),
+('d0005002-0004-0000-0000-000000000004', 'Verdadero', true, 1),
+('d0005002-0004-0000-0000-000000000004', 'Falso', false, 2),
 
 -- q5: reference_identification
-('q0005002-0005-0000-0000-000000000005', 'Efesios 5:14', true, 1),
-('q0005002-0005-0000-0000-000000000005', 'Efesios 5:8', false, 2),
-('q0005002-0005-0000-0000-000000000005', 'Efesios 5:10', false, 3),
-('q0005002-0005-0000-0000-000000000005', 'Efesios 5:12', false, 4),
+('d0005002-0005-0000-0000-000000000005', 'Efesios 5:14', true, 1),
+('d0005002-0005-0000-0000-000000000005', 'Efesios 5:8', false, 2),
+('d0005002-0005-0000-0000-000000000005', 'Efesios 5:10', false, 3),
+('d0005002-0005-0000-0000-000000000005', 'Efesios 5:12', false, 4),
 
 -- q6: multiple_choice
-('q0005002-0006-0000-0000-000000000006', 'Son puestas en evidencia y hechas manifiestas', true, 1),
-('q0005002-0006-0000-0000-000000000006', 'Quedan ocultas bajo la arena del tiempo', false, 2),
-('q0005002-0006-0000-0000-000000000006', 'Se confunden con los misterios humanos', false, 3),
-('q0005002-0006-0000-0000-000000000006', 'Son justificadas por la debilidad humana', false, 4)
+('d0005002-0006-0000-0000-000000000006', 'Son puestas en evidencia y hechas manifiestas', true, 1),
+('d0005002-0006-0000-0000-000000000006', 'Quedan ocultas bajo la arena del tiempo', false, 2),
+('d0005002-0006-0000-0000-000000000006', 'Se confunden con los misterios humanos', false, 3),
+('d0005002-0006-0000-0000-000000000006', 'Son justificadas por la debilidad humana', false, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas Bloque 5.2
 INSERT INTO public.assessment_questions (assessment_id, question_id, order_index)
 VALUES
-('e0000005-0002-0000-0000-000000000002', 'q0005002-0001-0000-0000-000000000001', 1),
-('e0000005-0002-0000-0000-000000000002', 'q0005002-0002-0000-0000-000000000002', 2),
-('e0000005-0002-0000-0000-000000000002', 'q0005002-0003-0000-0000-000000000003', 3),
-('e0000005-0002-0000-0000-000000000002', 'q0005002-0004-0000-0000-000000000004', 4),
-('e0000005-0002-0000-0000-000000000002', 'q0005002-0005-0000-0000-000000000005', 5),
-('e0000005-0002-0000-0000-000000000002', 'q0005002-0006-0000-0000-000000000006', 6)
+('e0000005-0002-0000-0000-000000000002', 'd0005002-0001-0000-0000-000000000001', 1),
+('e0000005-0002-0000-0000-000000000002', 'd0005002-0002-0000-0000-000000000002', 2),
+('e0000005-0002-0000-0000-000000000002', 'd0005002-0003-0000-0000-000000000003', 3),
+('e0000005-0002-0000-0000-000000000002', 'd0005002-0004-0000-0000-000000000004', 4),
+('e0000005-0002-0000-0000-000000000002', 'd0005002-0005-0000-0000-000000000005', 5),
+('e0000005-0002-0000-0000-000000000002', 'd0005002-0006-0000-0000-000000000006', 6)
 ON CONFLICT DO NOTHING;
 
 -- PREGUNTAS BLOQUE 5.3 (Efesios 5:15-21)
 INSERT INTO public.questions (id, block_id, chapter_id, question_type, prompt, verse_reference, explanation, points, difficulty, order_index, is_active)
 VALUES
 (
-    'q0005003-0001-0000-0000-000000000001',
-    'b0000005-0003-0000-0000-000000000005',
+    'd0005003-0001-0000-0000-000000000001',
+    'b0000005-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000005',
     'multiple_choice',
     'Según Efesios 5:15-16, ¿por qué razón deben los creyentes andar con diligencia y redimir el tiempo?',
@@ -529,8 +529,8 @@ VALUES
     10, 'easy', 1, true
 ),
 (
-    'q0005003-0002-0000-0000-000000000002',
-    'b0000005-0003-0000-0000-000000000005',
+    'd0005003-0002-0000-0000-000000000002',
+    'b0000005-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000005',
     'fill_blank',
     'Completa Efesios 5:18: "No os embriaguéis con vino, en lo cual hay disolución; antes bien sed ________ del Espíritu".',
@@ -539,8 +539,8 @@ VALUES
     10, 'easy', 2, true
 ),
 (
-    'q0005003-0003-0000-0000-000000000003',
-    'b0000005-0003-0000-0000-000000000005',
+    'd0005003-0003-0000-0000-000000000003',
+    'b0000005-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000005',
     'multiple_choice',
     '¿Con qué expresiones musicales y espirituales deben hablar entre sí los creyentes según Efesios 5:19?',
@@ -549,8 +549,8 @@ VALUES
     10, 'easy', 3, true
 ),
 (
-    'q0005003-0004-0000-0000-000000000004',
-    'b0000005-0003-0000-0000-000000000005',
+    'd0005003-0004-0000-0000-000000000004',
+    'b0000005-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000005',
     'true_false',
     'Efesios 5:20 enseña que debemos dar gracias a Dios Padre únicamente cuando las circunstancias terrenales sean prósperas.',
@@ -559,8 +559,8 @@ VALUES
     10, 'easy', 4, true
 ),
 (
-    'q0005003-0005-0000-0000-000000000005',
-    'b0000005-0003-0000-0000-000000000005',
+    'd0005003-0005-0000-0000-000000000005',
+    'b0000005-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000005',
     'reference_identification',
     '¿En qué versículo de Efesios se encuentra la ordenanza: "Someteos unos a otros en el temor de Dios"?',
@@ -569,8 +569,8 @@ VALUES
     10, 'easy', 5, true
 ),
 (
-    'q0005003-0006-0000-0000-000000000006',
-    'b0000005-0003-0000-0000-000000000005',
+    'd0005003-0006-0000-0000-000000000006',
+    'b0000005-0003-0000-0000-000000000003',
     'c0000000-0000-0000-0000-000000000005',
     'multiple_choice',
     '¿Qué exhortación sobre la sabiduría y la voluntad divina da Pablo en Efesios 5:17?',
@@ -584,54 +584,54 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO public.question_options (question_id, option_text, is_correct, order_index)
 VALUES
 -- q1: multiple_choice
-('q0005003-0001-0000-0000-000000000001', 'Porque los días son malos', true, 1),
-('q0005003-0001-0000-0000-000000000001', 'Porque el imperio romano prohíbe el descanso', false, 2),
-('q0005003-0001-0000-0000-000000000001', 'Para ganar riquezas comerciales en Éfeso', false, 3),
-('q0005003-0001-0000-0000-000000000001', 'Para competir con los filósofos griegos', false, 4),
+('d0005003-0001-0000-0000-000000000001', 'Porque los días son malos', true, 1),
+('d0005003-0001-0000-0000-000000000001', 'Porque el imperio romano prohíbe el descanso', false, 2),
+('d0005003-0001-0000-0000-000000000001', 'Para ganar riquezas comerciales en Éfeso', false, 3),
+('d0005003-0001-0000-0000-000000000001', 'Para competir con los filósofos griegos', false, 4),
 
 -- q2: fill_blank
-('q0005003-0002-0000-0000-000000000002', 'llenos', true, 1),
+('d0005003-0002-0000-0000-000000000002', 'llenos', true, 1),
 
 -- q3: multiple_choice
-('q0005003-0003-0000-0000-000000000003', 'Con salmos, con himnos y cánticos espirituales', true, 1),
-('q0005003-0003-0000-0000-000000000003', 'Con quejas, murmureos y disputas legales', false, 2),
-('q0005003-0003-0000-0000-000000000003', 'Con poemas paganos a la diosa Diana', false, 3),
-('q0005003-0003-0000-0000-000000000003', 'Con decretos imperiales de Roma', false, 4),
+('d0005003-0003-0000-0000-000000000003', 'Con salmos, con himnos y cánticos espirituales', true, 1),
+('d0005003-0003-0000-0000-000000000003', 'Con quejas, murmureos y disputas legales', false, 2),
+('d0005003-0003-0000-0000-000000000003', 'Con poemas paganos a la diosa Diana', false, 3),
+('d0005003-0003-0000-0000-000000000003', 'Con decretos imperiales de Roma', false, 4),
 
 -- q4: true_false
-('q0005003-0004-0000-0000-000000000004', 'Verdadero', false, 1),
-('q0005003-0004-0000-0000-000000000004', 'Falso', true, 2),
+('d0005003-0004-0000-0000-000000000004', 'Verdadero', false, 1),
+('d0005003-0004-0000-0000-000000000004', 'Falso', true, 2),
 
 -- q5: reference_identification
-('q0005003-0005-0000-0000-000000000005', 'Efesios 5:21', true, 1),
-('q0005003-0005-0000-0000-000000000005', 'Efesios 5:15', false, 2),
-('q0005003-0005-0000-0000-000000000005', 'Efesios 5:18', false, 3),
-('q0005003-0005-0000-0000-000000000005', 'Efesios 5:22', false, 4),
+('d0005003-0005-0000-0000-000000000005', 'Efesios 5:21', true, 1),
+('d0005003-0005-0000-0000-000000000005', 'Efesios 5:15', false, 2),
+('d0005003-0005-0000-0000-000000000005', 'Efesios 5:18', false, 3),
+('d0005003-0005-0000-0000-000000000005', 'Efesios 5:22', false, 4),
 
 -- q6: multiple_choice
-('q0005003-0006-0000-0000-000000000006', 'No seáis insensatos, sino entendidos de cuál sea la voluntad del Señor', true, 1),
-('q0005003-0006-0000-0000-000000000006', 'No estudiéis las Escrituras sin permiso sacerdotal', false, 2),
-('q0005003-0006-0000-0000-000000000006', 'No participéis en los cultos de la iglesia', false, 3),
-('q0005003-0006-0000-0000-000000000006', 'No hagáis preguntas sobre la doctrina', false, 4)
+('d0005003-0006-0000-0000-000000000006', 'No seáis insensatos, sino entendidos de cuál sea la voluntad del Señor', true, 1),
+('d0005003-0006-0000-0000-000000000006', 'No estudiéis las Escrituras sin permiso sacerdotal', false, 2),
+('d0005003-0006-0000-0000-000000000006', 'No participéis en los cultos de la iglesia', false, 3),
+('d0005003-0006-0000-0000-000000000006', 'No hagáis preguntas sobre la doctrina', false, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas Bloque 5.3
 INSERT INTO public.assessment_questions (assessment_id, question_id, order_index)
 VALUES
-('e0000005-0003-0000-0000-000000000003', 'q0005003-0001-0000-0000-000000000001', 1),
-('e0000005-0003-0000-0000-000000000003', 'q0005003-0002-0000-0000-000000000002', 2),
-('e0000005-0003-0000-0000-000000000003', 'q0005003-0003-0000-0000-000000000003', 3),
-('e0000005-0003-0000-0000-000000000003', 'q0005003-0004-0000-0000-000000000004', 4),
-('e0000005-0003-0000-0000-000000000003', 'q0005003-0005-0000-0000-000000000005', 5),
-('e0000005-0003-0000-0000-000000000003', 'q0005003-0006-0000-0000-000000000006', 6)
+('e0000005-0003-0000-0000-000000000003', 'd0005003-0001-0000-0000-000000000001', 1),
+('e0000005-0003-0000-0000-000000000003', 'd0005003-0002-0000-0000-000000000002', 2),
+('e0000005-0003-0000-0000-000000000003', 'd0005003-0003-0000-0000-000000000003', 3),
+('e0000005-0003-0000-0000-000000000003', 'd0005003-0004-0000-0000-000000000004', 4),
+('e0000005-0003-0000-0000-000000000003', 'd0005003-0005-0000-0000-000000000005', 5),
+('e0000005-0003-0000-0000-000000000003', 'd0005003-0006-0000-0000-000000000006', 6)
 ON CONFLICT DO NOTHING;
 
 -- PREGUNTAS BLOQUE 5.4 (Efesios 5:22-33)
 INSERT INTO public.questions (id, block_id, chapter_id, question_type, prompt, verse_reference, explanation, points, difficulty, order_index, is_active)
 VALUES
 (
-    'q0005004-0001-0000-0000-000000000001',
-    'b0000005-0004-0000-0000-000000000005',
+    'd0005004-0001-0000-0000-000000000001',
+    'b0000005-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000005',
     'multiple_choice',
     '¿Cuál es el modelo supremo que Pablo da a los maridos para amar a sus esposas en Efesios 5:25?',
@@ -640,8 +640,8 @@ VALUES
     10, 'easy', 1, true
 ),
 (
-    'q0005004-0002-0000-0000-000000000002',
-    'b0000005-0004-0000-0000-000000000005',
+    'd0005004-0002-0000-0000-000000000002',
+    'b0000005-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000005',
     'multiple_choice',
     '¿Para qué entregó Cristo su vida por la iglesia según Efesios 5:26-27?',
@@ -650,8 +650,8 @@ VALUES
     10, 'medium', 2, true
 ),
 (
-    'q0005004-0003-0000-0000-000000000003',
-    'b0000004-0004-0000-0000-000000000005',
+    'd0005004-0003-0000-0000-000000000003',
+    'b0000005-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000005',
     'fill_blank',
     'Completa Efesios 5:32: "Grande es este ________; mas yo digo esto respecto de Cristo y de la iglesia".',
@@ -660,8 +660,8 @@ VALUES
     10, 'easy', 3, true
 ),
 (
-    'q0005004-0004-0000-0000-000000000004',
-    'b0000004-0004-0000-0000-000000000005',
+    'd0005004-0004-0000-0000-000000000004',
+    'b0000005-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000005',
     'multiple_choice',
     '¿Qué pasaje del Antiguo Testamento cita Pablo en Efesios 5:31 para fundamentar el matrimonio?',
@@ -670,8 +670,8 @@ VALUES
     10, 'medium', 4, true
 ),
 (
-    'q0005004-0005-0000-0000-000000000005',
-    'b0000004-0004-0000-0000-000000000005',
+    'd0005004-0005-0000-0000-000000000005',
+    'b0000005-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000005',
     'true_false',
     'En Efesios 5:23 se establece que el marido es cabeza de la mujer, así como Cristo es cabeza de la iglesia.',
@@ -680,8 +680,8 @@ VALUES
     10, 'easy', 5, true
 ),
 (
-    'q0005004-0006-0000-0000-000000000006',
-    'b0000004-0004-0000-0000-000000000005',
+    'd0005004-0006-0000-0000-000000000006',
+    'b0000005-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000005',
     'reference_identification',
     '¿En qué versículo se encuentra la orden: "Maridos, amad a vuestras mujeres, así como Cristo amó a la iglesia, y se entregó a sí mismo por ella"?',
@@ -690,8 +690,8 @@ VALUES
     10, 'easy', 6, true
 ),
 (
-    'q0005004-0007-0000-0000-000000000007',
-    'b0000004-0004-0000-0000-000000000005',
+    'd0005004-0007-0000-0000-000000000007',
+    'b0000005-0004-0000-0000-000000000004',
     'c0000000-0000-0000-0000-000000000005',
     'multiple_choice',
     '¿Cuál es la doble síntesis práctica con que Pablo concluye el capítulo 5 en el versículo 33?',
@@ -705,51 +705,51 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO public.question_options (question_id, option_text, is_correct, order_index)
 VALUES
 -- q1: multiple_choice
-('q0005004-0001-0000-0000-000000000001', 'Así como Cristo amó a la iglesia, y se entregó a sí mismo por ella', true, 1),
-('q0005004-0001-0000-0000-000000000001', 'Según las costumbres patriarcales del imperio romano', false, 2),
-('q0005004-0001-0000-0000-000000000001', 'Exigiendo obediencia ciega sin dar nada a cambio', false, 3),
-('q0005004-0001-0000-0000-000000000001', 'Conforme al valor de la dote recibida de los suegros', false, 4),
+('d0005004-0001-0000-0000-000000000001', 'Así como Cristo amó a la iglesia, y se entregó a sí mismo por ella', true, 1),
+('d0005004-0001-0000-0000-000000000001', 'Según las costumbres patriarcales del imperio romano', false, 2),
+('d0005004-0001-0000-0000-000000000001', 'Exigiendo obediencia ciega sin dar nada a cambio', false, 3),
+('d0005004-0001-0000-0000-000000000001', 'Conforme al valor de la dote recibida de los suegros', false, 4),
 
 -- q2: multiple_choice
-('q0005004-0002-0000-0000-000000000002', 'Para santificarla y presentársela a sí mismo como una iglesia gloriosa sin mancha ni arruga', true, 1),
-('q0005004-0002-0000-0000-000000000002', 'Para edificar templos monumentales en Asia Menor', false, 2),
-('q0005004-0002-0000-0000-000000000002', 'Para someter a los reinos de la tierra por la fuerza', false, 3),
-('q0005004-0002-0000-0000-000000000002', 'Para abolir la institución del matrimonio civil', false, 4),
+('d0005004-0002-0000-0000-000000000002', 'Para santificarla y presentársela a sí mismo como una iglesia gloriosa sin mancha ni arruga', true, 1),
+('d0005004-0002-0000-0000-000000000002', 'Para edificar templos monumentales en Asia Menor', false, 2),
+('d0005004-0002-0000-0000-000000000002', 'Para someter a los reinos de la tierra por la fuerza', false, 3),
+('d0005004-0002-0000-0000-000000000002', 'Para abolir la institución del matrimonio civil', false, 4),
 
 -- q3: fill_blank
-('q0005004-0003-0000-0000-000000000003', 'misterio', true, 1),
+('d0005004-0003-0000-0000-000000000003', 'misterio', true, 1),
 
 -- q4: multiple_choice
-('q0005004-0004-0000-0000-000000000004', 'Génesis 2:24 (dejará el hombre a su padre y a su madre...)', true, 1),
-('q0005004-0004-0000-0000-000000000004', 'Éxodo 20:12 (honra a tu padre y a tu madre)', false, 2),
-('q0005004-0004-0000-0000-000000000004', 'Levítico 19:18 (amarás a tu prójimo)', false, 3),
-('q0005004-0004-0000-0000-000000000004', 'Deuteronomio 6:4 (Oye Israel, Jehová nuestro Dios)', false, 4),
+('d0005004-0004-0000-0000-000000000004', 'Génesis 2:24 (dejará el hombre a su padre y a su madre...)', true, 1),
+('d0005004-0004-0000-0000-000000000004', 'Éxodo 20:12 (honra a tu padre y a tu madre)', false, 2),
+('d0005004-0004-0000-0000-000000000004', 'Levítico 19:18 (amarás a tu prójimo)', false, 3),
+('d0005004-0004-0000-0000-000000000004', 'Deuteronomio 6:4 (Oye Israel, Jehová nuestro Dios)', false, 4),
 
 -- q5: true_false
-('q0005004-0005-0000-0000-000000000005', 'Verdadero', true, 1),
-('q0005004-0005-0000-0000-000000000005', 'Falso', false, 2),
+('d0005004-0005-0000-0000-000000000005', 'Verdadero', true, 1),
+('d0005004-0005-0000-0000-000000000005', 'Falso', false, 2),
 
 -- q6: reference_identification
-('q0005004-0006-0000-0000-000000000006', 'Efesios 5:25', true, 1),
-('q0005004-0006-0000-0000-000000000006', 'Efesios 5:22', false, 2),
-('q0005004-0006-0000-0000-000000000006', 'Efesios 5:28', false, 3),
-('q0005004-0006-0000-0000-000000000006', 'Efesios 5:31', false, 4),
+('d0005004-0006-0000-0000-000000000006', 'Efesios 5:25', true, 1),
+('d0005004-0006-0000-0000-000000000006', 'Efesios 5:22', false, 2),
+('d0005004-0006-0000-0000-000000000006', 'Efesios 5:28', false, 3),
+('d0005004-0006-0000-0000-000000000006', 'Efesios 5:31', false, 4),
 
 -- q7: multiple_choice
-('q0005004-0007-0000-0000-000000000007', 'El marido ame a su mujer como a sí mismo; y la mujer respete a su marido', true, 1),
-('q0005004-0007-0000-0000-000000000007', 'El marido gobierne con rigor y la mujer guarde silencio fuera del hogar', false, 2),
-('q0005004-0007-0000-0000-000000000007', 'Ambos vivan separados para no cometer pecado sexual', false, 3),
-('q0005004-0007-0000-0000-000000000007', 'Vivan sin reglas bajo el libre arbitrio de su propia opinión', false, 4)
+('d0005004-0007-0000-0000-000000000007', 'El marido ame a su mujer como a sí mismo; y la mujer respete a su marido', true, 1),
+('d0005004-0007-0000-0000-000000000007', 'El marido gobierne con rigor y la mujer guarde silencio fuera del hogar', false, 2),
+('d0005004-0007-0000-0000-000000000007', 'Ambos vivan separados para no cometer pecado sexual', false, 3),
+('d0005004-0007-0000-0000-000000000007', 'Vivan sin reglas bajo el libre arbitrio de su propia opinión', false, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas Bloque 5.4
 INSERT INTO public.assessment_questions (assessment_id, question_id, order_index)
 VALUES
-('e0000005-0004-0000-0000-000000000005', 'q0005004-0001-0000-0000-000000000001', 1),
-('e0000005-0004-0000-0000-000000000005', 'q0005004-0002-0000-0000-000000000002', 2),
-('e0000005-0004-0000-0000-000000000005', 'q0005004-0003-0000-0000-000000000003', 3),
-('e0000005-0004-0000-0000-000000000005', 'q0005004-0004-0000-0000-000000000004', 4),
-('e0000005-0004-0000-0000-000000000005', 'q0005004-0005-0000-0000-000000000005', 5),
-('e0000005-0004-0000-0000-000000000005', 'q0005004-0006-0000-0000-000000000006', 6),
-('e0000005-0004-0000-0000-000000000005', 'q0005004-0007-0000-0000-000000000007', 7)
+('e0000005-0004-0000-0000-000000000004', 'd0005004-0001-0000-0000-000000000001', 1),
+('e0000005-0004-0000-0000-000000000004', 'd0005004-0002-0000-0000-000000000002', 2),
+('e0000005-0004-0000-0000-000000000004', 'd0005004-0003-0000-0000-000000000003', 3),
+('e0000005-0004-0000-0000-000000000004', 'd0005004-0004-0000-0000-000000000004', 4),
+('e0000005-0004-0000-0000-000000000004', 'd0005004-0005-0000-0000-000000000005', 5),
+('e0000005-0004-0000-0000-000000000004', 'd0005004-0006-0000-0000-000000000006', 6),
+('e0000005-0004-0000-0000-000000000004', 'd0005004-0007-0000-0000-000000000007', 7)
 ON CONFLICT DO NOTHING;
