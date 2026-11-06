@@ -168,6 +168,15 @@ export async function getAssessmentForStudent(
     }
   }
 
+  // Si es el examen final del libro completo (book_final), aleatorizar las preguntas
+  // para que no sigan el orden secuencial de los capítulos (1 al 6)
+  if (assessment.type === "book_final" && questions.length > 0) {
+    questions = shuffleArray(questions).map((q, idx) => ({
+      ...q,
+      order_index: idx + 1,
+    }));
+  }
+
   return {
     ...assessment,
     questions,
