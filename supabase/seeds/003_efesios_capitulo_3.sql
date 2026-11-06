@@ -43,20 +43,20 @@ Pablo escribe desde la prisión romana, pero no se considera prisionero de Césa
 Un "misterio" en el vocabulario paulino no es un enigma incomprensible, sino una verdad que estuvo oculta en el pasado y que ahora Dios ha revelado soberanamente por su Espíritu.
 El contenido específico del misterio es triple (v. 6):
 a) "Coherederos": comparten la misma herencia divina con Israel.
-b) "Miembros del mismo cuerpo" (en griego syssōma): un solo organismo espiritual sin superioridad étnica.
+b) "Miembros del mismo cuerpo": formamos una sola familia espiritual unida en Cristo, sin división ni superioridad entre unos y otros.
 c) "Copartícipes de la promesa": reciben el cumplimiento pleno del Espíritu y la vida eterna en Cristo por medio del evangelio.
 
 3. El ministerio de la gracia y las inescrutables riquezas (v. 7-9):
 Con profunda humildad, Pablo se describe como "menos que el más pequeño de todos los santos", reconociendo que su apostolado es puro don. Su comisión es proclamar "las inescrutables riquezas de Cristo" (riquezas insondables e inagotables).
 
 4. La multiforme sabiduría de Dios y los ángeles (v. 10-13):
-La Iglesia tiene un propósito cósmico asombroso: ser el escenario donde "la multiforme sabiduría de Dios" (su sabiduría de múltiples matices y riquezas) es exhibida ante los principados y potestades celestiales (las jerarquías angelicales).
+La Iglesia tiene un propósito maravilloso en el plan de Dios: ser el escenario donde "la multiforme sabiduría de Dios" (su sabiduría de múltiples matices y riquezas) es exhibida ante los principados y potestades celestiales (las jerarquías angelicales).
 En Cristo, el creyente posee "seguridad y acceso con confianza por medio de la fe en él".',
     '[
         {"concept": "Misterio de Cristo", "definition": "El plan eterno de Dios antes oculto, revelado en el evangelio: que los gentiles son integrados en absoluta igualdad con los creyentes judíos en un solo cuerpo."},
         {"concept": "Coherederos y miembros del mismo cuerpo", "definition": "Plena igualdad espiritual y de derechos eternos entre gentiles y judíos en la Iglesia de Cristo."},
         {"concept": "Inescrutables riquezas", "definition": "Las bendiciones, gracia y atributos de Cristo que sobrepasan todo entendimiento y jamás pueden agotarse."},
-        {"concept": "Multiforme sabiduría", "definition": "Del griego polupoikilos, la infinita sabiduría de Dios desplegada en una variedad deslumbrante de facetas a través de la salvación de la Iglesia."}
+        {"concept": "Multiforme sabiduría", "definition": "La inmensa y variada sabiduría de Dios, mostrada de muchas maneras hermosas a través de la salvación de la Iglesia."}
     ]'::jsonb,
     '[
         "El misterio divino consiste en que los gentiles son coherederos y miembros del mismo cuerpo en Cristo mediante el evangelio.",
@@ -92,7 +92,7 @@ INSERT INTO public.block_explanations (
 )
 VALUES (
     'b0000003-0002-0000-0000-000000000002',
-    'Pablo dobla sus rodillas en una de las oraciones más sublimes de la Escritura, intercediendo por el fortalecimiento interior de los creyentes y culminando en una doxología eterna.',
+    'Pablo se arrodilla en una hermosa oración, pidiendo a Dios que fortalezca el corazón de los creyentes y terminando con una gran alabanza de gloria a Dios.',
     '14 Por esta causa doblo mis rodillas ante el Padre de nuestro Señor Jesucristo,
 15 de quien toma nombre toda familia en los cielos y en la tierra,
 16 para que os dé, conforme a las riquezas de su gloria, el ser fortalecidos con poder en el hombre interior por su Espíritu;
@@ -101,28 +101,24 @@ VALUES (
 19 y de conocer el amor de Cristo, que excede a todo conocimiento, para que seáis llenos de toda la plenitud de Dios.
 20 Y a Aquel que es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos, según el poder que actúa en nosotros,
 21 a él sea gloria en la iglesia en Cristo Jesús por todas las edades, por los siglos de los siglos. Amén.',
-    'Esta oración pastoral y apostólica asciende a las más altas cumbres de la vida espiritual:
+    'Esta oración pastoral y apostólica nos muestra la profundidad de la vida espiritual:
 
-1. La postura de reverencia y la paternidad divina (v. 14-15):
-"Doblo mis rodillas ante el Padre": la postura física de arrodillarse expresa profunda sumisión, reverencia y fervor. Dios es el gran Padre de quien "toma nombre toda familia en los cielos y en la tierra", fuente de toda paternidad legítima y comunión santa.
+1. Postura de reverencia y oración (v. 14-15):
+Pablo se arrodilla ante Dios con respeto y humildad. Reconoce a Dios como el Padre de quien procede toda familia en el cielo y en la tierra.
 
-2. Las cuatro peticiones progresivas de Pablo (v. 16-19):
-a) Poder interior (v. 16): Ser "fortalecidos con poder en el hombre interior por su Espíritu". La verdadera fuerza del cristiano radica en su interior renovado, no en apariencias externas.
-b) La morada de Cristo por la fe (v. 17a): Que Cristo "habite" (tome posesión permanente y se sienta cómodo en casa) en nuestros corazones.
-c) Arraigo y comprensión del amor inmenso (v. 17b-18): Dos metáforas: "arraigados" (como árbol robusto) y "cimentados" (como edificio inamovible) en amor, para comprender las cuatro dimensiones sagradas: la anchura, longitud, profundidad y altura de la redención.
-d) Conocer lo inabarcable (v. 19): "Conocer el amor de Cristo, que excede a todo conocimiento", experimentando lo que supera la pura razón intelectual, hasta ser "llenos de toda la plenitud de Dios".
+2. Las peticiones de Pablo para los creyentes (v. 16-19):
+a) Fortaleza interior: que el Espíritu Santo dé poder a nuestro corazón para mantenernos firmes.
+b) La presencia de Cristo: que Jesús viva y more en nuestros corazones por medio de la fe.
+c) Firmeza en el amor: estar bien arraigados y cimentados en el amor de Dios.
+d) Conocer el amor inmenso de Cristo: comprender lo ancho, largo, profundo y alto de su amor, que supera todo conocimiento humano, para ser llenos de la presencia de Dios.
 
-3. La doxología culminante (v. 20-21):
-Pablo concluye con una alabanza conmovedora a Aquel que "es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos, según el poder que actúa en nosotros".
-A Él sea gloria:
-- "En la iglesia": la asamblea redimida que testifica de su gracia.
-- "En Cristo Jesús": el mediador y cabeza eterna.
-- "Por todas las edades, por los siglos de los siglos. Amén".',
+3. Una gran alabanza final a Dios (v. 20-21):
+Pablo concluye con una alabanza conmovedora a Dios, quien tiene el poder de hacer muchísimo más de lo que pedimos o podemos imaginar, según el poder que actúa en nosotros. A Él sea toda la gloria en la Iglesia y en Cristo Jesús por siempre.',
     '[
-        {"concept": "Hombre interior", "definition": "La dimensión espiritual y moral del creyente regenerado, sustentada y renovada por el Espíritu Santo."},
-        {"concept": "Arraigados y cimentados", "definition": "Metáforas tomadas de la botánica (raíces profundas) y la construcción (cimientos sólidos) que describen estabilidad inamovible en el amor."},
-        {"concept": "El amor que excede a todo conocimiento", "definition": "El amor sacrificial de Cristo, tan vasto e inagotable que ninguna mente humana puede sondearlo por completo."},
-        {"concept": "Doxología", "definition": "Expresión solemne y litúrgica de alabanza y gloria dirigida exclusivamente al Dios Trino."}
+        {"concept": "Hombre interior", "definition": "El corazón y la vida espiritual del creyente, fortalecidos por el Espíritu Santo."},
+        {"concept": "Arraigados y cimentados", "definition": "Estar firmes y seguros en el amor de Dios, como un árbol con raíces profundas o una casa con buenos cimientos."},
+        {"concept": "El amor de Cristo", "definition": "El amor incondicional y sacrificado de Jesús, tan grande que supera todo entendimiento humano."},
+        {"concept": "Alabanza de gloria", "definition": "Expresión sincera de adoración que reconoce la grandeza y el poder supremo de Dios."}
     ]'::jsonb,
     '[
         "El Espíritu Santo fortalece con poder el hombre interior del creyente para que pueda resistir y perseverar.",
@@ -326,7 +322,7 @@ VALUES
     'b0000003-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000003',
     'reference_identification',
-    '¿En qué versículo se encuentra la doxología: "Y a Aquel que es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos"?',
+    '¿En qué versículo se encuentra la hermosa alabanza: "Y a Aquel que es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos"?',
     'Efesios 3:20',
     'Esta gloriosa alabanza se ubica en Efesios 3:20.',
     10, 'easy', 5, true

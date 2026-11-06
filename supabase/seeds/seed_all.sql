@@ -220,34 +220,32 @@ INSERT INTO public.block_explanations (
 )
 VALUES (
     'b0000001-0001-0000-0000-000000000001',
-    'Pablo inicia su epístola estableciendo con solemnidad su autoridad apostólica y el doble carácter de los creyentes en Éfeso: consagrados a Dios y perseverantes en su fe.',
+    'Pablo inicia su carta presentándose como apóstol llamado por la voluntad de Dios, y saluda con cariño a los creyentes de Éfeso, deseándoles la gracia y la paz del Señor.',
     '1 Pablo, apóstol de Jesucristo por la voluntad de Dios, a los santos y fieles en Cristo Jesús que están en Éfeso:
 2 Gracia y paz a vosotros, de Dios nuestro Padre y del Señor Jesucristo.',
-    'En estos dos versículos introductorios encontramos tres verdades fundamentales:
+    'En estos dos primeros versículos encontramos tres verdades sencillas e importantes:
 
-1. El origen del apostolado de Pablo (v. 1):
-Pablo no se autoproclamó apóstol ni fue designado por decisión humana o mérito personal, sino "por la voluntad de Dios". Esto confiere a la carta autoridad apostólica directa, no como una opinión privada, sino como revelación guiada por el Espíritu Santo.
+1. El llamamiento de Pablo (v. 1):
+Pablo no se nombró apóstol a sí mismo ni fue elegido por hombres, sino por la voluntad de Dios. Esto le da a su mensaje la autoridad de parte de Dios y del Espíritu Santo.
 
-2. La identidad de los destinatarios (v. 1):
-Los creyentes son descritos con dos términos complementarios:
-- "Santos" (apartados, consagrados para Dios): señala su posición ante Dios en virtud de la salvación.
-- "Fieles en Cristo Jesús": describe su conducta y perseverancia activa de confianza en el Salvador.
-Estar "en Cristo Jesús" es la esfera espiritual de vida del creyente; aunque geográficamente estaban "en Éfeso", espiritualmente su morada y seguridad estaban "en Cristo".
+2. A quiénes escribe (v. 1):
+Escribe a los creyentes de Éfeso, a quienes llama:
+- "Santos": apartados para Dios por medio de la salvación en Jesús.
+- "Fieles en Cristo Jesús": personas que confían firmemente en el Salvador y perseveran en su fe día a día.
+Estar "en Cristo" significa vivir en una relación personal, segura y cercana con Jesús.
 
-3. El saludo de bendición apostólica (v. 2):
-"Gracia y paz":
-- La gracia (favor inmerecido, fuente de salvación) siempre antecede a la paz.
-- La paz (reconciliación con Dios y serenidad espiritual) es el fruto directo de haber recibido la gracia. Ambas proceden conjuntamente de "Dios nuestro Padre y del Señor Jesucristo", colocando a Jesús en perfecta divinidad junto al Padre.',
+3. El saludo de bendición (v. 2):
+Pablo les desea "gracia y paz" de parte de Dios nuestro Padre y del Señor Jesucristo. La gracia es el amor inmerecido de Dios que nos salva, y la paz es la tranquilidad y reconciliación con Dios que recibimos gracias a ese amor.',
     '[
-        {"concept": "Apóstol", "definition": "Enviado o mensajero comisionado oficialmente con la autoridad de quien lo envía; en este caso, llamado por la expresa voluntad de Dios."},
-        {"concept": "Santos", "definition": "Personas apartadas y consagradas para Dios por la obra redentora de Jesucristo; no alude a perfección moral sin pecado, sino a una posición sagrada ante Dios."},
-        {"concept": "En Cristo Jesús", "definition": "Frase teológica cumbre de Pablo que expresa la unión vital, legal y espiritual del creyente con el Redentor."},
-        {"concept": "Gracia y Paz", "definition": "El favor inmerecido y soberano de Dios (gracia) que engendra descanso, perdón y reconciliación espiritual (paz)."}
+        {"concept": "Apóstol", "definition": "Mensajero o enviado especial comisionado con la autoridad de Dios."},
+        {"concept": "Santos", "definition": "Personas apartadas para Dios gracias al perdón y la obra de Jesucristo."},
+        {"concept": "En Cristo Jesús", "definition": "Expresión que enseña nuestra unión y relación cercana con Jesucristo."},
+        {"concept": "Gracia y Paz", "definition": "El favor inmerecido de Dios (gracia) y la profunda tranquilidad en el corazón (paz) que Él nos da."}
     ]'::jsonb,
     '[
-        "El ministerio apostólico de Pablo se origina en la soberana voluntad divina y no en ambiciones humanas.",
-        "Los creyentes son santos por su consagración a Dios y fieles por su perseverancia en la fe en Cristo.",
-        "La gracia divina siempre precede a la paz interior y relacional con Dios."
+        "El ministerio de Pablo proviene de la voluntad de Dios y no de decisiones humanas.",
+        "Los creyentes son santos por pertenecer a Dios y fieles por perseverar en su fe en Cristo.",
+        "La gracia y el amor de Dios siempre traen verdadera paz a nuestra vida."
     ]'::jsonb,
     '[
         {"phrase": "Pablo, apóstol de Jesucristo por la voluntad de Dios", "reference": "Efesios 1:1"},
@@ -276,35 +274,35 @@ INSERT INTO public.block_explanations (
 )
 VALUES (
     'b0000001-0002-0000-0000-000000000002',
-    'Pablo prorrumpa en una doxología gloriosa alabando al Padre por su plan eterno: habernos bendecido con toda bendición espiritual y escogido en Cristo para ser santos.',
+    'Pablo alaba a Dios Padre con alegría por su plan eterno: habernos bendecido con toda clase de bendiciones espirituales en Cristo y habernos elegido desde antes de la creación del mundo para vivir en santidad.',
     '3 Bendito sea el Dios y Padre de nuestro Señor Jesucristo, que nos bendijo con toda bendición espiritual en los lugares celestiales en Cristo,
 4 según nos escogió en él antes de la fundación del mundo, para que fuésemos santos y sin mancha delante de él,
 5 en amor habiéndonos predestinado para ser adoptados hijos suyos por medio de Jesucristo, según el puro afecto de su voluntad,
 6 para alabanza de la gloria de su gracia, con la cual nos hizo aceptos en el Amado,',
-    'Este pasaje contiene el fundamento eterno de la salvación del creyente:
+    'Este pasaje explica las grandes bendiciones que Dios preparó para nosotros desde el principio:
 
-1. La doxología y el alcance de las bendiciones (v. 3):
-Pablo bendice a Dios porque Él ya "nos bendijo" (en tiempo pasado, indicando una realidad ya concedida y consumada). No son bendiciones terrenales o materiales transitorias, sino "toda bendición espiritual", radicadas en "los lugares celestiales", la dimensión celestial gobernada por Cristo.
+1. Alabanza a Dios por sus bendiciones (v. 3):
+Pablo comienza alabando y dando gracias a Dios porque Él ya nos ha dado toda bendición espiritual en Cristo. No se trata de cosas materiales temporales, sino de bendiciones eternas que vienen del cielo y nos dan vida espiritual.
 
-2. La elección soberana antes del tiempo (v. 4):
-Dios nos escogió en Cristo "antes de la fundación del mundo". Esto demuestra que la salvación no fue una reacción imprevista de Dios ante la caída, sino un designio premeditado en la eternidad. El propósito de dicha elección es ético y espiritual: "para que fuésemos santos y sin mancha delante de él".
+2. Dios nos eligió por amor antes de la creación (v. 4):
+Antes de crear el mundo, Dios ya pensó en nosotros y nos eligió en Cristo. Su deseo es que vivamos una vida limpia, santa y sin mancha delante de Él.
 
-3. La predestinación para adopción de hijos (v. 5):
-La predestinación está enmarcada "en amor". El motivo de Dios no fue mérito alguno en el ser humano, sino "el puro afecto de su voluntad". La adopción confería todos los derechos legales y privilegios eternos de un hijo biológico en la familia de Dios.
+3. Fuimos adoptados como hijos suyos (v. 5):
+Por puro amor y porque así lo quiso, Dios decidió adoptarnos como sus propios hijos por medio de Jesucristo. Esto significa que ahora pertenecemos a su familia y tenemos todos los privilegios y el cuidado de un Padre celestial.
 
-4. El fin supremo de todo el plan redentor (v. 6):
-El objetivo final de la gracia no es la exaltación humana, sino "la alabanza de la gloria de su gracia". En virtud de Cristo, Dios nos hizo plenamente "aceptos en el Amado".',
+4. El propósito final: Dar gloria a Dios (v. 6):
+Todo este maravilloso plan tiene un objetivo: que reconozcamos y alabemos la grandeza del amor y la gracia de Dios, quien nos recibió y aceptó con los brazos abiertos por medio de su amado Hijo Jesús.',
     '[
-        {"concept": "Lugares celestiales", "definition": "El ámbito celestial donde Cristo reina y donde se originan y custodian todas las bendiciones espirituales."},
-        {"concept": "Elección eterna", "definition": "El acto soberano de Dios mediante el cual escoge a su pueblo en Cristo antes de la creación temporal del universo."},
-        {"concept": "Adopción de hijos", "definition": "El acto judicial y de gracia por el cual el creyente es integrado en la familia divina con plenos derechos de herencia eterna."},
-        {"concept": "El Amado", "definition": "Título mesiánico aplicado a Jesucristo, en quien el Padre tiene toda su complacencia."}
+        {"concept": "Lugares celestiales", "definition": "El reino celestial donde Cristo reina y desde donde Dios nos regala sus bendiciones espirituales."},
+        {"concept": "Elección de Dios", "definition": "La decisión llena de amor con la que Dios nos escogió en Cristo antes de crear el mundo."},
+        {"concept": "Adopción como hijos", "definition": "El regalo de gracia por el cual Dios nos recibe en su propia familia como sus verdaderos hijos."},
+        {"concept": "El Amado", "definition": "Nombre que se refiere a Jesucristo, el Hijo amado en quien el Padre se complace."}
     ]'::jsonb,
     '[
-        "Dios ya ha otorgado al creyente la totalidad de las bendiciones espirituales en Cristo.",
-        "La elección divina ocurrió antes de la creación del mundo con el fin de vivir en santidad e integridad.",
-        "La adopción filial brota exclusivamente del puro afecto y beneplácito de la voluntad de Dios.",
-        "La meta de la salvación es la exaltación y alabanza de la gloria de la gracia divina."
+        "Dios ya nos bendijo con toda clase de bendiciones espirituales y eternas en Cristo.",
+        "Dios nos eligió antes de crear el mundo para que vivamos en santidad y amor.",
+        "Fuimos adoptados como hijos de Dios por su propio amor y voluntad, no por nuestras obras.",
+        "El propósito de salvarnos es alabar la maravillosa gracia y bondad de Dios."
     ]'::jsonb,
     '[
         {"phrase": "Nos bendijo con toda bendición espiritual en los lugares celestiales en Cristo", "reference": "Efesios 1:3"},
@@ -334,7 +332,7 @@ INSERT INTO public.block_explanations (
 )
 VALUES (
     'b0000001-0003-0000-0000-000000000003',
-    'Pablo expone la obra del Hijo que redime por su sangre y la obra del Espíritu Santo que sella al creyente como garantía de la herencia eterna.',
+    'Pablo nos enseña cómo Jesús nos rescató mediante su sangre y cómo el Espíritu Santo asegura nuestra salvación para siempre.',
     '7 en quien tenemos redención por su sangre, el perdón de pecados según las riquezas de su gracia,
 8 que hizo sobreabundar para con nosotros en toda sabiduría e inteligencia,
 9 dándonos a conocer el misterio de su voluntad, según su beneplácito, el cual se había propuesto en sí mismo,
@@ -343,35 +341,34 @@ VALUES (
 12 a fin de que seamos para alabanza de su gloria, nosotros los que primeramente esperábamos en Cristo.
 13 En él también vosotros, habiendo oído la palabra de verdad, el evangelio de vuestra salvación, y habiendo creído en él, fuisteis sellados con el Espíritu Santo de la promesa,
 14 que es las arras de nuestra herencia hasta la redención de la posesión adquirida, para alabanza de su gloria.',
-    'Este pasaje despliega la consumación histórica y la aplicación personal de la redención:
+    'Este pasaje nos muestra las bendiciones prácticas de la salvación en Cristo:
 
-1. El precio y alcance de la redención (v. 7-8):
-Nuestra liberación no se pagó con riquezas terrenales sino "por su sangre", obteniendo "el perdón de pecados". Esto no fue medido con escasez, sino "según las riquezas de su gracia", manifestada con sobreabundante sabiduría espiritual.
+1. El perdón y el rescate por la sangre de Jesús (v. 7-8):
+Nuestra libertad del pecado se pagó con la sangre de Cristo en la cruz, recibiendo el perdón de todas nuestras faltas. Dios nos dio este perdón con gran abundancia y sabiduría.
 
-2. La revelación del misterio cósmico (v. 9-10):
-Dios nos dio a conocer "el misterio de su voluntad": el propósito final de la historia es "reunir todas las cosas en Cristo", tanto las celestiales como las terrenales, bajo su supremo señorío cuando los tiempos alcancen su plenitud.
+2. El gran plan de Dios para toda la creación (v. 9-10):
+Dios nos dio a conocer el secreto de su plan: que en el momento indicado, Él unirá bajo la autoridad y el amor de Cristo todas las cosas, tanto las que están en el cielo como en la tierra.
 
-3. La herencia en Cristo (v. 11-12):
-En Cristo los creyentes participan de una gloriosa herencia eterna, ordenada conforme al designio soberano de Aquel que ejecuta todas las cosas según su consejo perfecto.
+3. Nuestra herencia eterna (v. 11-12):
+En Cristo tenemos una herencia prometida. Dios realiza todas las cosas según su sabio y perfecto plan, para que nuestras vidas sirvan para alabar su gloria.
 
-4. El sello y las arras del Espíritu Santo (v. 13-14):
-Pablo describe el orden de la experiencia salvífica:
-1) Oír la palabra de verdad (el evangelio).
-2) Creer en Cristo.
-3) Ser "sellados con el Espíritu Santo de la promesa".
-El sello simbolizaba propiedad irrevocable, autenticidad y seguridad.
-El Espíritu es además "las arras de nuestra herencia": un anticipo o garantía divina que asegura la redención final de la posesión que Dios adquirió.',
+4. El sello y la promesa del Espíritu Santo (v. 13-14):
+Pablo describe los pasos de nuestra salvación:
+1) Escuchar el mensaje de la verdad, el evangelio.
+2) Creer de corazón en Cristo.
+3) Recibir el Espíritu Santo como un sello que confirma que somos de Dios.
+El Espíritu Santo es la garantía que Dios nos da de que completará nuestra salvación eterna.',
     '[
-        {"concept": "Redención", "definition": "Liberación mediante el pago de un rescate; en Cristo, la liberación de la condenación del pecado pagada con su propia sangre."},
-        {"concept": "Misterio de su voluntad", "definition": "Verdad previamente velada en el Antiguo Testamento que Dios revela ahora en el evangelio: la centralidad absoluta de Cristo unificando toda la creación."},
-        {"concept": "Sello del Espíritu Santo", "definition": "Marca divina e indeleble de propiedad, protección y autenticidad conferida al creyente al momento de creer."},
-        {"concept": "Arras", "definition": "Garantía, depósito inicial o anticipo legal que asegura que la totalidad del pago o herencia prometida se consumará."}
+        {"concept": "Redención", "definition": "Liberación del pecado y de la condenación, pagada por Cristo con su propia sangre en la cruz."},
+        {"concept": "El plan de su voluntad", "definition": "El propósito de Dios revelado en el evangelio: unir y gobernar todas las cosas por medio de Cristo."},
+        {"concept": "Sello del Espíritu Santo", "definition": "La marca espiritual de pertenencia, protección y seguridad que Dios pone en el creyente al creer."},
+        {"concept": "Arras (Garantía)", "definition": "El anticipo o garantía divina que nos asegura que recibiremos la herencia eterna prometida."}
     ]'::jsonb,
     '[
-        "La redención y el perdón de los pecados tienen como precio único y suficiente la sangre de Jesucristo.",
-        "El propósito supremo de Dios en la plenitud de los tiempos es encabezar y unificar todas las cosas en Cristo.",
-        "Al creer en el evangelio, todo cristiano es sellado por el Espíritu Santo como pertenencia perpetua de Dios.",
-        "El Espíritu Santo es la fianza y anticipo divino que asegura nuestra glorificación final."
+        "El perdón de nuestros pecados fue pagado con la sangre de Jesucristo.",
+        "El propósito supremo de Dios es unir y gobernar todas las cosas bajo Cristo.",
+        "Al creer en el evangelio, todo cristiano recibe el Espíritu Santo como sello de que pertenece a Dios.",
+        "El Espíritu Santo es la garantía segura de nuestra salvación eterna."
     ]'::jsonb,
     '[
         {"phrase": "En quien tenemos redención por su sangre, el perdón de pecados", "reference": "Efesios 1:7"},
@@ -401,7 +398,7 @@ INSERT INTO public.block_explanations (
 )
 VALUES (
     'b0000001-0004-0000-0000-000000000004',
-    'Pablo eleva una oración ferviente para que los creyentes conozcan experimentalmente la grandeza de Dios, culminando en la proclamación del señorío cósmico de Cristo sobre la Iglesia.',
+    'Pablo ora de corazón para que los creyentes conozcan en su propia vida el inmenso poder de Dios, y declara la autoridad de Cristo sobre todo el universo y sobre la Iglesia.',
     '15 Por esta causa también yo, habiendo oído de vuestra fe en el Señor Jesús, y de vuestro amor para con todos los santos,
 16 no ceso de dar gracias por vosotros, haciendo memoria de vosotros en mis oraciones,
 17 para que el Dios de nuestro Señor Jesucristo, el Padre de gloria, os dé espíritu de sabiduría y de revelación en el conocimiento de él,
@@ -411,34 +408,33 @@ VALUES (
 21 sobre todo principado y autoridad y poder y señorío, y sobre todo nombre que se nombra, no sólo en este siglo, sino también en el venidero;
 22 y sometió todas las cosas bajo sus pies, y lo dio por cabeza sobre todas las cosas a la iglesia,
 23 la cual es su cuerpo, la plenitud de Aquel que todo lo llena en todo.',
-    'Esta magnífica oración apostólica revela las prioridades espirituales de Pablo:
+    'Esta hermosa oración muestra lo que Pablo más deseaba para los creyentes:
 
-1. El motivo de gratitud (v. 15-16):
-Pablo agradece a Dios por dos evidencias indispensables de salvación genuina: fe auténtica en Jesucristo y amor sincero y práctico hacia "todos los santos".
+1. Gratitud por su fe y amor (v. 15-16):
+Pablo da gracias a Dios por dos cosas que demuestran una fe viva: la confianza sincera en Jesús y el amor hacia todos los hermanos en la fe.
 
-2. La petición de sabiduría e iluminación espiritual (v. 17-18):
-Pablo ruega por "espíritu de sabiduría y de revelación" para conocer profundamente a Dios, pidiendo que sean "alumbrados los ojos de vuestro entendimiento".
-Pide que comprendan tres realidades trascendentales:
-a) Cuál es la esperanza del llamamiento divino.
-b) Cuáles son las riquezas de la gloria de su herencia.
-c) Cuál es la supereminente grandeza de su poder hacia los creyentes.
+2. Petición de sabiduría y entendimiento (v. 17-18):
+Pablo pide a Dios que abra los ojos de nuestro corazón para que comprendamos:
+a) La gloriosa esperanza a la que nos ha llamado.
+b) Lo valiosos que somos para Él como su herencia.
+c) La grandeza incomparable de su poder a favor de los que creemos.
 
-3. El poder manifestado en la resurrección y exaltación de Cristo (v. 19-21):
-El poder que obra en el creyente es el mismo poder omnipotente que resucitó a Cristo de entre los muertos y lo sentó a la diestra del Padre en lugares celestiales. Cristo está infinitamente por encima de todo principado, autoridad, poder, señorío y cualquier título que exista en el siglo presente y en el venidero.
+3. El poder demostrado en la resurrección de Jesús (v. 19-21):
+El poder de Dios que actúa en nosotros es el mismo gran poder con el que resucitó a Jesús y lo sentó a su derecha en el cielo, dándole autoridad sobre todo poder, gobierno o título en este mundo o en el venidero.
 
-4. Cristo, cabeza soberana de la Iglesia (v. 22-23):
-El Padre puso "todas las cosas bajo sus pies". Y para bendición de su pueblo, dio a este Cristo soberano como "cabeza sobre todas las cosas a la iglesia". La Iglesia es su cuerpo místico y visible, la plenitud de Aquel que satura y llena todo en todo.',
+4. Cristo es la cabeza de la Iglesia (v. 22-23):
+Dios puso todo bajo los pies de Jesús y lo nombró cabeza sobre todas las cosas para bien de la Iglesia. La Iglesia es su cuerpo, llena del amor y la presencia de Cristo.',
     '[
-        {"concept": "Espíritu de sabiduría y revelación", "definition": "Don espiritual del Espíritu Santo que capacita la mente humana para comprender la verdad de Dios y su carácter."},
-        {"concept": "Ojos del entendimiento", "definition": "Capacidad espiritual e interior del corazón para discernir las realidades invisibles y eternas del reino de Dios."},
-        {"concept": "Supereminente grandeza de su poder", "definition": "El poder todopoderoso de Dios (dunamis) que sobrepasa toda medida humana, demostrado en la resurrección de Cristo."},
-        {"concept": "Cabeza de la Iglesia", "definition": "La posición de autoridad absoluta, gobierno vital y sustento que Jesucristo ejerce sobre su cuerpo que es la Iglesia."}
+        {"concept": "Espíritu de sabiduría", "definition": "La ayuda del Espíritu Santo para entender la verdad de Dios y conocerlo cada día mejor."},
+        {"concept": "Ojos del entendimiento", "definition": "La capacidad del corazón para comprender las verdades espirituales de Dios."},
+        {"concept": "La grandeza de su poder", "definition": "El inmenso poder de Dios a favor de los creyentes, demostrado al resucitar a Cristo."},
+        {"concept": "Cabeza de la Iglesia", "definition": "La posición de máxima autoridad, amor y cuidado que Jesucristo ejerce sobre su Iglesia."}
     ]'::jsonb,
     '[
-        "La fe en el Señor Jesús debe manifestarse necesariamente en amor práctico hacia los hermanos en la fe.",
-        "El verdadero conocimiento espiritual requiere la iluminación interior que solo el Espíritu Santo puede otorgar.",
-        "El mismo poder que resucitó a Jesús de los muertos opera activa y eficazmente en los creyentes.",
-        "Cristo está entronizado sobre toda jerarquía espiritual y terrenal, y reina como cabeza protectora de su Iglesia."
+        "La fe sincera en Jesús se demuestra amando a los demás creyentes.",
+        "Para conocer a Dios necesitamos que el Espíritu Santo ilumine y guíe nuestro corazón.",
+        "El mismo poder que resucitó a Jesús de los muertos actúa hoy a favor de los creyentes.",
+        "Cristo tiene autoridad suprema sobre todas las cosas y cuida con amor a su Iglesia."
     ]'::jsonb,
     '[
         {"phrase": "Haciendo memoria de vosotros en mis oraciones", "reference": "Efesios 1:16"},
@@ -981,10 +977,10 @@ c) Nos hizo sentar en los lugares celestiales con Cristo Jesús.
 4. El propósito de la salvación: buenas obras (v. 10):
 Las buenas obras no son la raíz o causa de la salvación, sino su fruto necesario. Somos "hechura suya" (su poema u obra maestra espiritual), creados en Cristo Jesús "para buenas obras, las cuales Dios preparó de antemano para que anduviésemos en ellas".',
     '[
-        {"concept": "Muertos en pecados", "definition": "Incapacidad y alienación espiritual absoluta respecto a Dios; la imposibilidad del ser humano de salvarse o justificarse a sí mismo."},
+        {"concept": "Muertos en pecados", "definition": "Estar separados de Dios y sin vida espiritual a causa del pecado, sin poder salvarnos por nuestras propias fuerzas."},
         {"concept": "Gracia", "definition": "El favor inmerecido y generoso de Dios que otorga salvación, vida eterna y bendición a quien merecía juicio."},
         {"concept": "Don de Dios", "definition": "Un regalo soberano y gratuito otorgado por Dios que no puede ser comprado, ganado ni merecido por el hombre."},
-        {"concept": "Hechura suya", "definition": "Del griego poiēma, creación u obra de arte exclusiva de Dios producida por medio de la regeneración en Cristo."}
+        {"concept": "Hechura suya", "definition": "Somos una creación u obra especial de Dios, transformados por medio de Cristo para hacer el bien."}
     ]'::jsonb,
     '[
         "El ser humano sin Cristo está espiritualmente muerto e impotente en sus pecados.",
@@ -1302,10 +1298,10 @@ VALUES
 ('d0002001-0006-0000-0000-000000000006', 'Efesios 2:8', false, 4, null),
 
 -- q7: order_events
-('d0002001-0007-0000-0000-000000000007', 'Estabais muertos en vuestros delitos y pecados (v. 1)', true, 1, 1),
-('d0002001-0007-0000-0000-000000000007', 'Dios nos dio vida juntamente con Cristo por su gran amor (v. 4-5)', true, 2, 2),
-('d0002001-0007-0000-0000-000000000007', 'Por gracia sois salvos por medio de la fe; no por obras (v. 8-9)', true, 3, 3),
-('d0002001-0007-0000-0000-000000000007', 'Creados en Cristo Jesús para buenas obras preparadas de antemano (v. 10)', true, 4, 4)
+('d0002001-0007-0000-0000-000000000007', 'Estabais muertos en vuestros delitos y pecados', true, 1, 1),
+('d0002001-0007-0000-0000-000000000007', 'Dios nos dio vida juntamente con Cristo por su gran amor', true, 2, 2),
+('d0002001-0007-0000-0000-000000000007', 'Por gracia sois salvos por medio de la fe; no por obras', true, 3, 3),
+('d0002001-0007-0000-0000-000000000007', 'Creados en Cristo Jesús para buenas obras preparadas de antemano', true, 4, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas Bloque 2.1
@@ -1702,20 +1698,20 @@ Pablo escribe desde la prisión romana, pero no se considera prisionero de Césa
 Un "misterio" en el vocabulario paulino no es un enigma incomprensible, sino una verdad que estuvo oculta en el pasado y que ahora Dios ha revelado soberanamente por su Espíritu.
 El contenido específico del misterio es triple (v. 6):
 a) "Coherederos": comparten la misma herencia divina con Israel.
-b) "Miembros del mismo cuerpo" (en griego syssōma): un solo organismo espiritual sin superioridad étnica.
+b) "Miembros del mismo cuerpo": formamos una sola familia espiritual unida en Cristo, sin división ni superioridad entre unos y otros.
 c) "Copartícipes de la promesa": reciben el cumplimiento pleno del Espíritu y la vida eterna en Cristo por medio del evangelio.
 
 3. El ministerio de la gracia y las inescrutables riquezas (v. 7-9):
 Con profunda humildad, Pablo se describe como "menos que el más pequeño de todos los santos", reconociendo que su apostolado es puro don. Su comisión es proclamar "las inescrutables riquezas de Cristo" (riquezas insondables e inagotables).
 
 4. La multiforme sabiduría de Dios y los ángeles (v. 10-13):
-La Iglesia tiene un propósito cósmico asombroso: ser el escenario donde "la multiforme sabiduría de Dios" (su sabiduría de múltiples matices y riquezas) es exhibida ante los principados y potestades celestiales (las jerarquías angelicales).
+La Iglesia tiene un propósito maravilloso en el plan de Dios: ser el escenario donde "la multiforme sabiduría de Dios" (su sabiduría de múltiples matices y riquezas) es exhibida ante los principados y potestades celestiales (las jerarquías angelicales).
 En Cristo, el creyente posee "seguridad y acceso con confianza por medio de la fe en él".',
     '[
         {"concept": "Misterio de Cristo", "definition": "El plan eterno de Dios antes oculto, revelado en el evangelio: que los gentiles son integrados en absoluta igualdad con los creyentes judíos en un solo cuerpo."},
         {"concept": "Coherederos y miembros del mismo cuerpo", "definition": "Plena igualdad espiritual y de derechos eternos entre gentiles y judíos en la Iglesia de Cristo."},
         {"concept": "Inescrutables riquezas", "definition": "Las bendiciones, gracia y atributos de Cristo que sobrepasan todo entendimiento y jamás pueden agotarse."},
-        {"concept": "Multiforme sabiduría", "definition": "Del griego polupoikilos, la infinita sabiduría de Dios desplegada en una variedad deslumbrante de facetas a través de la salvación de la Iglesia."}
+        {"concept": "Multiforme sabiduría", "definition": "La inmensa y variada sabiduría de Dios, mostrada de muchas maneras hermosas a través de la salvación de la Iglesia."}
     ]'::jsonb,
     '[
         "El misterio divino consiste en que los gentiles son coherederos y miembros del mismo cuerpo en Cristo mediante el evangelio.",
@@ -1751,7 +1747,7 @@ INSERT INTO public.block_explanations (
 )
 VALUES (
     'b0000003-0002-0000-0000-000000000002',
-    'Pablo dobla sus rodillas en una de las oraciones más sublimes de la Escritura, intercediendo por el fortalecimiento interior de los creyentes y culminando en una doxología eterna.',
+    'Pablo se arrodilla en una hermosa oración, pidiendo a Dios que fortalezca el corazón de los creyentes y terminando con una gran alabanza de gloria a Dios.',
     '14 Por esta causa doblo mis rodillas ante el Padre de nuestro Señor Jesucristo,
 15 de quien toma nombre toda familia en los cielos y en la tierra,
 16 para que os dé, conforme a las riquezas de su gloria, el ser fortalecidos con poder en el hombre interior por su Espíritu;
@@ -1760,28 +1756,24 @@ VALUES (
 19 y de conocer el amor de Cristo, que excede a todo conocimiento, para que seáis llenos de toda la plenitud de Dios.
 20 Y a Aquel que es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos, según el poder que actúa en nosotros,
 21 a él sea gloria en la iglesia en Cristo Jesús por todas las edades, por los siglos de los siglos. Amén.',
-    'Esta oración pastoral y apostólica asciende a las más altas cumbres de la vida espiritual:
+    'Esta oración pastoral y apostólica nos muestra la profundidad de la vida espiritual:
 
-1. La postura de reverencia y la paternidad divina (v. 14-15):
-"Doblo mis rodillas ante el Padre": la postura física de arrodillarse expresa profunda sumisión, reverencia y fervor. Dios es el gran Padre de quien "toma nombre toda familia en los cielos y en la tierra", fuente de toda paternidad legítima y comunión santa.
+1. Postura de reverencia y oración (v. 14-15):
+Pablo se arrodilla ante Dios con respeto y humildad. Reconoce a Dios como el Padre de quien procede toda familia en el cielo y en la tierra.
 
-2. Las cuatro peticiones progresivas de Pablo (v. 16-19):
-a) Poder interior (v. 16): Ser "fortalecidos con poder en el hombre interior por su Espíritu". La verdadera fuerza del cristiano radica en su interior renovado, no en apariencias externas.
-b) La morada de Cristo por la fe (v. 17a): Que Cristo "habite" (tome posesión permanente y se sienta cómodo en casa) en nuestros corazones.
-c) Arraigo y comprensión del amor inmenso (v. 17b-18): Dos metáforas: "arraigados" (como árbol robusto) y "cimentados" (como edificio inamovible) en amor, para comprender las cuatro dimensiones sagradas: la anchura, longitud, profundidad y altura de la redención.
-d) Conocer lo inabarcable (v. 19): "Conocer el amor de Cristo, que excede a todo conocimiento", experimentando lo que supera la pura razón intelectual, hasta ser "llenos de toda la plenitud de Dios".
+2. Las peticiones de Pablo para los creyentes (v. 16-19):
+a) Fortaleza interior: que el Espíritu Santo dé poder a nuestro corazón para mantenernos firmes.
+b) La presencia de Cristo: que Jesús viva y more en nuestros corazones por medio de la fe.
+c) Firmeza en el amor: estar bien arraigados y cimentados en el amor de Dios.
+d) Conocer el amor inmenso de Cristo: comprender lo ancho, largo, profundo y alto de su amor, que supera todo conocimiento humano, para ser llenos de la presencia de Dios.
 
-3. La doxología culminante (v. 20-21):
-Pablo concluye con una alabanza conmovedora a Aquel que "es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos, según el poder que actúa en nosotros".
-A Él sea gloria:
-- "En la iglesia": la asamblea redimida que testifica de su gracia.
-- "En Cristo Jesús": el mediador y cabeza eterna.
-- "Por todas las edades, por los siglos de los siglos. Amén".',
+3. Una gran alabanza final a Dios (v. 20-21):
+Pablo concluye con una alabanza conmovedora a Dios, quien tiene el poder de hacer muchísimo más de lo que pedimos o podemos imaginar, según el poder que actúa en nosotros. A Él sea toda la gloria en la Iglesia y en Cristo Jesús por siempre.',
     '[
-        {"concept": "Hombre interior", "definition": "La dimensión espiritual y moral del creyente regenerado, sustentada y renovada por el Espíritu Santo."},
-        {"concept": "Arraigados y cimentados", "definition": "Metáforas tomadas de la botánica (raíces profundas) y la construcción (cimientos sólidos) que describen estabilidad inamovible en el amor."},
-        {"concept": "El amor que excede a todo conocimiento", "definition": "El amor sacrificial de Cristo, tan vasto e inagotable que ninguna mente humana puede sondearlo por completo."},
-        {"concept": "Doxología", "definition": "Expresión solemne y litúrgica de alabanza y gloria dirigida exclusivamente al Dios Trino."}
+        {"concept": "Hombre interior", "definition": "El corazón y la vida espiritual del creyente, fortalecidos por el Espíritu Santo."},
+        {"concept": "Arraigados y cimentados", "definition": "Estar firmes y seguros en el amor de Dios, como un árbol con raíces profundas o una casa con buenos cimientos."},
+        {"concept": "El amor de Cristo", "definition": "El amor incondicional y sacrificado de Jesús, tan grande que supera todo entendimiento humano."},
+        {"concept": "Alabanza de gloria", "definition": "Expresión sincera de adoración que reconoce la grandeza y el poder supremo de Dios."}
     ]'::jsonb,
     '[
         "El Espíritu Santo fortalece con poder el hombre interior del creyente para que pueda resistir y perseverar.",
@@ -1985,7 +1977,7 @@ VALUES
     'b0000003-0002-0000-0000-000000000002',
     'c0000000-0000-0000-0000-000000000003',
     'reference_identification',
-    '¿En qué versículo se encuentra la doxología: "Y a Aquel que es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos"?',
+    '¿En qué versículo se encuentra la hermosa alabanza: "Y a Aquel que es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos"?',
     'Efesios 3:20',
     'Esta gloriosa alabanza se ubica en Efesios 3:20.',
     10, 'easy', 5, true
@@ -2178,7 +2170,7 @@ La madurez bíblica protege a la iglesia de ser "niños fluctuantes", vulnerable
 El camino es: "siguiendo la verdad en amor", donde cada miembro, como una coyuntura viva conectada a la Cabeza que es Cristo, cumple su función activa y hace crecer el cuerpo en edificación y amor.',
     '[
         {"concept": "Don de Cristo", "definition": "Capacitación espiritual y gracia otorgada individualmente a cada creyente para el servicio en el cuerpo de Cristo."},
-        {"concept": "Perfeccionar a los santos", "definition": "Del griego katartismos, equipar, adiestrar y poner en orden a los creyentes para que ejerzan su ministerio propio."},
+        {"concept": "Perfeccionar a los santos", "definition": "Capacitar, preparar y animar a los creyentes para que cada uno pueda servir a Dios y ayudar a los demás."},
         {"concept": "Medida de la estatura de Cristo", "definition": "El estándar perfecto de carácter, madurez y santidad que la Iglesia como cuerpo debe alcanzar."},
         {"concept": "Viento de doctrina", "definition": "Enseñanzas falsas, modas teológicas erradas o manipulaciones humanas que confunden a los inmaduros en la fe."}
     ]'::jsonb,
@@ -2926,7 +2918,7 @@ VALUES (
 Despiértate, tú que duermes,
 Y levántate de los muertos,
 Y te alumbrará Cristo.',
-    'Pablo utiliza el poderoso contraste cósmico entre la luz y las tinieblas:
+    'Pablo muestra el gran contraste entre la luz y la oscuridad:
 
 1. De tinieblas a luz (v. 8):
 Pablo no dice meramente que estaban "en" tinieblas, sino: "en otro tiempo erais tinieblas". El pecado saturaba su ser interior.
@@ -3002,7 +2994,7 @@ VALUES (
 1. Caminar con diligencia y redimir el tiempo (v. 15-17):
 "Mirad, pues, con diligencia cómo andéis":
 - El cristiano examina cuidadosamente por dónde pisa su vida moral.
-- "Redimiendo el tiempo" (en griego exagorazō): comprar o rescatar cada oportunidad estratégica para la gloria de Dios de un mercado dominado por la maldad ("porque los días son malos").
+- "Aprovechando bien el tiempo": usar cada momento y oportunidad con sabiduría para hacer el bien y honrar a Dios en medio de un mundo difícil.
 - El necio malgasta la vida; el sabio procura ser "entendido de cuál sea la voluntad del Señor".
 
 2. La orden de ser llenos del Espíritu Santo (v. 18):
@@ -3631,7 +3623,7 @@ Pablo se dirige especialmente a los padres (patres, cabezas de hogar) con un man
   Evitar la severidad irrazonable, el maltrato verbal o físico, la arbitrariedad, la humillación o la hipocresía que engendra resentimiento y amargura en el corazón de los hijos.
 - Mandato positivo: "sino criadlos en disciplina y amonestación del Señor".
   Nutrirlos amorosamente en:
-  a) "Disciplina" (en griego paideia): entrenamiento integral, corrección formativa y hábitos piadosos.
+  a) "Disciplina": enseñanza con amor, corrección paciente y buen ejemplo en los caminos del Señor.
   b) "Amonestación del Señor": instrucción verbal basada en las verdades de la Palabra de Dios.',
     '[
         {"concept": "Obediencia en el Señor", "definition": "Acatar las instrucciones de los padres motivado por el deseo de agradar a Cristo y someterse a su orden soberano."},
@@ -3825,7 +3817,7 @@ c) Gracia: el favor eterno de Dios reservado para "todos los que aman a nuestro 
     '[
         {"concept": "Fiel ministro", "definition": "Un siervo de Cristo caracterizado por su lealtad, perseverancia, doctrina sana y confiabilidad en la encomienda del Señor."},
         {"concept": "Consolar los corazones", "definition": "El ministerio pastoral de confortar, alentar y afirmar la fe de los hermanos ante la adversidad."},
-        {"concept": "Amor inalterable", "definition": "En griego aphtharsia, un amor incorruptible, inmortal, puro y perpetuo que jamás se marchita ni claudica."}
+        {"concept": "Amor inalterable", "definition": "Un amor sincero, puro y constante hacia nuestro Señor Jesucristo, que nunca se apaga."}
     ]'::jsonb,
     '[
         "El ministerio apostólico y pastoral se fundamenta en la colaboración de siervos fieles y amados como Tíquico.",
@@ -4555,7 +4547,7 @@ VALUES
     'reference_identification',
     '¿En qué versículo de Efesios 1 se declara: "Nos bendijo con toda bendición espiritual en los lugares celestiales en Cristo"?',
     'Efesios 1:3',
-    'Esta célebre doxología y declaración apostólica se ubica textualmente en Efesios 1:3.',
+    'Esta célebre alabanza y declaración apostólica se ubica textualmente en Efesios 1:3.',
     10, 'medium', 23, true
 ),
 -- Pregunta 24 (Ref Ident)
@@ -4691,10 +4683,10 @@ VALUES
 ('c0010000-0000-0000-0000-000000000024', 'Efesios 1:18', false, 4),
 
 -- q25: ordering
-('c0010000-0000-0000-0000-000000000025', 'Elección en Cristo antes de la fundación del mundo (Ef. 1:4)', true, 1),
-('c0010000-0000-0000-0000-000000000025', 'Redención y perdón de pecados por su sangre (Ef. 1:7)', true, 2),
-('c0010000-0000-0000-0000-000000000025', 'Oír la palabra de verdad y ser sellados con el Espíritu Santo (Ef. 1:13)', true, 3),
-('c0010000-0000-0000-0000-000000000025', 'Cristo exaltado y dado por cabeza sobre todas las cosas a la iglesia (Ef. 1:22)', true, 4)
+('c0010000-0000-0000-0000-000000000025', 'Elección en Cristo antes de la fundación del mundo', true, 1),
+('c0010000-0000-0000-0000-000000000025', 'Redención y perdón de pecados por su sangre', true, 2),
+('c0010000-0000-0000-0000-000000000025', 'Oír la palabra de verdad y ser sellados con el Espíritu Santo', true, 3),
+('c0010000-0000-0000-0000-000000000025', 'Cristo exaltado y dado por cabeza sobre todas las cosas a la iglesia', true, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas a Examen General de Efesios 1
@@ -5099,10 +5091,10 @@ VALUES
 ('c0020000-0000-0000-0000-000000000024', 'Efesios 2:22', false, 4),
 
 -- q25: ordering
-('c0020000-0000-0000-0000-000000000025', 'Muertos en delitos y pecados siguiendo al príncipe del aire (Ef. 2:1-2)', true, 1),
-('c0020000-0000-0000-0000-000000000025', 'Resucitados con Cristo: salvos por gracia mediante la fe (Ef. 2:4-8)', true, 2),
-('c0020000-0000-0000-0000-000000000025', 'Reconciliación en la cruz: derribada la pared intermedia (Ef. 2:14-16)', true, 3),
-('c0020000-0000-0000-0000-000000000025', 'Edificados sobre apóstoles y profetas para morada de Dios (Ef. 2:20-22)', true, 4)
+('c0020000-0000-0000-0000-000000000025', 'Muertos en delitos y pecados siguiendo al príncipe del aire', true, 1),
+('c0020000-0000-0000-0000-000000000025', 'Resucitados con Cristo: salvos por gracia mediante la fe', true, 2),
+('c0020000-0000-0000-0000-000000000025', 'Reconciliación en la cruz: derribada la pared intermedia', true, 3),
+('c0020000-0000-0000-0000-000000000025', 'Edificados sobre apóstoles y profetas para morada de Dios', true, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas a Examen General de Efesios 2
@@ -5219,7 +5211,7 @@ VALUES
     'c0030000-0000-0000-0000-000000000008',
     'c0000000-0000-0000-0000-000000000003',
     'multiple_choice',
-    '¿Qué es capaz de hacer Dios según la majestuosa doxología de Efesios 3:20?',
+    '¿Qué es capaz de hacer Dios según la hermosa oración de alabanza de Efesios 3:20?',
     'Efesios 3:20',
     'Dios "es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos, según el poder que actúa en nosotros".',
     10, 'easy', 8, true
@@ -5301,7 +5293,7 @@ VALUES
     'fill_blank',
     'Completa Efesios 3:21: "A él sea ________ en la iglesia en Cristo Jesús por todas las edades, por los siglos de los siglos. Amén".',
     'Efesios 3:21',
-    'La doxología final rinde a Dios toda la "gloria".',
+    'La oración final de alabanza rinde a Dios toda la "gloria".',
     10, 'easy', 16, true
 ),
 -- Pregunta 17 (True/False)
@@ -5379,9 +5371,9 @@ VALUES
     'c0030000-0000-0000-0000-000000000024',
     'c0000000-0000-0000-0000-000000000003',
     'reference_identification',
-    '¿En qué versículo se encuentra la doxología: "Y a Aquel que es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos"?',
+    '¿En qué versículo se encuentra la hermosa alabanza: "Y a Aquel que es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos"?',
     'Efesios 3:20',
-    'La gran doxología de clausura de la primera mitad teológica de la carta está en Efesios 3:20.',
+    'La gran alabanza que cierra la primera parte de la carta está en Efesios 3:20.',
     10, 'easy', 24, true
 ),
 -- Pregunta 25 (Ordering)
@@ -5391,7 +5383,7 @@ VALUES
     'order_events',
     'Ordena los temas principales de la revelación y oración apostólica en Efesios 3:',
     'Efesios 3:1-21',
-    '1. El misterio revelado: gentiles coherederos en un mismo cuerpo (v. 1-6). 2. El anuncio de las inescrutables riquezas de Cristo (v. 8-11). 3. Oración de rodillas pidiendo fortaleza en el hombre interior (v. 14-17). 4. Doxología de gloria a Dios por los siglos en la iglesia y en Cristo (v. 20-21).',
+    '1. El misterio revelado: gentiles coherederos en un mismo cuerpo (v. 1-6). 2. El anuncio de las inescrutables riquezas de Cristo (v. 8-11). 3. Oración de rodillas pidiendo fortaleza en el hombre interior (v. 14-17). 4. Alabanza de gloria a Dios por los siglos en la iglesia y en Cristo (v. 20-21).',
     10, 'hard', 25, true
 );
 
@@ -5507,10 +5499,10 @@ VALUES
 ('c0030000-0000-0000-0000-000000000024', 'Efesios 3:16', false, 4),
 
 -- q25: ordering
-('c0030000-0000-0000-0000-000000000025', 'El misterio revelado: gentiles coherederos en un mismo cuerpo (Ef. 3:1-6)', true, 1),
-('c0030000-0000-0000-0000-000000000025', 'El anuncio de las inescrutables riquezas de Cristo (Ef. 3:8-11)', true, 2),
-('c0030000-0000-0000-0000-000000000025', 'Oración de rodillas pidiendo fortaleza en el hombre interior (Ef. 3:14-17)', true, 3),
-('c0030000-0000-0000-0000-000000000025', 'Doxología de gloria a Dios por los siglos en la iglesia y en Cristo (Ef. 3:20-21)', true, 4)
+('c0030000-0000-0000-0000-000000000025', 'El misterio revelado: gentiles coherederos en un mismo cuerpo', true, 1),
+('c0030000-0000-0000-0000-000000000025', 'El anuncio de las inescrutables riquezas de Cristo', true, 2),
+('c0030000-0000-0000-0000-000000000025', 'Oración de rodillas pidiendo fortaleza en el hombre interior', true, 3),
+('c0030000-0000-0000-0000-000000000025', 'Alabanza de gloria a Dios por los siglos en la iglesia y en Cristo', true, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas a Examen General de Efesios 3
@@ -5923,10 +5915,10 @@ VALUES
 ('c0040000-0000-0000-0000-000000000024', 'Efesios 4:29', false, 4),
 
 -- q25: ordering
-('c0040000-0000-0000-0000-000000000025', 'Andar en humildad guardando la unidad del Espíritu en paz (Ef. 4:1-3)', true, 1),
-('c0040000-0000-0000-0000-000000000025', 'Dones ministeriales para la edificación y madurez del cuerpo (Ef. 4:11-13)', true, 2),
-('c0040000-0000-0000-0000-000000000025', 'Despojarse del viejo hombre y vestirse del nuevo hombre (Ef. 4:22-24)', true, 3),
-('c0040000-0000-0000-0000-000000000025', 'Desechar mentira, ira y amargura, perdonando como Cristo perdonó (Ef. 4:25-32)', true, 4)
+('c0040000-0000-0000-0000-000000000025', 'Andar en humildad guardando la unidad del Espíritu en paz', true, 1),
+('c0040000-0000-0000-0000-000000000025', 'Dones ministeriales para la edificación y madurez del cuerpo', true, 2),
+('c0040000-0000-0000-0000-000000000025', 'Despojarse del viejo hombre y vestirse del nuevo hombre', true, 3),
+('c0040000-0000-0000-0000-000000000025', 'Desechar mentira, ira y amargura, perdonando como Cristo perdonó', true, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas a Examen General de Efesios 4
@@ -6331,10 +6323,10 @@ VALUES
 ('c0050000-0000-0000-0000-000000000024', 'Efesios 5:22', false, 4),
 
 -- q25: ordering
-('c0050000-0000-0000-0000-000000000025', 'Andar en amor e imitar a Dios huyendo de toda inmundicia (Ef. 5:1-5)', true, 1),
-('c0050000-0000-0000-0000-000000000025', 'Andar como hijos de luz reprobando las tinieblas (Ef. 5:8-14)', true, 2),
-('c0050000-0000-0000-0000-000000000025', 'Vivir sabiamente y ser llenos del Espíritu con alabanza continua (Ef. 5:15-21)', true, 3),
-('c0050000-0000-0000-0000-000000000025', 'El orden conyugal: el matrimonio como reflejo de Cristo y la iglesia (Ef. 5:22-33)', true, 4)
+('c0050000-0000-0000-0000-000000000025', 'Andar en amor e imitar a Dios huyendo de toda inmundicia', true, 1),
+('c0050000-0000-0000-0000-000000000025', 'Andar como hijos de luz reprobando las tinieblas', true, 2),
+('c0050000-0000-0000-0000-000000000025', 'Vivir sabiamente y ser llenos del Espíritu con alabanza continua', true, 3),
+('c0050000-0000-0000-0000-000000000025', 'El orden conyugal: el matrimonio como reflejo de Cristo y la iglesia', true, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas a Examen General de Efesios 5
@@ -6739,10 +6731,10 @@ VALUES
 ('c0060000-0000-0000-0000-000000000024', 'Efesios 6:18', false, 4),
 
 -- q25: ordering
-('c0060000-0000-0000-0000-000000000025', 'Cinto de la verdad y coraza de justicia (Ef. 6:14)', true, 1),
-('c0060000-0000-0000-0000-000000000025', 'Calzado con el apresto del evangelio de la paz (Ef. 6:15)', true, 2),
-('c0060000-0000-0000-0000-000000000025', 'Escudo de la fe para apagar los dardos del maligno (Ef. 6:16)', true, 3),
-('c0060000-0000-0000-0000-000000000025', 'Yelmo de la salvación y espada del Espíritu (Ef. 6:17)', true, 4)
+('c0060000-0000-0000-0000-000000000025', 'Cinto de la verdad y coraza de justicia', true, 1),
+('c0060000-0000-0000-0000-000000000025', 'Calzado con el apresto del evangelio de la paz', true, 2),
+('c0060000-0000-0000-0000-000000000025', 'Escudo de la fe para apagar los dardos del maligno', true, 3),
+('c0060000-0000-0000-0000-000000000025', 'Yelmo de la salvación y espada del Espíritu', true, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas a Examen General de Efesios 6
@@ -7012,7 +7004,7 @@ VALUES
     'reference_identification',
     '¿En qué versículo declara la célebre alabanza: "A Aquel que es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos"?',
     'Efesios 3:20',
-    'Esta gloriosa doxología se ubica en Efesios 3:20.',
+    'Esta gloriosa alabanza se ubica en Efesios 3:20.',
     10, 'easy', 24, true
 ),
 (
@@ -7494,10 +7486,10 @@ VALUES
 ('f0000000-0000-0000-0000-000000000049', 'Efesios 6:21', false, 4),
 
 -- q50: ordering
-('f0000000-0000-0000-0000-000000000050', 'Bendiciones celestiales y la soberanía de Cristo (Cap. 1)', true, 1),
-('f0000000-0000-0000-0000-000000000050', 'De muerte a vida: salvos por gracia y reconciliados en la cruz (Cap. 2)', true, 2),
-('f0000000-0000-0000-0000-000000000050', 'El misterio de los gentiles y la multiforme sabiduría de Dios (Cap. 3)', true, 3),
-('f0000000-0000-0000-0000-000000000050', 'La armadura de Dios, guerra espiritual y perseverancia (Cap. 6)', true, 4)
+('f0000000-0000-0000-0000-000000000050', 'Bendiciones celestiales y la soberanía de Cristo', true, 1),
+('f0000000-0000-0000-0000-000000000050', 'De muerte a vida: salvos por gracia y reconciliados en la cruz', true, 2),
+('f0000000-0000-0000-0000-000000000050', 'El misterio de los gentiles y la multiforme sabiduría de Dios', true, 3),
+('f0000000-0000-0000-0000-000000000050', 'La armadura de Dios, guerra espiritual y perseverancia', true, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar las 50 preguntas al Examen Final de Efesios

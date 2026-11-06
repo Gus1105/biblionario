@@ -20,34 +20,32 @@ INSERT INTO public.block_explanations (
 )
 VALUES (
     'b0000001-0001-0000-0000-000000000001',
-    'Pablo inicia su epístola estableciendo con solemnidad su autoridad apostólica y el doble carácter de los creyentes en Éfeso: consagrados a Dios y perseverantes en su fe.',
+    'Pablo inicia su carta presentándose como apóstol llamado por la voluntad de Dios, y saluda con cariño a los creyentes de Éfeso, deseándoles la gracia y la paz del Señor.',
     '1 Pablo, apóstol de Jesucristo por la voluntad de Dios, a los santos y fieles en Cristo Jesús que están en Éfeso:
 2 Gracia y paz a vosotros, de Dios nuestro Padre y del Señor Jesucristo.',
-    'En estos dos versículos introductorios encontramos tres verdades fundamentales:
+    'En estos dos primeros versículos encontramos tres verdades sencillas e importantes:
 
-1. El origen del apostolado de Pablo (v. 1):
-Pablo no se autoproclamó apóstol ni fue designado por decisión humana o mérito personal, sino "por la voluntad de Dios". Esto confiere a la carta autoridad apostólica directa, no como una opinión privada, sino como revelación guiada por el Espíritu Santo.
+1. El llamamiento de Pablo (v. 1):
+Pablo no se nombró apóstol a sí mismo ni fue elegido por hombres, sino por la voluntad de Dios. Esto le da a su mensaje la autoridad de parte de Dios y del Espíritu Santo.
 
-2. La identidad de los destinatarios (v. 1):
-Los creyentes son descritos con dos términos complementarios:
-- "Santos" (apartados, consagrados para Dios): señala su posición ante Dios en virtud de la salvación.
-- "Fieles en Cristo Jesús": describe su conducta y perseverancia activa de confianza en el Salvador.
-Estar "en Cristo Jesús" es la esfera espiritual de vida del creyente; aunque geográficamente estaban "en Éfeso", espiritualmente su morada y seguridad estaban "en Cristo".
+2. A quiénes escribe (v. 1):
+Escribe a los creyentes de Éfeso, a quienes llama:
+- "Santos": apartados para Dios por medio de la salvación en Jesús.
+- "Fieles en Cristo Jesús": personas que confían firmemente en el Salvador y perseveran en su fe día a día.
+Estar "en Cristo" significa vivir en una relación personal, segura y cercana con Jesús.
 
-3. El saludo de bendición apostólica (v. 2):
-"Gracia y paz":
-- La gracia (favor inmerecido, fuente de salvación) siempre antecede a la paz.
-- La paz (reconciliación con Dios y serenidad espiritual) es el fruto directo de haber recibido la gracia. Ambas proceden conjuntamente de "Dios nuestro Padre y del Señor Jesucristo", colocando a Jesús en perfecta divinidad junto al Padre.',
+3. El saludo de bendición (v. 2):
+Pablo les desea "gracia y paz" de parte de Dios nuestro Padre y del Señor Jesucristo. La gracia es el amor inmerecido de Dios que nos salva, y la paz es la tranquilidad y reconciliación con Dios que recibimos gracias a ese amor.',
     '[
-        {"concept": "Apóstol", "definition": "Enviado o mensajero comisionado oficialmente con la autoridad de quien lo envía; en este caso, llamado por la expresa voluntad de Dios."},
-        {"concept": "Santos", "definition": "Personas apartadas y consagradas para Dios por la obra redentora de Jesucristo; no alude a perfección moral sin pecado, sino a una posición sagrada ante Dios."},
-        {"concept": "En Cristo Jesús", "definition": "Frase teológica cumbre de Pablo que expresa la unión vital, legal y espiritual del creyente con el Redentor."},
-        {"concept": "Gracia y Paz", "definition": "El favor inmerecido y soberano de Dios (gracia) que engendra descanso, perdón y reconciliación espiritual (paz)."}
+        {"concept": "Apóstol", "definition": "Mensajero o enviado especial comisionado con la autoridad de Dios."},
+        {"concept": "Santos", "definition": "Personas apartadas para Dios gracias al perdón y la obra de Jesucristo."},
+        {"concept": "En Cristo Jesús", "definition": "Expresión que enseña nuestra unión y relación cercana con Jesucristo."},
+        {"concept": "Gracia y Paz", "definition": "El favor inmerecido de Dios (gracia) y la profunda tranquilidad en el corazón (paz) que Él nos da."}
     ]'::jsonb,
     '[
-        "El ministerio apostólico de Pablo se origina en la soberana voluntad divina y no en ambiciones humanas.",
-        "Los creyentes son santos por su consagración a Dios y fieles por su perseverancia en la fe en Cristo.",
-        "La gracia divina siempre precede a la paz interior y relacional con Dios."
+        "El ministerio de Pablo proviene de la voluntad de Dios y no de decisiones humanas.",
+        "Los creyentes son santos por pertenecer a Dios y fieles por perseverar en su fe en Cristo.",
+        "La gracia y el amor de Dios siempre traen verdadera paz a nuestra vida."
     ]'::jsonb,
     '[
         {"phrase": "Pablo, apóstol de Jesucristo por la voluntad de Dios", "reference": "Efesios 1:1"},
@@ -76,35 +74,35 @@ INSERT INTO public.block_explanations (
 )
 VALUES (
     'b0000001-0002-0000-0000-000000000002',
-    'Pablo prorrumpa en una doxología gloriosa alabando al Padre por su plan eterno: habernos bendecido con toda bendición espiritual y escogido en Cristo para ser santos.',
+    'Pablo alaba a Dios Padre con alegría por su plan eterno: habernos bendecido con toda clase de bendiciones espirituales en Cristo y habernos elegido desde antes de la creación del mundo para vivir en santidad.',
     '3 Bendito sea el Dios y Padre de nuestro Señor Jesucristo, que nos bendijo con toda bendición espiritual en los lugares celestiales en Cristo,
 4 según nos escogió en él antes de la fundación del mundo, para que fuésemos santos y sin mancha delante de él,
 5 en amor habiéndonos predestinado para ser adoptados hijos suyos por medio de Jesucristo, según el puro afecto de su voluntad,
 6 para alabanza de la gloria de su gracia, con la cual nos hizo aceptos en el Amado,',
-    'Este pasaje contiene el fundamento eterno de la salvación del creyente:
+    'Este pasaje explica las grandes bendiciones que Dios preparó para nosotros desde el principio:
 
-1. La doxología y el alcance de las bendiciones (v. 3):
-Pablo bendice a Dios porque Él ya "nos bendijo" (en tiempo pasado, indicando una realidad ya concedida y consumada). No son bendiciones terrenales o materiales transitorias, sino "toda bendición espiritual", radicadas en "los lugares celestiales", la dimensión celestial gobernada por Cristo.
+1. Alabanza a Dios por sus bendiciones (v. 3):
+Pablo comienza alabando y dando gracias a Dios porque Él ya nos ha dado toda bendición espiritual en Cristo. No se trata de cosas materiales temporales, sino de bendiciones eternas que vienen del cielo y nos dan vida espiritual.
 
-2. La elección soberana antes del tiempo (v. 4):
-Dios nos escogió en Cristo "antes de la fundación del mundo". Esto demuestra que la salvación no fue una reacción imprevista de Dios ante la caída, sino un designio premeditado en la eternidad. El propósito de dicha elección es ético y espiritual: "para que fuésemos santos y sin mancha delante de él".
+2. Dios nos eligió por amor antes de la creación (v. 4):
+Antes de crear el mundo, Dios ya pensó en nosotros y nos eligió en Cristo. Su deseo es que vivamos una vida limpia, santa y sin mancha delante de Él.
 
-3. La predestinación para adopción de hijos (v. 5):
-La predestinación está enmarcada "en amor". El motivo de Dios no fue mérito alguno en el ser humano, sino "el puro afecto de su voluntad". La adopción confería todos los derechos legales y privilegios eternos de un hijo biológico en la familia de Dios.
+3. Fuimos adoptados como hijos suyos (v. 5):
+Por puro amor y porque así lo quiso, Dios decidió adoptarnos como sus propios hijos por medio de Jesucristo. Esto significa que ahora pertenecemos a su familia y tenemos todos los privilegios y el cuidado de un Padre celestial.
 
-4. El fin supremo de todo el plan redentor (v. 6):
-El objetivo final de la gracia no es la exaltación humana, sino "la alabanza de la gloria de su gracia". En virtud de Cristo, Dios nos hizo plenamente "aceptos en el Amado".',
+4. El propósito final: Dar gloria a Dios (v. 6):
+Todo este maravilloso plan tiene un objetivo: que reconozcamos y alabemos la grandeza del amor y la gracia de Dios, quien nos recibió y aceptó con los brazos abiertos por medio de su amado Hijo Jesús.',
     '[
-        {"concept": "Lugares celestiales", "definition": "El ámbito celestial donde Cristo reina y donde se originan y custodian todas las bendiciones espirituales."},
-        {"concept": "Elección eterna", "definition": "El acto soberano de Dios mediante el cual escoge a su pueblo en Cristo antes de la creación temporal del universo."},
-        {"concept": "Adopción de hijos", "definition": "El acto judicial y de gracia por el cual el creyente es integrado en la familia divina con plenos derechos de herencia eterna."},
-        {"concept": "El Amado", "definition": "Título mesiánico aplicado a Jesucristo, en quien el Padre tiene toda su complacencia."}
+        {"concept": "Lugares celestiales", "definition": "El reino celestial donde Cristo reina y desde donde Dios nos regala sus bendiciones espirituales."},
+        {"concept": "Elección de Dios", "definition": "La decisión llena de amor con la que Dios nos escogió en Cristo antes de crear el mundo."},
+        {"concept": "Adopción como hijos", "definition": "El regalo de gracia por el cual Dios nos recibe en su propia familia como sus verdaderos hijos."},
+        {"concept": "El Amado", "definition": "Nombre que se refiere a Jesucristo, el Hijo amado en quien el Padre se complace."}
     ]'::jsonb,
     '[
-        "Dios ya ha otorgado al creyente la totalidad de las bendiciones espirituales en Cristo.",
-        "La elección divina ocurrió antes de la creación del mundo con el fin de vivir en santidad e integridad.",
-        "La adopción filial brota exclusivamente del puro afecto y beneplácito de la voluntad de Dios.",
-        "La meta de la salvación es la exaltación y alabanza de la gloria de la gracia divina."
+        "Dios ya nos bendijo con toda clase de bendiciones espirituales y eternas en Cristo.",
+        "Dios nos eligió antes de crear el mundo para que vivamos en santidad y amor.",
+        "Fuimos adoptados como hijos de Dios por su propio amor y voluntad, no por nuestras obras.",
+        "El propósito de salvarnos es alabar la maravillosa gracia y bondad de Dios."
     ]'::jsonb,
     '[
         {"phrase": "Nos bendijo con toda bendición espiritual en los lugares celestiales en Cristo", "reference": "Efesios 1:3"},
@@ -134,7 +132,7 @@ INSERT INTO public.block_explanations (
 )
 VALUES (
     'b0000001-0003-0000-0000-000000000003',
-    'Pablo expone la obra del Hijo que redime por su sangre y la obra del Espíritu Santo que sella al creyente como garantía de la herencia eterna.',
+    'Pablo nos enseña cómo Jesús nos rescató mediante su sangre y cómo el Espíritu Santo asegura nuestra salvación para siempre.',
     '7 en quien tenemos redención por su sangre, el perdón de pecados según las riquezas de su gracia,
 8 que hizo sobreabundar para con nosotros en toda sabiduría e inteligencia,
 9 dándonos a conocer el misterio de su voluntad, según su beneplácito, el cual se había propuesto en sí mismo,
@@ -143,35 +141,34 @@ VALUES (
 12 a fin de que seamos para alabanza de su gloria, nosotros los que primeramente esperábamos en Cristo.
 13 En él también vosotros, habiendo oído la palabra de verdad, el evangelio de vuestra salvación, y habiendo creído en él, fuisteis sellados con el Espíritu Santo de la promesa,
 14 que es las arras de nuestra herencia hasta la redención de la posesión adquirida, para alabanza de su gloria.',
-    'Este pasaje despliega la consumación histórica y la aplicación personal de la redención:
+    'Este pasaje nos muestra las bendiciones prácticas de la salvación en Cristo:
 
-1. El precio y alcance de la redención (v. 7-8):
-Nuestra liberación no se pagó con riquezas terrenales sino "por su sangre", obteniendo "el perdón de pecados". Esto no fue medido con escasez, sino "según las riquezas de su gracia", manifestada con sobreabundante sabiduría espiritual.
+1. El perdón y el rescate por la sangre de Jesús (v. 7-8):
+Nuestra libertad del pecado se pagó con la sangre de Cristo en la cruz, recibiendo el perdón de todas nuestras faltas. Dios nos dio este perdón con gran abundancia y sabiduría.
 
-2. La revelación del misterio cósmico (v. 9-10):
-Dios nos dio a conocer "el misterio de su voluntad": el propósito final de la historia es "reunir todas las cosas en Cristo", tanto las celestiales como las terrenales, bajo su supremo señorío cuando los tiempos alcancen su plenitud.
+2. El gran plan de Dios para toda la creación (v. 9-10):
+Dios nos dio a conocer el secreto de su plan: que en el momento indicado, Él unirá bajo la autoridad y el amor de Cristo todas las cosas, tanto las que están en el cielo como en la tierra.
 
-3. La herencia en Cristo (v. 11-12):
-En Cristo los creyentes participan de una gloriosa herencia eterna, ordenada conforme al designio soberano de Aquel que ejecuta todas las cosas según su consejo perfecto.
+3. Nuestra herencia eterna (v. 11-12):
+En Cristo tenemos una herencia prometida. Dios realiza todas las cosas según su sabio y perfecto plan, para que nuestras vidas sirvan para alabar su gloria.
 
-4. El sello y las arras del Espíritu Santo (v. 13-14):
-Pablo describe el orden de la experiencia salvífica:
-1) Oír la palabra de verdad (el evangelio).
-2) Creer en Cristo.
-3) Ser "sellados con el Espíritu Santo de la promesa".
-El sello simbolizaba propiedad irrevocable, autenticidad y seguridad.
-El Espíritu es además "las arras de nuestra herencia": un anticipo o garantía divina que asegura la redención final de la posesión que Dios adquirió.',
+4. El sello y la promesa del Espíritu Santo (v. 13-14):
+Pablo describe los pasos de nuestra salvación:
+1) Escuchar el mensaje de la verdad, el evangelio.
+2) Creer de corazón en Cristo.
+3) Recibir el Espíritu Santo como un sello que confirma que somos de Dios.
+El Espíritu Santo es la garantía que Dios nos da de que completará nuestra salvación eterna.',
     '[
-        {"concept": "Redención", "definition": "Liberación mediante el pago de un rescate; en Cristo, la liberación de la condenación del pecado pagada con su propia sangre."},
-        {"concept": "Misterio de su voluntad", "definition": "Verdad previamente velada en el Antiguo Testamento que Dios revela ahora en el evangelio: la centralidad absoluta de Cristo unificando toda la creación."},
-        {"concept": "Sello del Espíritu Santo", "definition": "Marca divina e indeleble de propiedad, protección y autenticidad conferida al creyente al momento de creer."},
-        {"concept": "Arras", "definition": "Garantía, depósito inicial o anticipo legal que asegura que la totalidad del pago o herencia prometida se consumará."}
+        {"concept": "Redención", "definition": "Liberación del pecado y de la condenación, pagada por Cristo con su propia sangre en la cruz."},
+        {"concept": "El plan de su voluntad", "definition": "El propósito de Dios revelado en el evangelio: unir y gobernar todas las cosas por medio de Cristo."},
+        {"concept": "Sello del Espíritu Santo", "definition": "La marca espiritual de pertenencia, protección y seguridad que Dios pone en el creyente al creer."},
+        {"concept": "Arras (Garantía)", "definition": "El anticipo o garantía divina que nos asegura que recibiremos la herencia eterna prometida."}
     ]'::jsonb,
     '[
-        "La redención y el perdón de los pecados tienen como precio único y suficiente la sangre de Jesucristo.",
-        "El propósito supremo de Dios en la plenitud de los tiempos es encabezar y unificar todas las cosas en Cristo.",
-        "Al creer en el evangelio, todo cristiano es sellado por el Espíritu Santo como pertenencia perpetua de Dios.",
-        "El Espíritu Santo es la fianza y anticipo divino que asegura nuestra glorificación final."
+        "El perdón de nuestros pecados fue pagado con la sangre de Jesucristo.",
+        "El propósito supremo de Dios es unir y gobernar todas las cosas bajo Cristo.",
+        "Al creer en el evangelio, todo cristiano recibe el Espíritu Santo como sello de que pertenece a Dios.",
+        "El Espíritu Santo es la garantía segura de nuestra salvación eterna."
     ]'::jsonb,
     '[
         {"phrase": "En quien tenemos redención por su sangre, el perdón de pecados", "reference": "Efesios 1:7"},
@@ -201,7 +198,7 @@ INSERT INTO public.block_explanations (
 )
 VALUES (
     'b0000001-0004-0000-0000-000000000004',
-    'Pablo eleva una oración ferviente para que los creyentes conozcan experimentalmente la grandeza de Dios, culminando en la proclamación del señorío cósmico de Cristo sobre la Iglesia.',
+    'Pablo ora de corazón para que los creyentes conozcan en su propia vida el inmenso poder de Dios, y declara la autoridad de Cristo sobre todo el universo y sobre la Iglesia.',
     '15 Por esta causa también yo, habiendo oído de vuestra fe en el Señor Jesús, y de vuestro amor para con todos los santos,
 16 no ceso de dar gracias por vosotros, haciendo memoria de vosotros en mis oraciones,
 17 para que el Dios de nuestro Señor Jesucristo, el Padre de gloria, os dé espíritu de sabiduría y de revelación en el conocimiento de él,
@@ -211,34 +208,33 @@ VALUES (
 21 sobre todo principado y autoridad y poder y señorío, y sobre todo nombre que se nombra, no sólo en este siglo, sino también en el venidero;
 22 y sometió todas las cosas bajo sus pies, y lo dio por cabeza sobre todas las cosas a la iglesia,
 23 la cual es su cuerpo, la plenitud de Aquel que todo lo llena en todo.',
-    'Esta magnífica oración apostólica revela las prioridades espirituales de Pablo:
+    'Esta hermosa oración muestra lo que Pablo más deseaba para los creyentes:
 
-1. El motivo de gratitud (v. 15-16):
-Pablo agradece a Dios por dos evidencias indispensables de salvación genuina: fe auténtica en Jesucristo y amor sincero y práctico hacia "todos los santos".
+1. Gratitud por su fe y amor (v. 15-16):
+Pablo da gracias a Dios por dos cosas que demuestran una fe viva: la confianza sincera en Jesús y el amor hacia todos los hermanos en la fe.
 
-2. La petición de sabiduría e iluminación espiritual (v. 17-18):
-Pablo ruega por "espíritu de sabiduría y de revelación" para conocer profundamente a Dios, pidiendo que sean "alumbrados los ojos de vuestro entendimiento".
-Pide que comprendan tres realidades trascendentales:
-a) Cuál es la esperanza del llamamiento divino.
-b) Cuáles son las riquezas de la gloria de su herencia.
-c) Cuál es la supereminente grandeza de su poder hacia los creyentes.
+2. Petición de sabiduría y entendimiento (v. 17-18):
+Pablo pide a Dios que abra los ojos de nuestro corazón para que comprendamos:
+a) La gloriosa esperanza a la que nos ha llamado.
+b) Lo valiosos que somos para Él como su herencia.
+c) La grandeza incomparable de su poder a favor de los que creemos.
 
-3. El poder manifestado en la resurrección y exaltación de Cristo (v. 19-21):
-El poder que obra en el creyente es el mismo poder omnipotente que resucitó a Cristo de entre los muertos y lo sentó a la diestra del Padre en lugares celestiales. Cristo está infinitamente por encima de todo principado, autoridad, poder, señorío y cualquier título que exista en el siglo presente y en el venidero.
+3. El poder demostrado en la resurrección de Jesús (v. 19-21):
+El poder de Dios que actúa en nosotros es el mismo gran poder con el que resucitó a Jesús y lo sentó a su derecha en el cielo, dándole autoridad sobre todo poder, gobierno o título en este mundo o en el venidero.
 
-4. Cristo, cabeza soberana de la Iglesia (v. 22-23):
-El Padre puso "todas las cosas bajo sus pies". Y para bendición de su pueblo, dio a este Cristo soberano como "cabeza sobre todas las cosas a la iglesia". La Iglesia es su cuerpo místico y visible, la plenitud de Aquel que satura y llena todo en todo.',
+4. Cristo es la cabeza de la Iglesia (v. 22-23):
+Dios puso todo bajo los pies de Jesús y lo nombró cabeza sobre todas las cosas para bien de la Iglesia. La Iglesia es su cuerpo, llena del amor y la presencia de Cristo.',
     '[
-        {"concept": "Espíritu de sabiduría y revelación", "definition": "Don espiritual del Espíritu Santo que capacita la mente humana para comprender la verdad de Dios y su carácter."},
-        {"concept": "Ojos del entendimiento", "definition": "Capacidad espiritual e interior del corazón para discernir las realidades invisibles y eternas del reino de Dios."},
-        {"concept": "Supereminente grandeza de su poder", "definition": "El poder todopoderoso de Dios (dunamis) que sobrepasa toda medida humana, demostrado en la resurrección de Cristo."},
-        {"concept": "Cabeza de la Iglesia", "definition": "La posición de autoridad absoluta, gobierno vital y sustento que Jesucristo ejerce sobre su cuerpo que es la Iglesia."}
+        {"concept": "Espíritu de sabiduría", "definition": "La ayuda del Espíritu Santo para entender la verdad de Dios y conocerlo cada día mejor."},
+        {"concept": "Ojos del entendimiento", "definition": "La capacidad del corazón para comprender las verdades espirituales de Dios."},
+        {"concept": "La grandeza de su poder", "definition": "El inmenso poder de Dios a favor de los creyentes, demostrado al resucitar a Cristo."},
+        {"concept": "Cabeza de la Iglesia", "definition": "La posición de máxima autoridad, amor y cuidado que Jesucristo ejerce sobre su Iglesia."}
     ]'::jsonb,
     '[
-        "La fe en el Señor Jesús debe manifestarse necesariamente en amor práctico hacia los hermanos en la fe.",
-        "El verdadero conocimiento espiritual requiere la iluminación interior que solo el Espíritu Santo puede otorgar.",
-        "El mismo poder que resucitó a Jesús de los muertos opera activa y eficazmente en los creyentes.",
-        "Cristo está entronizado sobre toda jerarquía espiritual y terrenal, y reina como cabeza protectora de su Iglesia."
+        "La fe sincera en Jesús se demuestra amando a los demás creyentes.",
+        "Para conocer a Dios necesitamos que el Espíritu Santo ilumine y guíe nuestro corazón.",
+        "El mismo poder que resucitó a Jesús de los muertos actúa hoy a favor de los creyentes.",
+        "Cristo tiene autoridad suprema sobre todas las cosas y cuida con amor a su Iglesia."
     ]'::jsonb,
     '[
         {"phrase": "Haciendo memoria de vosotros en mis oraciones", "reference": "Efesios 1:16"},

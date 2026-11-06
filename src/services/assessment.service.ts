@@ -1,6 +1,10 @@
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { AssessmentWithQuestions, ClientQuestion } from "@/types/assessment.types";
+import {
+  AssessmentWithQuestions,
+  ClientQuestion,
+  AssessmentResultSummary,
+} from "@/types/assessment.types";
 import { AssessmentType } from "@/types/database.types";
 
 interface AssessmentMetaRecord {
@@ -13,6 +17,48 @@ interface AssessmentMetaRecord {
   block_id: string | null;
   chapter_id: string | null;
   book_id: string | null;
+}
+
+function shuffleArray<T>(array: T[]): T[] {
+  const result = [...array];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+function randomizeOptionsForStudent(
+  options: Array<{ id: string; option_text: string; order_index: number }>,
+  questionType: string
+) {
+  if (!options || options.length <= 1) return options || [];
+
+  // Para selección múltiple e identificación de referencia: barajar completamente las opciones
+  if (
+    questionType === "multiple_choice" ||
+    questionType === "reference_identification"
+  ) {
+    return shuffleArray(options);
+  }
+
+  // Para ordenar acontecimientos: barajar asegurando que no empiece ya en el orden correcto
+  if (questionType === "order_events") {
+    const sorted = [...options].sort((a, b) => a.order_index - b.order_index);
+    let shuffled = shuffleArray(sorted);
+    let attempts = 0;
+    while (
+      attempts < 10 &&
+      shuffled.every((opt, idx) => opt.id === sorted[idx]?.id)
+    ) {
+      shuffled = shuffleArray(sorted);
+      attempts++;
+    }
+    return shuffled;
+  }
+
+  // Para verdadero/falso u otros tipos: mantener el orden predeterminado (Verdadero primero, Falso segundo)
+  return [...options].sort((a, b) => a.order_index - b.order_index);
 }
 
 export async function getAssessmentForStudent(
@@ -61,23 +107,21 @@ export async function getAssessmentForStudent(
       .filter((aq: any) => aq.question && aq.question.is_active)
       .map((aq: any) => {
         const q = aq.question;
-        const sortedOptions = (q.options || [])
-          .map((opt: any) => ({
-            id: opt.id,
-            option_text: opt.option_text,
-            order_index: opt.order_index,
-          }))
-          .sort((a: any, b: any) => a.order_index - b.order_index);
+        const mappedOptions = (q.options || []).map((opt: any) => ({
+          id: opt.id,
+          option_text: opt.option_text,
+          order_index: opt.order_index,
+        }));
 
         return {
           id: q.id,
           question_type: q.question_type,
           prompt: q.prompt,
-          verse_reference: q.verse_reference,
+          verse_reference: "", // Oculto durante la prueba para no revelar la respuesta
           points: q.points,
           difficulty: q.difficulty,
           order_index: aq.order_index,
-          options: sortedOptions,
+          options: randomizeOptionsForStudent(mappedOptions, q.question_type),
         };
       });
   } else if (assessment.block_id) {
@@ -103,22 +147,24 @@ export async function getAssessmentForStudent(
       .returns<any[]>();
 
     if (blockQuestions) {
-      questions = blockQuestions.map((q: any) => ({
-        id: q.id,
-        question_type: q.question_type,
-        prompt: q.prompt,
-        verse_reference: q.verse_reference,
-        points: q.points,
-        difficulty: q.difficulty,
-        order_index: q.order_index,
-        options: (q.options || [])
-          .map((opt: any) => ({
-            id: opt.id,
-            option_text: opt.option_text,
-            order_index: opt.order_index,
-          }))
-          .sort((a: any, b: any) => a.order_index - b.order_index),
-      }));
+      questions = blockQuestions.map((q: any) => {
+        const mappedOptions = (q.options || []).map((opt: any) => ({
+          id: opt.id,
+          option_text: opt.option_text,
+          order_index: opt.order_index,
+        }));
+
+        return {
+          id: q.id,
+          question_type: q.question_type,
+          prompt: q.prompt,
+          verse_reference: "", // Oculto durante la prueba para no revelar la respuesta
+          points: q.points,
+          difficulty: q.difficulty,
+          order_index: q.order_index,
+          options: randomizeOptionsForStudent(mappedOptions, q.question_type),
+        };
+      });
     }
   }
 
@@ -262,6 +308,186 @@ export async function getAttemptResult(attemptId: string, userId: string) {
     };
   });
 
+  // Calcular la secuencia del siguiente paso de estudio
+  let nextStep: AssessmentResultSummary["nextStep"] = undefined;
+  let chapterExamInfo: AssessmentResultSummary["chapterExamInfo"] = null;
+
+  try {
+    if (rawAssessment.type === "block_quiz" && rawAssessment.block_id) {
+      const { data: currentBlock } = await adminSupabase
+        .from("study_blocks")
+        .select(`
+          id,
+          block_number,
+          order_index,
+          chapter_id,
+          chapter:chapters!inner(
+            id,
+            chapter_number,
+            title,
+            book_id,
+            book:books!inner(
+              id,
+              name,
+              slug
+            )
+          )
+        `)
+        .eq("id", rawAssessment.block_id)
+        .single<any>();
+
+      if (currentBlock) {
+        const bookSlug = currentBlock.chapter.book.slug;
+        const chapterNumber = currentBlock.chapter.chapter_number;
+
+        // 1. Buscar el siguiente bloque del mismo capítulo
+        const { data: nextBlock } = await adminSupabase
+          .from("study_blocks")
+          .select("id, block_number, title")
+          .eq("chapter_id", currentBlock.chapter_id)
+          .gt("order_index", currentBlock.order_index)
+          .order("order_index", { ascending: true })
+          .limit(1)
+          .maybeSingle<{ id: string; block_number: number; title: string }>();
+
+        if (nextBlock) {
+          nextStep = {
+            type: "next_block",
+            label: "Continuar al Siguiente Bloque",
+            href: `/libros/${bookSlug}/capitulos/${chapterNumber}/bloques/${nextBlock.id}`,
+          };
+        } else {
+          // Es el último bloque de este capítulo: en la secuencia pasa al Examen General del Capítulo
+          const { data: chapterExam } = await adminSupabase
+            .from("assessments")
+            .select("id, title")
+            .eq("chapter_id", currentBlock.chapter_id)
+            .eq("type", "chapter_exam")
+            .maybeSingle<{ id: string; title: string }>();
+
+          if (chapterExam) {
+            nextStep = {
+              type: "chapter_exam",
+              label: `Continuar al Examen del Capítulo ${chapterNumber}`,
+              href: `/evaluaciones/${chapterExam.id}`,
+            };
+          } else {
+            // Si no existiera examen de capítulo, avanzar al siguiente capítulo
+            const { data: nextChapter } = await adminSupabase
+              .from("chapters")
+              .select("id, chapter_number, title")
+              .eq("book_id", currentBlock.chapter.book.id || currentBlock.chapter.book_id)
+              .gt("chapter_number", chapterNumber)
+              .order("chapter_number", { ascending: true })
+              .limit(1)
+              .maybeSingle<{ id: string; chapter_number: number; title: string }>();
+
+            if (nextChapter) {
+              nextStep = {
+                type: "next_chapter",
+                label: `Continuar al Capítulo ${nextChapter.chapter_number}`,
+                href: `/libros/${bookSlug}/capitulos/${nextChapter.chapter_number}`,
+              };
+            } else {
+              nextStep = {
+                type: "dashboard",
+                label: "Ir al Dashboard",
+                href: "/dashboard",
+              };
+            }
+          }
+        }
+      }
+    } else if (rawAssessment.type === "chapter_exam" && rawAssessment.chapter_id) {
+      // Examen general del capítulo completado
+      const { data: currentChapter } = await adminSupabase
+        .from("chapters")
+        .select(`
+          id,
+          chapter_number,
+          title,
+          book_id,
+          book:books!inner(
+            id,
+            name,
+            slug
+          )
+        `)
+        .eq("id", rawAssessment.chapter_id)
+        .single<any>();
+
+      if (currentChapter) {
+        const bookSlug = currentChapter.book.slug;
+        const chapterNumber = currentChapter.chapter_number;
+
+        // Si aprobó el examen, avanza en secuencia al siguiente capítulo nuevo desbloqueado
+        if (attempt.passed) {
+          const { data: nextChapter } = await adminSupabase
+            .from("chapters")
+            .select("id, chapter_number, title")
+            .eq("book_id", currentChapter.book.id || currentChapter.book_id)
+            .gt("chapter_number", chapterNumber)
+            .order("chapter_number", { ascending: true })
+            .limit(1)
+            .maybeSingle<{ id: string; chapter_number: number; title: string }>();
+
+          if (nextChapter) {
+            nextStep = {
+              type: "next_chapter",
+              label: `Continuar al Capítulo ${nextChapter.chapter_number}`,
+              href: `/libros/${bookSlug}/capitulos/${nextChapter.chapter_number}`,
+            };
+          } else {
+            // Último capítulo (Efesios 6) -> continuar al Examen Final del Libro
+            const { data: finalExam } = await adminSupabase
+              .from("assessments")
+              .select("id, title")
+              .eq("book_id", currentChapter.book.id || currentChapter.book_id)
+              .eq("type", "book_final")
+              .maybeSingle<{ id: string; title: string }>();
+
+            if (finalExam) {
+              nextStep = {
+                type: "book_final",
+                label: "Continuar al Examen Final de Efesios",
+                href: `/evaluaciones/${finalExam.id}`,
+              };
+            } else {
+              nextStep = {
+                type: "dashboard",
+                label: "Ir al Dashboard",
+                href: "/dashboard",
+              };
+            }
+          }
+        } else {
+          // Si no aprobó el examen de este capítulo, debe repetirlo para desbloquear el siguiente
+          nextStep = {
+            type: "chapter_exam",
+            label: `Repasar y Reintentar Examen del Capítulo ${chapterNumber}`,
+            href: `/evaluaciones/${rawAssessment.id}`,
+          };
+        }
+      }
+    } else if (rawAssessment.type === "book_final") {
+      nextStep = {
+        type: "dashboard",
+        label: "Ir al Dashboard",
+        href: "/dashboard",
+      };
+    }
+  } catch (error) {
+    console.error("Error calculating next step in getAttemptResult:", error);
+  }
+
+  if (!nextStep) {
+    nextStep = {
+      type: "dashboard",
+      label: "Ir al Dashboard",
+      href: "/dashboard",
+    };
+  }
+
   return {
     attemptId: attempt.id,
     assessmentId: rawAssessment.id,
@@ -279,5 +505,7 @@ export async function getAttemptResult(attemptId: string, userId: string) {
     results,
     blockId: rawAssessment.block_id,
     chapterId: rawAssessment.chapter_id,
+    chapterExamInfo,
+    nextStep,
   };
 }

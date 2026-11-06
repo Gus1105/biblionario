@@ -374,10 +374,10 @@ VALUES
 ('c0040000-0000-0000-0000-000000000024', 'Efesios 4:29', false, 4),
 
 -- q25: ordering
-('c0040000-0000-0000-0000-000000000025', 'Andar en humildad guardando la unidad del Espíritu en paz (Ef. 4:1-3)', true, 1),
-('c0040000-0000-0000-0000-000000000025', 'Dones ministeriales para la edificación y madurez del cuerpo (Ef. 4:11-13)', true, 2),
-('c0040000-0000-0000-0000-000000000025', 'Despojarse del viejo hombre y vestirse del nuevo hombre (Ef. 4:22-24)', true, 3),
-('c0040000-0000-0000-0000-000000000025', 'Desechar mentira, ira y amargura, perdonando como Cristo perdonó (Ef. 4:25-32)', true, 4)
+('c0040000-0000-0000-0000-000000000025', 'Andar en humildad guardando la unidad del Espíritu en paz', true, 1),
+('c0040000-0000-0000-0000-000000000025', 'Dones ministeriales para la edificación y madurez del cuerpo', true, 2),
+('c0040000-0000-0000-0000-000000000025', 'Despojarse del viejo hombre y vestirse del nuevo hombre', true, 3),
+('c0040000-0000-0000-0000-000000000025', 'Desechar mentira, ira y amargura, perdonando como Cristo perdonó', true, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas a Examen General de Efesios 4
@@ -782,10 +782,10 @@ VALUES
 ('c0050000-0000-0000-0000-000000000024', 'Efesios 5:22', false, 4),
 
 -- q25: ordering
-('c0050000-0000-0000-0000-000000000025', 'Andar en amor e imitar a Dios huyendo de toda inmundicia (Ef. 5:1-5)', true, 1),
-('c0050000-0000-0000-0000-000000000025', 'Andar como hijos de luz reprobando las tinieblas (Ef. 5:8-14)', true, 2),
-('c0050000-0000-0000-0000-000000000025', 'Vivir sabiamente y ser llenos del Espíritu con alabanza continua (Ef. 5:15-21)', true, 3),
-('c0050000-0000-0000-0000-000000000025', 'El orden conyugal: el matrimonio como reflejo de Cristo y la iglesia (Ef. 5:22-33)', true, 4)
+('c0050000-0000-0000-0000-000000000025', 'Andar en amor e imitar a Dios huyendo de toda inmundicia', true, 1),
+('c0050000-0000-0000-0000-000000000025', 'Andar como hijos de luz reprobando las tinieblas', true, 2),
+('c0050000-0000-0000-0000-000000000025', 'Vivir sabiamente y ser llenos del Espíritu con alabanza continua', true, 3),
+('c0050000-0000-0000-0000-000000000025', 'El orden conyugal: el matrimonio como reflejo de Cristo y la iglesia', true, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas a Examen General de Efesios 5
@@ -1190,10 +1190,10 @@ VALUES
 ('c0060000-0000-0000-0000-000000000024', 'Efesios 6:18', false, 4),
 
 -- q25: ordering
-('c0060000-0000-0000-0000-000000000025', 'Cinto de la verdad y coraza de justicia (Ef. 6:14)', true, 1),
-('c0060000-0000-0000-0000-000000000025', 'Calzado con el apresto del evangelio de la paz (Ef. 6:15)', true, 2),
-('c0060000-0000-0000-0000-000000000025', 'Escudo de la fe para apagar los dardos del maligno (Ef. 6:16)', true, 3),
-('c0060000-0000-0000-0000-000000000025', 'Yelmo de la salvación y espada del Espíritu (Ef. 6:17)', true, 4)
+('c0060000-0000-0000-0000-000000000025', 'Cinto de la verdad y coraza de justicia', true, 1),
+('c0060000-0000-0000-0000-000000000025', 'Calzado con el apresto del evangelio de la paz', true, 2),
+('c0060000-0000-0000-0000-000000000025', 'Escudo de la fe para apagar los dardos del maligno', true, 3),
+('c0060000-0000-0000-0000-000000000025', 'Yelmo de la salvación y espada del Espíritu', true, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas a Examen General de Efesios 6

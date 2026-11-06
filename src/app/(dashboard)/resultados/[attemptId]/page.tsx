@@ -101,17 +101,26 @@ export default async function ResultPage({ params }: ResultPageProps) {
           </Button>
         </Link>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <Link href="/libros/efesios">
             <Button variant="secondary" size="md">
               Volver a Efesios
             </Button>
           </Link>
-          <Link href="/dashboard">
-            <Button variant="primary" size="md">
-              Ir al Dashboard <ArrowRight className="w-4 h-4 ml-1.5" />
-            </Button>
-          </Link>
+
+          {result.nextStep ? (
+            <Link href={result.nextStep.href}>
+              <Button variant="primary" size="md" className="font-bold shadow-md shadow-amber-600/20 gap-1.5">
+                {result.nextStep.label} <ArrowRight className="w-4 h-4 ml-1.5" />
+              </Button>
+            </Link>
+          ) : (
+            <Link href="/dashboard">
+              <Button variant="primary" size="md">
+                Ir al Dashboard <ArrowRight className="w-4 h-4 ml-1.5" />
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
 

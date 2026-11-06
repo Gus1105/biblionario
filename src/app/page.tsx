@@ -52,7 +52,7 @@ export default async function HomePage() {
                 </Link>
                 <Link href="/register">
                   <Button variant="primary" size="sm">
-                    Comenzar Gratis
+                    Comenzar Ahora
                   </Button>
                 </Link>
               </>
@@ -64,11 +64,6 @@ export default async function HomePage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-900 dark:text-amber-200 text-xs font-semibold uppercase tracking-wider mb-8 border border-amber-200 dark:border-amber-900/60 shadow-sm">
-            <Sparkles className="w-3.5 h-3.5" />
-            Metodología Educativa Integral de 4 Niveles
-          </div>
-
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight">
             Aprende, comprende y memoriza la Palabra de Dios con profundidad
           </h1>

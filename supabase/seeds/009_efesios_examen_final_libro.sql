@@ -231,7 +231,7 @@ VALUES
     'reference_identification',
     '¿En qué versículo declara la célebre alabanza: "A Aquel que es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos"?',
     'Efesios 3:20',
-    'Esta gloriosa doxología se ubica en Efesios 3:20.',
+    'Esta gloriosa alabanza se ubica en Efesios 3:20.',
     10, 'easy', 24, true
 ),
 (
@@ -713,10 +713,10 @@ VALUES
 ('f0000000-0000-0000-0000-000000000049', 'Efesios 6:21', false, 4),
 
 -- q50: ordering
-('f0000000-0000-0000-0000-000000000050', 'Bendiciones celestiales y la soberanía de Cristo (Cap. 1)', true, 1),
-('f0000000-0000-0000-0000-000000000050', 'De muerte a vida: salvos por gracia y reconciliados en la cruz (Cap. 2)', true, 2),
-('f0000000-0000-0000-0000-000000000050', 'El misterio de los gentiles y la multiforme sabiduría de Dios (Cap. 3)', true, 3),
-('f0000000-0000-0000-0000-000000000050', 'La armadura de Dios, guerra espiritual y perseverancia (Cap. 6)', true, 4)
+('f0000000-0000-0000-0000-000000000050', 'Bendiciones celestiales y la soberanía de Cristo', true, 1),
+('f0000000-0000-0000-0000-000000000050', 'De muerte a vida: salvos por gracia y reconciliados en la cruz', true, 2),
+('f0000000-0000-0000-0000-000000000050', 'El misterio de los gentiles y la multiforme sabiduría de Dios', true, 3),
+('f0000000-0000-0000-0000-000000000050', 'La armadura de Dios, guerra espiritual y perseverancia', true, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar las 50 preguntas al Examen Final de Efesios

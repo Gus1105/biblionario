@@ -238,7 +238,7 @@ VALUES
     'reference_identification',
     '¿En qué versículo de Efesios 1 se declara: "Nos bendijo con toda bendición espiritual en los lugares celestiales en Cristo"?',
     'Efesios 1:3',
-    'Esta célebre doxología y declaración apostólica se ubica textualmente en Efesios 1:3.',
+    'Esta célebre alabanza y declaración apostólica se ubica textualmente en Efesios 1:3.',
     10, 'medium', 23, true
 ),
 -- Pregunta 24 (Ref Ident)
@@ -374,10 +374,10 @@ VALUES
 ('c0010000-0000-0000-0000-000000000024', 'Efesios 1:18', false, 4),
 
 -- q25: ordering
-('c0010000-0000-0000-0000-000000000025', 'Elección en Cristo antes de la fundación del mundo (Ef. 1:4)', true, 1),
-('c0010000-0000-0000-0000-000000000025', 'Redención y perdón de pecados por su sangre (Ef. 1:7)', true, 2),
-('c0010000-0000-0000-0000-000000000025', 'Oír la palabra de verdad y ser sellados con el Espíritu Santo (Ef. 1:13)', true, 3),
-('c0010000-0000-0000-0000-000000000025', 'Cristo exaltado y dado por cabeza sobre todas las cosas a la iglesia (Ef. 1:22)', true, 4)
+('c0010000-0000-0000-0000-000000000025', 'Elección en Cristo antes de la fundación del mundo', true, 1),
+('c0010000-0000-0000-0000-000000000025', 'Redención y perdón de pecados por su sangre', true, 2),
+('c0010000-0000-0000-0000-000000000025', 'Oír la palabra de verdad y ser sellados con el Espíritu Santo', true, 3),
+('c0010000-0000-0000-0000-000000000025', 'Cristo exaltado y dado por cabeza sobre todas las cosas a la iglesia', true, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas a Examen General de Efesios 1
@@ -782,10 +782,10 @@ VALUES
 ('c0020000-0000-0000-0000-000000000024', 'Efesios 2:22', false, 4),
 
 -- q25: ordering
-('c0020000-0000-0000-0000-000000000025', 'Muertos en delitos y pecados siguiendo al príncipe del aire (Ef. 2:1-2)', true, 1),
-('c0020000-0000-0000-0000-000000000025', 'Resucitados con Cristo: salvos por gracia mediante la fe (Ef. 2:4-8)', true, 2),
-('c0020000-0000-0000-0000-000000000025', 'Reconciliación en la cruz: derribada la pared intermedia (Ef. 2:14-16)', true, 3),
-('c0020000-0000-0000-0000-000000000025', 'Edificados sobre apóstoles y profetas para morada de Dios (Ef. 2:20-22)', true, 4)
+('c0020000-0000-0000-0000-000000000025', 'Muertos en delitos y pecados siguiendo al príncipe del aire', true, 1),
+('c0020000-0000-0000-0000-000000000025', 'Resucitados con Cristo: salvos por gracia mediante la fe', true, 2),
+('c0020000-0000-0000-0000-000000000025', 'Reconciliación en la cruz: derribada la pared intermedia', true, 3),
+('c0020000-0000-0000-0000-000000000025', 'Edificados sobre apóstoles y profetas para morada de Dios', true, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas a Examen General de Efesios 2
@@ -902,7 +902,7 @@ VALUES
     'c0030000-0000-0000-0000-000000000008',
     'c0000000-0000-0000-0000-000000000003',
     'multiple_choice',
-    '¿Qué es capaz de hacer Dios según la majestuosa doxología de Efesios 3:20?',
+    '¿Qué es capaz de hacer Dios según la hermosa oración de alabanza de Efesios 3:20?',
     'Efesios 3:20',
     'Dios "es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos, según el poder que actúa en nosotros".',
     10, 'easy', 8, true
@@ -984,7 +984,7 @@ VALUES
     'fill_blank',
     'Completa Efesios 3:21: "A él sea ________ en la iglesia en Cristo Jesús por todas las edades, por los siglos de los siglos. Amén".',
     'Efesios 3:21',
-    'La doxología final rinde a Dios toda la "gloria".',
+    'La oración final de alabanza rinde a Dios toda la "gloria".',
     10, 'easy', 16, true
 ),
 -- Pregunta 17 (True/False)
@@ -1062,9 +1062,9 @@ VALUES
     'c0030000-0000-0000-0000-000000000024',
     'c0000000-0000-0000-0000-000000000003',
     'reference_identification',
-    '¿En qué versículo se encuentra la doxología: "Y a Aquel que es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos"?',
+    '¿En qué versículo se encuentra la alabanza: "Y a Aquel que es poderoso para hacer todas las cosas mucho más abundantemente de lo que pedimos o entendemos"?',
     'Efesios 3:20',
-    'La gran doxología de clausura de la primera mitad teológica de la carta está en Efesios 3:20.',
+    'La gran alabanza que cierra la primera parte de la carta está en Efesios 3:20.',
     10, 'easy', 24, true
 ),
 -- Pregunta 25 (Ordering)
@@ -1074,7 +1074,7 @@ VALUES
     'order_events',
     'Ordena los temas principales de la revelación y oración apostólica en Efesios 3:',
     'Efesios 3:1-21',
-    '1. El misterio revelado: gentiles coherederos en un mismo cuerpo (v. 1-6). 2. El anuncio de las inescrutables riquezas de Cristo (v. 8-11). 3. Oración de rodillas pidiendo fortaleza en el hombre interior (v. 14-17). 4. Doxología de gloria a Dios por los siglos en la iglesia y en Cristo (v. 20-21).',
+    '1. El misterio revelado: gentiles coherederos en un mismo cuerpo (v. 1-6). 2. El anuncio de las inescrutables riquezas de Cristo (v. 8-11). 3. Oración de rodillas pidiendo fortaleza en el hombre interior (v. 14-17). 4. Alabanza de gloria a Dios por los siglos en la iglesia y en Cristo (v. 20-21).',
     10, 'hard', 25, true
 );
 
@@ -1190,10 +1190,10 @@ VALUES
 ('c0030000-0000-0000-0000-000000000024', 'Efesios 3:16', false, 4),
 
 -- q25: ordering
-('c0030000-0000-0000-0000-000000000025', 'El misterio revelado: gentiles coherederos en un mismo cuerpo (Ef. 3:1-6)', true, 1),
-('c0030000-0000-0000-0000-000000000025', 'El anuncio de las inescrutables riquezas de Cristo (Ef. 3:8-11)', true, 2),
-('c0030000-0000-0000-0000-000000000025', 'Oración de rodillas pidiendo fortaleza en el hombre interior (Ef. 3:14-17)', true, 3),
-('c0030000-0000-0000-0000-000000000025', 'Doxología de gloria a Dios por los siglos en la iglesia y en Cristo (Ef. 3:20-21)', true, 4)
+('c0030000-0000-0000-0000-000000000025', 'El misterio revelado: gentiles coherederos en un mismo cuerpo', true, 1),
+('c0030000-0000-0000-0000-000000000025', 'El anuncio de las inescrutables riquezas de Cristo', true, 2),
+('c0030000-0000-0000-0000-000000000025', 'Oración de rodillas pidiendo fortaleza en el hombre interior', true, 3),
+('c0030000-0000-0000-0000-000000000025', 'Alabanza de gloria a Dios por los siglos en la iglesia y en Cristo', true, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas a Examen General de Efesios 3

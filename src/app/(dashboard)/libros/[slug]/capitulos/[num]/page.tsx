@@ -63,6 +63,37 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
   const isExamPassed = chapterProgress?.exam_passed || false;
   const bestScore = chapterProgress?.best_score;
 
+  if (chapter.isLocked) {
+    return (
+      <div className="max-w-xl mx-auto py-12 text-center space-y-6">
+        <div className="w-16 h-16 rounded-3xl bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center mx-auto shadow-sm">
+          <Lock className="w-8 h-8" />
+        </div>
+        <div className="space-y-2">
+          <Badge variant="warning">Capítulo Bloqueado</Badge>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-stone-100">
+            {book.name} • Capítulo {chapter.chapter_number}
+          </h1>
+          <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed max-w-md mx-auto">
+            Para acceder a este capítulo, debes completar todos los bloques y aprobar el Examen General del Capítulo {chapterNumber - 1}.
+          </p>
+        </div>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+          <Link href={`/libros/${slug}/capitulos/${chapterNumber - 1}`}>
+            <Button variant="primary" size="md" className="gap-2 font-bold shadow-md">
+              Ir al Capítulo {chapterNumber - 1} <ArrowRight className="w-4 h-4" />
+            </Button>
+          </Link>
+          <Link href={`/libros/${slug}`}>
+            <Button variant="secondary" size="md">
+              Volver a {book.name}
+            </Button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-8">
       {/* Botón de volver a la vista del libro */}

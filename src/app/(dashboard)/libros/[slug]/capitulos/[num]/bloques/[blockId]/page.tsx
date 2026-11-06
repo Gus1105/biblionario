@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getCurrentUser } from "@/actions/auth.actions";
 import { getBlockDetail } from "@/services/study.service";
 import { BlockStudyView } from "@/components/study/BlockStudyView";
@@ -22,6 +22,10 @@ export default async function BlockPage({ params }: BlockPageProps) {
 
   if (!blockData || !blockData.explanation) {
     notFound();
+  }
+
+  if (blockData.isChapterLocked) {
+    redirect(`/libros/${slug}/capitulos/${num}`);
   }
 
   return (

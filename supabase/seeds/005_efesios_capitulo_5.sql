@@ -96,7 +96,7 @@ VALUES (
 Despiértate, tú que duermes,
 Y levántate de los muertos,
 Y te alumbrará Cristo.',
-    'Pablo utiliza el poderoso contraste cósmico entre la luz y las tinieblas:
+    'Pablo muestra el gran contraste entre la luz y la oscuridad:
 
 1. De tinieblas a luz (v. 8):
 Pablo no dice meramente que estaban "en" tinieblas, sino: "en otro tiempo erais tinieblas". El pecado saturaba su ser interior.
@@ -172,7 +172,7 @@ VALUES (
 1. Caminar con diligencia y redimir el tiempo (v. 15-17):
 "Mirad, pues, con diligencia cómo andéis":
 - El cristiano examina cuidadosamente por dónde pisa su vida moral.
-- "Redimiendo el tiempo" (en griego exagorazō): comprar o rescatar cada oportunidad estratégica para la gloria de Dios de un mercado dominado por la maldad ("porque los días son malos").
+- "Aprovechando bien el tiempo": usar cada momento y oportunidad con sabiduría para hacer el bien y honrar a Dios en medio de un mundo difícil.
 - El necio malgasta la vida; el sabio procura ser "entendido de cuál sea la voluntad del Señor".
 
 2. La orden de ser llenos del Espíritu Santo (v. 18):

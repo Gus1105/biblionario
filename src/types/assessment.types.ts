@@ -60,6 +60,7 @@ export interface AssessmentResultSummary {
   attemptId: string;
   assessmentId: string;
   assessmentTitle: string;
+  assessmentType?: string;
   score: number;
   maxScore: number;
   percentage: number;
@@ -70,6 +71,13 @@ export interface AssessmentResultSummary {
   incorrectCount: number;
   completedAt: string;
   results: QuestionEvaluationResult[];
+  blockId?: string | null;
+  chapterId?: string | null;
+  chapterExamInfo?: {
+    id: string;
+    title: string;
+    chapterNumber: number;
+  } | null;
   nextStep?: {
     type: "next_block" | "chapter_exam" | "next_chapter" | "book_final" | "dashboard";
     label: string;

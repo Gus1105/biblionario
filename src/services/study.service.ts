@@ -122,22 +122,41 @@ export async function getUserDashboardStats(userId: string): Promise<DashboardSt
         .map((b) => b.block_id) || []
     );
 
-    const nextPendingBlock = allBlocks.find((b) => !completedBlockIds.has(b.id));
+    const { data: chaptersList } = await supabase
+      .from("chapters")
+      .select("id, chapter_number, title")
+      .eq("book_id", book?.id || "")
+      .order("chapter_number", { ascending: true })
+      .returns<Array<{ id: string; chapter_number: number; title: string }>>();
 
-    if (nextPendingBlock) {
-      nextStep = {
-        title: `Efesios ${nextPendingBlock.chapter.chapter_number} – ${nextPendingBlock.title}`,
-        description: `Continúa con los versículos ${nextPendingBlock.verse_range}`,
-        href: `/libros/efesios/capitulos/${nextPendingBlock.chapter.chapter_number}/bloques/${nextPendingBlock.id}`,
-        actionLabel: "Estudiar Bloque",
-      };
-    } else if (passedChapters < totalChapters) {
-      nextStep = {
-        title: "Examen de Capítulo Pendiente",
-        description: "Has terminado los bloques de estudio. ¡Realiza el examen de capítulo!",
-        href: `/libros/efesios`,
-        actionLabel: "Ver Capítulos",
-      };
+    const passedChapterIds = new Set(
+      userChapters?.filter((c) => c.exam_passed).map((c) => c.chapter_id) || []
+    );
+
+    // Encontrar el primer capítulo activo/incompleto en estricta secuencia
+    const activeChapter = (chaptersList || []).find((ch) => !passedChapterIds.has(ch.id));
+
+    if (activeChapter) {
+      const chapterBlocks = allBlocks.filter(
+        (b) => b.chapter.chapter_number === activeChapter.chapter_number
+      );
+      const pendingBlock = chapterBlocks.find((b) => !completedBlockIds.has(b.id));
+
+      if (pendingBlock) {
+        nextStep = {
+          title: `Efesios ${pendingBlock.chapter.chapter_number} – ${pendingBlock.title}`,
+          description: `Continúa con los versículos ${pendingBlock.verse_range}`,
+          href: `/libros/efesios/capitulos/${pendingBlock.chapter.chapter_number}/bloques/${pendingBlock.id}`,
+          actionLabel: "Estudiar Bloque",
+        };
+      } else {
+        nextStep = {
+          title: `Examen de Efesios Capítulo ${activeChapter.chapter_number}`,
+          description: `Has completado los bloques del Capítulo ${activeChapter.chapter_number}. Realiza el examen para desbloquear el siguiente capítulo.`,
+          href: `/libros/efesios/capitulos/${activeChapter.chapter_number}`,
+          actionLabel: "Rendir Examen",
+        };
+      }
     } else {
       nextStep = {
         title: "Examen Final de Efesios",
@@ -266,11 +285,26 @@ export async function getBookWithChapters(slug: string, userId?: string) {
 
   return {
     ...book,
-    chapters: sortedChapters.map((ch) => ({
-      ...ch,
-      blocksCount: ch.study_blocks?.length || 0,
-      userProgress: userChaptersProgress[ch.id] || null,
-    })),
+    chapters: sortedChapters.map((ch) => {
+      const userProg = userChaptersProgress[ch.id] || null;
+      let isLocked = false;
+      if (ch.chapter_number > 1) {
+        const prevChap = sortedChapters.find((c) => c.chapter_number === ch.chapter_number - 1);
+        if (prevChap) {
+          const prevProg = userChaptersProgress[prevChap.id];
+          isLocked = !prevProg?.exam_passed;
+        } else {
+          isLocked = true;
+        }
+      }
+
+      return {
+        ...ch,
+        blocksCount: ch.study_blocks?.length || 0,
+        userProgress: userProg,
+        isLocked,
+      };
+    }),
     finalExam,
     userProgress: userBookProgress,
   };
@@ -367,6 +401,34 @@ export async function getChapterDetail(bookSlug: string, chapterNumber: number, 
     chapterProgress = ucp;
   }
 
+  // Verificar si este capítulo está bloqueado (requiere examen del capítulo anterior aprobado)
+  let isLocked = false;
+  let previousChapter: { id: string; chapter_number: number; title: string } | null = null;
+
+  if (chapter.chapter_number > 1) {
+    const { data: prevChap } = await supabase
+      .from("chapters")
+      .select("id, chapter_number, title")
+      .eq("book_id", book.id)
+      .eq("chapter_number", chapter.chapter_number - 1)
+      .maybeSingle<{ id: string; chapter_number: number; title: string }>();
+
+    previousChapter = prevChap;
+
+    if (prevChap && userId) {
+      const { data: prevProg } = await supabase
+        .from("user_chapter_progress")
+        .select("exam_passed")
+        .eq("user_id", userId)
+        .eq("chapter_id", prevChap.id)
+        .maybeSingle<{ exam_passed: boolean }>();
+
+      isLocked = !prevProg?.exam_passed;
+    } else {
+      isLocked = true;
+    }
+  }
+
   const sortedBlocks = (chapter.study_blocks || []).sort(
     (a, b) => a.order_index - b.order_index
   );
@@ -375,6 +437,8 @@ export async function getChapterDetail(bookSlug: string, chapterNumber: number, 
     book,
     chapter: {
       ...chapter,
+      isLocked,
+      previousChapter,
       blocks: sortedBlocks.map((b) => ({
         ...b,
         userProgress: userProgressMap[b.id] || null,
@@ -501,8 +565,36 @@ export async function getBlockDetail(blockId: string, userId?: string) {
     ? block.explanation[0]
     : block.explanation;
 
+  let isChapterLocked = false;
+  if (block.chapter.chapter_number > 1) {
+    if (userId) {
+      const { data: prevChap } = await supabase
+        .from("chapters")
+        .select("id")
+        .eq("book_id", block.chapter.book.id)
+        .eq("chapter_number", block.chapter.chapter_number - 1)
+        .maybeSingle<{ id: string }>();
+
+      if (prevChap) {
+        const { data: prevProg } = await supabase
+          .from("user_chapter_progress")
+          .select("exam_passed")
+          .eq("user_id", userId)
+          .eq("chapter_id", prevChap.id)
+          .maybeSingle<{ exam_passed: boolean }>();
+
+        isChapterLocked = !prevProg?.exam_passed;
+      } else {
+        isChapterLocked = true;
+      }
+    } else {
+      isChapterLocked = true;
+    }
+  }
+
   return {
     ...block,
+    isChapterLocked,
     explanation: rawExp || null,
     assessment: blockAssessment,
     navigation: {

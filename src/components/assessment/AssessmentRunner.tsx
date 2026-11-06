@@ -163,7 +163,7 @@ export function AssessmentRunner({ assessment, backHref = "/dashboard" }: Assess
       {/* Tarjeta de la Pregunta Actual */}
       <Card className="shadow-md border-stone-200 dark:border-stone-800">
         <CardHeader className="space-y-2 pb-4">
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
             <Badge variant="outline" className="text-xs">
               {currentQuestion.question_type === "multiple_choice" && "Selección Múltiple"}
               {currentQuestion.question_type === "fill_blank" && "Memoria Bíblica • Completar"}
@@ -171,10 +171,6 @@ export function AssessmentRunner({ assessment, backHref = "/dashboard" }: Assess
               {currentQuestion.question_type === "true_false" && "Verdadero o Falso"}
               {currentQuestion.question_type === "order_events" && "Ordenar Conceptos"}
             </Badge>
-
-            <span className="text-xs font-semibold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/50 px-2 py-0.5 rounded">
-              Ref: {currentQuestion.verse_reference}
-            </span>
           </div>
 
           <h2 className="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100 leading-snug pt-1">
@@ -334,7 +330,7 @@ export function AssessmentRunner({ assessment, backHref = "/dashboard" }: Assess
             {isPending ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin" />
-                <span>Evaluando en servidor...</span>
+                <span>Evaluando...</span>
               </>
             ) : (
               <>

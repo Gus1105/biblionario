@@ -56,10 +56,10 @@ c) Nos hizo sentar en los lugares celestiales con Cristo Jesús.
 4. El propósito de la salvación: buenas obras (v. 10):
 Las buenas obras no son la raíz o causa de la salvación, sino su fruto necesario. Somos "hechura suya" (su poema u obra maestra espiritual), creados en Cristo Jesús "para buenas obras, las cuales Dios preparó de antemano para que anduviésemos en ellas".',
     '[
-        {"concept": "Muertos en pecados", "definition": "Incapacidad y alienación espiritual absoluta respecto a Dios; la imposibilidad del ser humano de salvarse o justificarse a sí mismo."},
+        {"concept": "Muertos en pecados", "definition": "Estar separados de Dios y sin vida espiritual a causa del pecado, sin poder salvarnos por nuestras propias fuerzas."},
         {"concept": "Gracia", "definition": "El favor inmerecido y generoso de Dios que otorga salvación, vida eterna y bendición a quien merecía juicio."},
         {"concept": "Don de Dios", "definition": "Un regalo soberano y gratuito otorgado por Dios que no puede ser comprado, ganado ni merecido por el hombre."},
-        {"concept": "Hechura suya", "definition": "Del griego poiēma, creación u obra de arte exclusiva de Dios producida por medio de la regeneración en Cristo."}
+        {"concept": "Hechura suya", "definition": "Somos una creación u obra especial de Dios, transformados por medio de Cristo para hacer el bien."}
     ]'::jsonb,
     '[
         "El ser humano sin Cristo está espiritualmente muerto e impotente en sus pecados.",
@@ -377,10 +377,10 @@ VALUES
 ('d0002001-0006-0000-0000-000000000006', 'Efesios 2:8', false, 4, null),
 
 -- q7: order_events
-('d0002001-0007-0000-0000-000000000007', 'Estabais muertos en vuestros delitos y pecados (v. 1)', true, 1, 1),
-('d0002001-0007-0000-0000-000000000007', 'Dios nos dio vida juntamente con Cristo por su gran amor (v. 4-5)', true, 2, 2),
-('d0002001-0007-0000-0000-000000000007', 'Por gracia sois salvos por medio de la fe; no por obras (v. 8-9)', true, 3, 3),
-('d0002001-0007-0000-0000-000000000007', 'Creados en Cristo Jesús para buenas obras preparadas de antemano (v. 10)', true, 4, 4)
+('d0002001-0007-0000-0000-000000000007', 'Estabais muertos en vuestros delitos y pecados', true, 1, 1),
+('d0002001-0007-0000-0000-000000000007', 'Dios nos dio vida juntamente con Cristo por su gran amor', true, 2, 2),
+('d0002001-0007-0000-0000-000000000007', 'Por gracia sois salvos por medio de la fe; no por obras', true, 3, 3),
+('d0002001-0007-0000-0000-000000000007', 'Creados en Cristo Jesús para buenas obras preparadas de antemano', true, 4, 4)
 ON CONFLICT (id) DO NOTHING;
 
 -- Asociar preguntas Bloque 2.1

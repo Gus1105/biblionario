@@ -94,18 +94,25 @@ export default async function BookPage({ params }: BookPageProps) {
             const isCompleted = progress?.exam_passed;
             const isExamUnlocked = progress?.exam_unlocked;
             const hasStarted = progress !== null;
+            const isLocked = chapter.isLocked ?? false;
 
             return (
               <Card
                 key={chapter.id}
-                className="flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden"
+                className={`flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden ${
+                  isLocked ? "opacity-75 bg-stone-50/50 dark:bg-stone-900/40 border-dashed" : ""
+                }`}
               >
                 <CardHeader>
                   <div className="flex items-start justify-between gap-2 mb-2">
                     <span className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
                       Capítulo {chapter.chapter_number}
                     </span>
-                    {isCompleted ? (
+                    {isLocked ? (
+                      <Badge variant="outline" className="text-stone-400 dark:text-stone-500 gap-1 border-stone-300 dark:border-stone-750">
+                        <Lock className="w-3 h-3" /> Bloqueado
+                      </Badge>
+                    ) : isCompleted ? (
                       <Badge variant="success">Completado</Badge>
                     ) : isExamUnlocked ? (
                       <Badge variant="warning">Examen Listo</Badge>
@@ -140,22 +147,38 @@ export default async function BookPage({ params }: BookPageProps) {
                     )}
                   </div>
 
-                  <Link
-                    href={`/libros/efesios/capitulos/${chapter.chapter_number}`}
-                    className="block"
-                  >
-                    <Button
-                      variant={isCompleted ? "outline" : "primary"}
-                      className="w-full text-xs"
+                  {isLocked ? (
+                    <div className="space-y-2">
+                      <div className="text-[11px] font-medium text-amber-700/80 dark:text-amber-400/80 bg-amber-50 dark:bg-amber-950/30 p-2 rounded-lg flex items-center gap-1.5">
+                        <Lock className="w-3 h-3 flex-shrink-0" />
+                        <span>Requiere aprobar el Capítulo {chapter.chapter_number - 1}</span>
+                      </div>
+                      <Button
+                        variant="secondary"
+                        disabled
+                        className="w-full text-xs opacity-60 cursor-not-allowed gap-1.5"
+                      >
+                        <Lock className="w-3.5 h-3.5" /> Capítulo Bloqueado
+                      </Button>
+                    </div>
+                  ) : (
+                    <Link
+                      href={`/libros/${bookData.slug}/capitulos/${chapter.chapter_number}`}
+                      className="block"
                     >
-                      {isCompleted
-                        ? "Repasar Capítulo"
-                        : hasStarted
-                        ? "Continuar Capítulo"
-                        : "Comenzar Capítulo"}
-                      <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
-                    </Button>
-                  </Link>
+                      <Button
+                        variant={isCompleted ? "outline" : "primary"}
+                        className="w-full text-xs"
+                      >
+                        {isCompleted
+                          ? "Repasar Capítulo"
+                          : hasStarted
+                          ? "Continuar Capítulo"
+                          : "Comenzar Capítulo"}
+                        <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                      </Button>
+                    </Link>
+                  )}
                 </CardContent>
               </Card>
             );

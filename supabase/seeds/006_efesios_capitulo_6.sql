@@ -41,7 +41,7 @@ Pablo se dirige especialmente a los padres (patres, cabezas de hogar) con un man
   Evitar la severidad irrazonable, el maltrato verbal o físico, la arbitrariedad, la humillación o la hipocresía que engendra resentimiento y amargura en el corazón de los hijos.
 - Mandato positivo: "sino criadlos en disciplina y amonestación del Señor".
   Nutrirlos amorosamente en:
-  a) "Disciplina" (en griego paideia): entrenamiento integral, corrección formativa y hábitos piadosos.
+  a) "Disciplina": enseñanza con amor, corrección paciente y buen ejemplo en los caminos del Señor.
   b) "Amonestación del Señor": instrucción verbal basada en las verdades de la Palabra de Dios.',
     '[
         {"concept": "Obediencia en el Señor", "definition": "Acatar las instrucciones de los padres motivado por el deseo de agradar a Cristo y someterse a su orden soberano."},
@@ -235,7 +235,7 @@ c) Gracia: el favor eterno de Dios reservado para "todos los que aman a nuestro 
     '[
         {"concept": "Fiel ministro", "definition": "Un siervo de Cristo caracterizado por su lealtad, perseverancia, doctrina sana y confiabilidad en la encomienda del Señor."},
         {"concept": "Consolar los corazones", "definition": "El ministerio pastoral de confortar, alentar y afirmar la fe de los hermanos ante la adversidad."},
-        {"concept": "Amor inalterable", "definition": "En griego aphtharsia, un amor incorruptible, inmortal, puro y perpetuo que jamás se marchita ni claudica."}
+        {"concept": "Amor inalterable", "definition": "Un amor sincero, puro y constante hacia nuestro Señor Jesucristo, que nunca se apaga."}
     ]'::jsonb,
     '[
         "El ministerio apostólico y pastoral se fundamenta en la colaboración de siervos fieles y amados como Tíquico.",

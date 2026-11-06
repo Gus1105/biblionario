@@ -123,7 +123,7 @@ La madurez bíblica protege a la iglesia de ser "niños fluctuantes", vulnerable
 El camino es: "siguiendo la verdad en amor", donde cada miembro, como una coyuntura viva conectada a la Cabeza que es Cristo, cumple su función activa y hace crecer el cuerpo en edificación y amor.',
     '[
         {"concept": "Don de Cristo", "definition": "Capacitación espiritual y gracia otorgada individualmente a cada creyente para el servicio en el cuerpo de Cristo."},
-        {"concept": "Perfeccionar a los santos", "definition": "Del griego katartismos, equipar, adiestrar y poner en orden a los creyentes para que ejerzan su ministerio propio."},
+        {"concept": "Perfeccionar a los santos", "definition": "Capacitar, preparar y animar a los creyentes para que cada uno pueda servir a Dios y ayudar a los demás."},
         {"concept": "Medida de la estatura de Cristo", "definition": "El estándar perfecto de carácter, madurez y santidad que la Iglesia como cuerpo debe alcanzar."},
         {"concept": "Viento de doctrina", "definition": "Enseñanzas falsas, modas teológicas erradas o manipulaciones humanas que confunden a los inmaduros en la fe."}
     ]'::jsonb,
