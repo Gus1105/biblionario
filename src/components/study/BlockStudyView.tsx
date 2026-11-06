@@ -80,10 +80,12 @@ export function BlockStudyView({
   const [isPending, startTransition] = useTransition();
 
   const handleMarkAsRead = () => {
+    // Actualización optimista inmediata
+    setIsRead(true);
     startTransition(async () => {
       const res = await markBlockAsReadAction(block.id);
-      if (res.success) {
-        setIsRead(true);
+      if (!res.success) {
+        setIsRead(false);
       }
     });
   };

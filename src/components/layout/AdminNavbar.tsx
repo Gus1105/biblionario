@@ -73,6 +73,7 @@ export function AdminNavbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                prefetch={true}
                 className={cn(
                   "px-3.5 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2",
                   isActive
@@ -89,7 +90,7 @@ export function AdminNavbar() {
 
         {/* Desktop Actions & Mobile Menu Toggle */}
         <div className="flex items-center gap-2 sm:gap-3">
-          <Link href="/dashboard" className="hidden sm:inline-flex">
+          <Link href="/dashboard" prefetch={true} className="hidden sm:inline-flex">
             <Button
               variant="secondary"
               size="sm"
@@ -133,6 +134,7 @@ export function AdminNavbar() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  prefetch={true}
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
                     "flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium transition-colors",
@@ -154,6 +156,7 @@ export function AdminNavbar() {
           <div className="pt-4 mt-4 border-t border-stone-800">
             <Link
               href="/dashboard"
+              prefetch={true}
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl text-sm font-semibold text-stone-200 bg-stone-900 hover:bg-stone-800 border border-stone-700 transition-colors"
             >

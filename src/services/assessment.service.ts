@@ -198,62 +198,68 @@ interface AttemptWithAssessmentRelation {
 export async function getAttemptResult(attemptId: string, userId: string) {
   const adminSupabase = createAdminClient();
 
-  const { data: attempt } = await adminSupabase
-    .from("assessment_attempts")
-    .select(`
-      id,
-      user_id,
-      score,
-      max_score,
-      percentage,
-      passed,
-      status,
-      started_at,
-      completed_at,
-      assessment:assessments!inner(
+  // 1. Obtener intento y respuestas en paralelo
+  const [attemptRes, answersRes] = await Promise.all([
+    adminSupabase
+      .from("assessment_attempts")
+      .select(`
         id,
-        title,
-        type,
-        passing_score_percentage,
-        block_id,
-        chapter_id,
-        book_id
-      )
-    `)
-    .eq("id", attemptId)
-    .single<AttemptWithAssessmentRelation>();
-
-  if (!attempt || attempt.user_id !== userId) return null;
-
-  const { data: answers } = await adminSupabase
-    .from("assessment_answers")
-    .select(`
-      id,
-      question_id,
-      selected_option_id,
-      text_response,
-      order_response,
-      is_correct,
-      points_awarded,
-      feedback,
-      question:questions!inner(
-        id,
-        prompt,
-        question_type,
-        verse_reference,
-        explanation,
-        points,
-        options:question_options(
+        user_id,
+        score,
+        max_score,
+        percentage,
+        passed,
+        status,
+        started_at,
+        completed_at,
+        assessment:assessments!inner(
           id,
-          option_text,
-          is_correct,
-          order_index,
-          correct_order_position
+          title,
+          type,
+          passing_score_percentage,
+          block_id,
+          chapter_id,
+          book_id
         )
-      )
-    `)
-    .eq("attempt_id", attemptId)
-    .returns<any[]>();
+      `)
+      .eq("id", attemptId)
+      .eq("user_id", userId)
+      .maybeSingle<AttemptWithAssessmentRelation>(),
+    adminSupabase
+      .from("assessment_answers")
+      .select(`
+        id,
+        question_id,
+        selected_option_id,
+        text_response,
+        order_response,
+        is_correct,
+        points_awarded,
+        feedback,
+        question:questions!inner(
+          id,
+          prompt,
+          question_type,
+          verse_reference,
+          explanation,
+          points,
+          options:question_options(
+            id,
+            option_text,
+            is_correct,
+            order_index,
+            correct_order_position
+          )
+        )
+      `)
+      .eq("attempt_id", attemptId)
+      .returns<any[]>(),
+  ]);
+
+  const attempt = attemptRes.data;
+  const answers = answersRes.data;
+
+  if (!attempt) return null;
 
   const rawAssessment = attempt.assessment;
 
@@ -340,15 +346,26 @@ export async function getAttemptResult(attemptId: string, userId: string) {
         const bookSlug = currentBlock.chapter.book.slug;
         const chapterNumber = currentBlock.chapter.chapter_number;
 
-        // 1. Buscar el siguiente bloque del mismo capítulo
-        const { data: nextBlock } = await adminSupabase
-          .from("study_blocks")
-          .select("id, block_number, title")
-          .eq("chapter_id", currentBlock.chapter_id)
-          .gt("order_index", currentBlock.order_index)
-          .order("order_index", { ascending: true })
-          .limit(1)
-          .maybeSingle<{ id: string; block_number: number; title: string }>();
+        // 1. Buscar simultáneamente el siguiente bloque y el examen del capítulo
+        const [nextBlockRes, chapterExamRes] = await Promise.all([
+          adminSupabase
+            .from("study_blocks")
+            .select("id, block_number, title")
+            .eq("chapter_id", currentBlock.chapter_id)
+            .gt("order_index", currentBlock.order_index)
+            .order("order_index", { ascending: true })
+            .limit(1)
+            .maybeSingle<{ id: string; block_number: number; title: string }>(),
+          adminSupabase
+            .from("assessments")
+            .select("id, title")
+            .eq("chapter_id", currentBlock.chapter_id)
+            .eq("type", "chapter_exam")
+            .maybeSingle<{ id: string; title: string }>(),
+        ]);
+
+        const nextBlock = nextBlockRes.data;
+        const chapterExam = chapterExamRes.data;
 
         if (nextBlock) {
           nextStep = {
@@ -356,45 +373,35 @@ export async function getAttemptResult(attemptId: string, userId: string) {
             label: "Continuar al Siguiente Bloque",
             href: `/libros/${bookSlug}/capitulos/${chapterNumber}/bloques/${nextBlock.id}`,
           };
+        } else if (chapterExam) {
+          nextStep = {
+            type: "chapter_exam",
+            label: `Continuar al Examen del Capítulo ${chapterNumber}`,
+            href: `/evaluaciones/${chapterExam.id}`,
+          };
         } else {
-          // Es el último bloque de este capítulo: en la secuencia pasa al Examen General del Capítulo
-          const { data: chapterExam } = await adminSupabase
-            .from("assessments")
-            .select("id, title")
-            .eq("chapter_id", currentBlock.chapter_id)
-            .eq("type", "chapter_exam")
-            .maybeSingle<{ id: string; title: string }>();
+          // Si no existiera examen de capítulo, avanzar al siguiente capítulo
+          const { data: nextChapter } = await adminSupabase
+            .from("chapters")
+            .select("id, chapter_number, title")
+            .eq("book_id", currentBlock.chapter.book.id || currentBlock.chapter.book_id)
+            .gt("chapter_number", chapterNumber)
+            .order("chapter_number", { ascending: true })
+            .limit(1)
+            .maybeSingle<{ id: string; chapter_number: number; title: string }>();
 
-          if (chapterExam) {
+          if (nextChapter) {
             nextStep = {
-              type: "chapter_exam",
-              label: `Continuar al Examen del Capítulo ${chapterNumber}`,
-              href: `/evaluaciones/${chapterExam.id}`,
+              type: "next_chapter",
+              label: `Continuar al Capítulo ${nextChapter.chapter_number}`,
+              href: `/libros/${bookSlug}/capitulos/${nextChapter.chapter_number}`,
             };
           } else {
-            // Si no existiera examen de capítulo, avanzar al siguiente capítulo
-            const { data: nextChapter } = await adminSupabase
-              .from("chapters")
-              .select("id, chapter_number, title")
-              .eq("book_id", currentBlock.chapter.book.id || currentBlock.chapter.book_id)
-              .gt("chapter_number", chapterNumber)
-              .order("chapter_number", { ascending: true })
-              .limit(1)
-              .maybeSingle<{ id: string; chapter_number: number; title: string }>();
-
-            if (nextChapter) {
-              nextStep = {
-                type: "next_chapter",
-                label: `Continuar al Capítulo ${nextChapter.chapter_number}`,
-                href: `/libros/${bookSlug}/capitulos/${nextChapter.chapter_number}`,
-              };
-            } else {
-              nextStep = {
-                type: "dashboard",
-                label: "Ir al Dashboard",
-                href: "/dashboard",
-              };
-            }
+            nextStep = {
+              type: "dashboard",
+              label: "Ir al Dashboard",
+              href: "/dashboard",
+            };
           }
         }
       }

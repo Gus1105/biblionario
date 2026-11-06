@@ -334,14 +334,7 @@ export interface ChapterQueryResult {
 export async function getChapterDetail(bookSlug: string, chapterNumber: number, userId?: string) {
   const supabase = await createClient();
 
-  const { data: book } = await supabase
-    .from("books")
-    .select("id, name, slug")
-    .eq("slug", bookSlug)
-    .single<{ id: string; name: string; slug: string }>();
-
-  if (!book) return null;
-
+  // 1. Obtener el capítulo junto con su libro y bloques en UNA SOLA consulta
   const { data: chapter } = await supabase
     .from("chapters")
     .select(`
@@ -349,6 +342,12 @@ export async function getChapterDetail(bookSlug: string, chapterNumber: number, 
       chapter_number,
       title,
       summary,
+      book_id,
+      book:books!inner(
+        id,
+        name,
+        slug
+      ),
       study_blocks (
         id,
         block_number,
@@ -358,77 +357,97 @@ export async function getChapterDetail(bookSlug: string, chapterNumber: number, 
         order_index
       )
     `)
-    .eq("book_id", book.id)
     .eq("chapter_number", chapterNumber)
-    .single<ChapterQueryResult>();
+    .eq("book.slug", bookSlug)
+    .maybeSingle<any>();
 
-  if (!chapter) return null;
+  if (!chapter || !chapter.book) return null;
 
-  const { data: chapterAssessment } = await supabase
-    .from("assessments")
-    .select("id, title, type, passing_score_percentage, questions_count")
-    .eq("chapter_id", chapter.id)
-    .eq("type", "chapter_exam")
-    .maybeSingle<{
-      id: string;
-      title: string;
-      type: string;
-      passing_score_percentage: number;
-      questions_count: number;
-    }>();
+  const book = chapter.book;
+  const blockIds = (chapter.study_blocks || []).map((b: any) => b.id);
 
-  let userProgressMap: Record<string, any> = {};
-  let chapterProgress: any = null;
-
-  if (userId) {
-    const blockIds = (chapter.study_blocks || []).map((b) => b.id);
-    if (blockIds.length > 0) {
-      const { data: ubp } = await supabase
-        .from("user_block_progress")
-        .select("*")
-        .eq("user_id", userId)
-        .in("block_id", blockIds)
-        .returns<Database["public"]["Tables"]["user_block_progress"]["Row"][]>();
-
-      if (ubp) {
-        ubp.forEach((p) => {
-          userProgressMap[p.block_id] = p;
-        });
-      }
-    }
-
-    const { data: ucp } = await supabase
-      .from("user_chapter_progress")
-      .select("*")
-      .eq("user_id", userId)
+  // 2. Ejecutar simultáneamente en paralelo:
+  // - Evaluación del capítulo
+  // - Progreso de bloques del usuario
+  // - Progreso de capítulos del usuario
+  // - Datos del capítulo anterior (para validar bloqueo)
+  const [
+    { data: chapterAssessment },
+    blockProgResult,
+    userChaptersResult,
+    prevChapResult,
+  ] = await Promise.all([
+    supabase
+      .from("assessments")
+      .select("id, title, type, passing_score_percentage, questions_count")
       .eq("chapter_id", chapter.id)
-      .maybeSingle<Database["public"]["Tables"]["user_chapter_progress"]["Row"]>();
+      .eq("type", "chapter_exam")
+      .maybeSingle<{
+        id: string;
+        title: string;
+        type: string;
+        passing_score_percentage: number;
+        questions_count: number;
+      }>(),
+    userId && blockIds.length > 0
+      ? supabase
+          .from("user_block_progress")
+          .select("block_id, reading_completed, quiz_passed, best_score")
+          .eq("user_id", userId)
+          .in("block_id", blockIds)
+          .returns<
+            Array<{
+              block_id: string;
+              reading_completed: boolean;
+              quiz_passed: boolean;
+              best_score: number;
+            }>
+          >()
+      : Promise.resolve({ data: null }),
+    userId
+      ? supabase
+          .from("user_chapter_progress")
+          .select("chapter_id, exam_unlocked, exam_passed, best_score")
+          .eq("user_id", userId)
+          .returns<
+            Array<{
+              chapter_id: string;
+              exam_unlocked: boolean;
+              exam_passed: boolean;
+              best_score: number;
+            }>
+          >()
+      : Promise.resolve({ data: null }),
+    chapter.chapter_number > 1
+      ? supabase
+          .from("chapters")
+          .select("id, chapter_number, title")
+          .eq("book_id", book.id)
+          .eq("chapter_number", chapter.chapter_number - 1)
+          .maybeSingle<{ id: string; chapter_number: number; title: string }>()
+      : Promise.resolve({ data: null }),
+  ]);
 
-    chapterProgress = ucp;
+  const userProgressMap: Record<string, any> = {};
+  if (blockProgResult.data) {
+    blockProgResult.data.forEach((p: any) => {
+      userProgressMap[p.block_id] = p;
+    });
   }
+
+  const userChaptersList = userChaptersResult.data || [];
+  const chapterProgress =
+    userChaptersList.find((c: any) => c.chapter_id === chapter.id) || null;
 
   // Verificar si este capítulo está bloqueado (requiere examen del capítulo anterior aprobado)
   let isLocked = false;
-  let previousChapter: { id: string; chapter_number: number; title: string } | null = null;
+  const previousChapter = prevChapResult.data || null;
 
   if (chapter.chapter_number > 1) {
-    const { data: prevChap } = await supabase
-      .from("chapters")
-      .select("id, chapter_number, title")
-      .eq("book_id", book.id)
-      .eq("chapter_number", chapter.chapter_number - 1)
-      .maybeSingle<{ id: string; chapter_number: number; title: string }>();
-
-    previousChapter = prevChap;
-
-    if (prevChap && userId) {
-      const { data: prevProg } = await supabase
-        .from("user_chapter_progress")
-        .select("exam_passed")
-        .eq("user_id", userId)
-        .eq("chapter_id", prevChap.id)
-        .maybeSingle<{ exam_passed: boolean }>();
-
+    if (previousChapter && userId) {
+      const prevProg = userChaptersList.find(
+        (c: any) => c.chapter_id === previousChapter.id
+      );
       isLocked = !prevProg?.exam_passed;
     } else {
       isLocked = true;
@@ -436,7 +455,7 @@ export async function getChapterDetail(bookSlug: string, chapterNumber: number, 
   }
 
   const sortedBlocks = (chapter.study_blocks || []).sort(
-    (a, b) => a.order_index - b.order_index
+    (a: any, b: any) => a.order_index - b.order_index
   );
 
   return {
@@ -445,7 +464,7 @@ export async function getChapterDetail(bookSlug: string, chapterNumber: number, 
       ...chapter,
       isLocked,
       previousChapter,
-      blocks: sortedBlocks.map((b) => ({
+      blocks: sortedBlocks.map((b: any) => ({
         ...b,
         userProgress: userProgressMap[b.id] || null,
       })),
@@ -488,6 +507,7 @@ export interface BlockQueryResult {
 export async function getBlockDetail(blockId: string, userId?: string) {
   const supabase = await createClient();
 
+  // 1. Obtener el bloque con su capítulo, libro y explicación
   const { data: block } = await supabase
     .from("study_blocks")
     .select(`
@@ -520,33 +540,71 @@ export async function getBlockDetail(blockId: string, userId?: string) {
 
   if (!block) return null;
 
-  const { data: blockAssessment } = await supabase
-    .from("assessments")
-    .select("id, title, type, passing_score_percentage, questions_count")
-    .eq("block_id", block.id)
-    .eq("type", "block_quiz")
-    .maybeSingle<{
-      id: string;
-      title: string;
-      type: string;
-      passing_score_percentage: number;
-      questions_count: number;
-    }>();
+  const isPastChapterOne = block.chapter.chapter_number > 1;
 
-  const { data: siblings } = await supabase
-    .from("study_blocks")
-    .select("id, block_number, title, verse_range, order_index")
-    .eq("chapter_id", block.chapter_id)
-    .order("order_index", { ascending: true })
-    .returns<
-      Array<{
+  // 2. Ejecutar simultáneamente:
+  // - Evaluación del bloque
+  // - Bloques hermanos del capítulo (para navegación anterior/siguiente)
+  // - Progreso del usuario en este bloque
+  // - Identificador del capítulo previo (si capítulo > 1)
+  // - Progreso de capítulos del usuario (si capítulo > 1)
+  const [
+    { data: blockAssessment },
+    { data: siblings },
+    userProgressRes,
+    prevChapRes,
+    userChapterProgRes,
+  ] = await Promise.all([
+    supabase
+      .from("assessments")
+      .select("id, title, type, passing_score_percentage, questions_count")
+      .eq("block_id", block.id)
+      .eq("type", "block_quiz")
+      .maybeSingle<{
         id: string;
-        block_number: number;
         title: string;
-        verse_range: string;
-        order_index: number;
-      }>
-    >();
+        type: string;
+        passing_score_percentage: number;
+        questions_count: number;
+      }>(),
+    supabase
+      .from("study_blocks")
+      .select("id, block_number, title, verse_range, order_index")
+      .eq("chapter_id", block.chapter_id)
+      .order("order_index", { ascending: true })
+      .returns<
+        Array<{
+          id: string;
+          block_number: number;
+          title: string;
+          verse_range: string;
+          order_index: number;
+        }>
+      >(),
+    userId
+      ? supabase
+          .from("user_block_progress")
+          .select("id, user_id, block_id, reading_completed, quiz_passed, best_score")
+          .eq("user_id", userId)
+          .eq("block_id", block.id)
+          .maybeSingle<Database["public"]["Tables"]["user_block_progress"]["Row"]>()
+      : Promise.resolve({ data: null }),
+    isPastChapterOne
+      ? supabase
+          .from("chapters")
+          .select("id")
+          .eq("book_id", block.chapter.book.id)
+          .eq("chapter_number", block.chapter.chapter_number - 1)
+          .maybeSingle<{ id: string }>()
+      : Promise.resolve({ data: null }),
+    isPastChapterOne && userId
+      ? supabase
+          .from("user_chapter_progress")
+          .select("chapter_id, exam_passed")
+          .eq("user_id", userId)
+          .returns<Array<{ chapter_id: string; exam_passed: boolean }>>()
+      : Promise.resolve({ data: null }),
+  ]);
 
   const currentIndex = siblings?.findIndex((s) => s.id === block.id) ?? -1;
   const prevBlock = currentIndex > 0 ? siblings?.[currentIndex - 1] : null;
@@ -555,44 +613,19 @@ export async function getBlockDetail(blockId: string, userId?: string) {
       ? siblings[currentIndex + 1]
       : null;
 
-  let userProgress: any = null;
-  if (userId) {
-    const { data: ubp } = await supabase
-      .from("user_block_progress")
-      .select("*")
-      .eq("user_id", userId)
-      .eq("block_id", block.id)
-      .maybeSingle<Database["public"]["Tables"]["user_block_progress"]["Row"]>();
-
-    userProgress = ubp;
-  }
+  const userProgress = userProgressRes.data;
 
   const rawExp = Array.isArray(block.explanation)
     ? block.explanation[0]
     : block.explanation;
 
   let isChapterLocked = false;
-  if (block.chapter.chapter_number > 1) {
-    if (userId) {
-      const { data: prevChap } = await supabase
-        .from("chapters")
-        .select("id")
-        .eq("book_id", block.chapter.book.id)
-        .eq("chapter_number", block.chapter.chapter_number - 1)
-        .maybeSingle<{ id: string }>();
-
-      if (prevChap) {
-        const { data: prevProg } = await supabase
-          .from("user_chapter_progress")
-          .select("exam_passed")
-          .eq("user_id", userId)
-          .eq("chapter_id", prevChap.id)
-          .maybeSingle<{ exam_passed: boolean }>();
-
-        isChapterLocked = !prevProg?.exam_passed;
-      } else {
-        isChapterLocked = true;
-      }
+  if (isPastChapterOne) {
+    if (userId && prevChapRes.data) {
+      const prevProg = (userChapterProgRes.data || []).find(
+        (c: any) => c.chapter_id === prevChapRes.data?.id
+      );
+      isChapterLocked = !prevProg?.exam_passed;
     } else {
       isChapterLocked = true;
     }

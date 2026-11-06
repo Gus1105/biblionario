@@ -173,112 +173,117 @@ export async function submitAssessmentAction(payload: SubmitAssessmentPayload): 
     return { success: false, error: "Error al guardar el intento de la evaluación." };
   }
 
-  // 5. Guardar cada respuesta evaluada
+  // 5. Guardar cada respuesta evaluada y actualizar el progreso del usuario simultáneamente en paralelo
   const formattedAnswers = answersToInsert.map((ans) => ({
     ...ans,
     attempt_id: attempt.id,
   }));
 
-  await adminSupabase.from("assessment_answers").insert(formattedAnswers as any);
+  const saveAnswersPromise = adminSupabase
+    .from("assessment_answers")
+    .insert(formattedAnswers as any);
 
-  // 6. Actualizar el progreso del usuario de forma inmediata
-  if (assessment.type === "block_quiz" && assessment.block_id) {
-    const { data: existingProg } = await adminSupabase
-      .from("user_block_progress")
-      .select("best_score, attempts_count, quiz_passed")
-      .eq("user_id", user.id)
-      .eq("block_id", assessment.block_id)
-      .maybeSingle<{ best_score: number; attempts_count: number; quiz_passed: boolean }>();
+  const updateProgressPromise = (async () => {
+    if (assessment.type === "block_quiz" && assessment.block_id) {
+      const { data: existingProg } = await adminSupabase
+        .from("user_block_progress")
+        .select("best_score, attempts_count, quiz_passed")
+        .eq("user_id", user.id)
+        .eq("block_id", assessment.block_id)
+        .maybeSingle<{ best_score: number; attempts_count: number; quiz_passed: boolean }>();
 
-    const attemptsCount = (existingProg?.attempts_count || 0) + 1;
-    const bestScore = Math.max(existingProg?.best_score || 0, percentage);
-    const quizPassed = (existingProg?.quiz_passed || false) || passed;
+      const attemptsCount = (existingProg?.attempts_count || 0) + 1;
+      const bestScore = Math.max(existingProg?.best_score || 0, percentage);
+      const quizPassed = (existingProg?.quiz_passed || false) || passed;
 
-    await adminSupabase.from("user_block_progress").upsert(
-      {
-        user_id: user.id,
-        block_id: assessment.block_id,
-        reading_completed: true,
-        quiz_passed: quizPassed,
-        best_score: bestScore,
-        attempts_count: attemptsCount,
-        last_studied_at: new Date().toISOString(),
-      } as any,
-      { onConflict: "user_id, block_id" }
-    );
+      await adminSupabase.from("user_block_progress").upsert(
+        {
+          user_id: user.id,
+          block_id: assessment.block_id,
+          reading_completed: true,
+          quiz_passed: quizPassed,
+          best_score: bestScore,
+          attempts_count: attemptsCount,
+          last_studied_at: new Date().toISOString(),
+        } as any,
+        { onConflict: "user_id, block_id" }
+      );
 
-    if (quizPassed) {
-      const { data: block } = await adminSupabase
-        .from("study_blocks")
-        .select("chapter_id")
-        .eq("id", assessment.block_id)
-        .single<{ chapter_id: string }>();
+      if (quizPassed) {
+        const { data: block } = await adminSupabase
+          .from("study_blocks")
+          .select("chapter_id")
+          .eq("id", assessment.block_id)
+          .single<{ chapter_id: string }>();
 
-      if (block?.chapter_id) {
-        await (adminSupabase.rpc as any)("check_and_unlock_chapter_exam", {
-          p_user_id: user.id,
-          p_chapter_id: block.chapter_id,
-        });
+        if (block?.chapter_id) {
+          await (adminSupabase.rpc as any)("check_and_unlock_chapter_exam", {
+            p_user_id: user.id,
+            p_chapter_id: block.chapter_id,
+          });
+        }
       }
-    }
-  } else if (assessment.type === "chapter_exam" && assessment.chapter_id) {
-    const { data: existingChapProg } = await adminSupabase
-      .from("user_chapter_progress")
-      .select("best_score, exam_passed")
-      .eq("user_id", user.id)
-      .eq("chapter_id", assessment.chapter_id)
-      .maybeSingle<{ best_score: number; exam_passed: boolean }>();
+    } else if (assessment.type === "chapter_exam" && assessment.chapter_id) {
+      const { data: existingChapProg } = await adminSupabase
+        .from("user_chapter_progress")
+        .select("best_score, exam_passed")
+        .eq("user_id", user.id)
+        .eq("chapter_id", assessment.chapter_id)
+        .maybeSingle<{ best_score: number; exam_passed: boolean }>();
 
-    const bestScore = Math.max(existingChapProg?.best_score || 0, percentage);
-    const examPassed = (existingChapProg?.exam_passed || false) || passed;
+      const bestScore = Math.max(existingChapProg?.best_score || 0, percentage);
+      const examPassed = (existingChapProg?.exam_passed || false) || passed;
 
-    await adminSupabase.from("user_chapter_progress").upsert(
-      {
-        user_id: user.id,
-        chapter_id: assessment.chapter_id,
-        all_blocks_completed: true,
-        exam_unlocked: true,
-        exam_passed: examPassed,
-        best_score: bestScore,
-        completed_at: examPassed ? new Date().toISOString() : null,
-      } as any,
-      { onConflict: "user_id, chapter_id" }
-    );
+      await adminSupabase.from("user_chapter_progress").upsert(
+        {
+          user_id: user.id,
+          chapter_id: assessment.chapter_id,
+          all_blocks_completed: true,
+          exam_unlocked: true,
+          exam_passed: examPassed,
+          best_score: bestScore,
+          completed_at: examPassed ? new Date().toISOString() : null,
+        } as any,
+        { onConflict: "user_id, chapter_id" }
+      );
 
-    if (examPassed) {
-      const { data: chap } = await adminSupabase
-        .from("chapters")
-        .select("book_id")
-        .eq("id", assessment.chapter_id)
-        .single<{ book_id: string }>();
+      if (examPassed) {
+        const { data: chap } = await adminSupabase
+          .from("chapters")
+          .select("book_id")
+          .eq("id", assessment.chapter_id)
+          .single<{ book_id: string }>();
 
-      if (chap?.book_id) {
-        await (adminSupabase.rpc as any)("check_and_unlock_book_final", {
-          p_user_id: user.id,
-          p_book_id: chap.book_id,
-        });
+        if (chap?.book_id) {
+          await (adminSupabase.rpc as any)("check_and_unlock_book_final", {
+            p_user_id: user.id,
+            p_book_id: chap.book_id,
+          });
+        }
       }
-    }
-  } else if (assessment.type === "book_final" && assessment.book_id) {
-    const { data: existingBookProg } = await adminSupabase
-      .from("user_book_progress")
-      .select("final_exam_passed, overall_percentage")
-      .eq("user_id", user.id)
-      .eq("book_id", assessment.book_id)
-      .maybeSingle<{ final_exam_passed: boolean; overall_percentage: number }>();
+    } else if (assessment.type === "book_final" && assessment.book_id) {
+      const { data: existingBookProg } = await adminSupabase
+        .from("user_book_progress")
+        .select("final_exam_passed, overall_percentage")
+        .eq("user_id", user.id)
+        .eq("book_id", assessment.book_id)
+        .maybeSingle<{ final_exam_passed: boolean; overall_percentage: number }>();
 
-    await adminSupabase.from("user_book_progress").upsert(
-      {
-        user_id: user.id,
-        book_id: assessment.book_id,
-        final_exam_unlocked: true,
-        final_exam_passed: (existingBookProg?.final_exam_passed || false) || passed,
-        overall_percentage: Math.max(existingBookProg?.overall_percentage || 0, percentage),
-        updated_at: new Date().toISOString(),
-      } as any,
-      { onConflict: "user_id, book_id" }
-    );
-  }
+      await adminSupabase.from("user_book_progress").upsert(
+        {
+          user_id: user.id,
+          book_id: assessment.book_id,
+          final_exam_unlocked: true,
+          final_exam_passed: (existingBookProg?.final_exam_passed || false) || passed,
+          overall_percentage: Math.max(existingBookProg?.overall_percentage || 0, percentage),
+          updated_at: new Date().toISOString(),
+        } as any,
+        { onConflict: "user_id, book_id" }
+      );
+    }
+  })();
+
+  await Promise.all([saveAnswersPromise, updateProgressPromise]);
 
   revalidatePath("/dashboard");
   revalidatePath("/libros/efesios");
