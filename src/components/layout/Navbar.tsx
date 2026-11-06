@@ -190,10 +190,10 @@ export function Navbar({ user, isAdmin = false }: NavbarProps) {
 
       {/* Mobile Slide-down Navigation Panel */}
       {user && mobileMenuOpen && (
-        <div className="md:hidden border-t border-stone-200 dark:border-stone-800 bg-stone-50/98 dark:bg-stone-900/98 backdrop-blur-lg px-4 pt-4 pb-6 shadow-xl animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="md:hidden border-t border-stone-200 dark:border-stone-800 bg-stone-50/98 dark:bg-stone-950/98 backdrop-blur-lg px-4 pt-4 pb-6 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200">
           {/* User profile card */}
-          <div className="flex items-center gap-3 p-3 bg-white dark:bg-stone-850 rounded-xl border border-stone-200/80 dark:border-stone-800 mb-4 shadow-sm">
-            <div className="w-10 h-10 rounded-full bg-amber-200 dark:bg-amber-900/80 text-amber-800 dark:text-amber-200 flex items-center justify-center font-bold text-sm uppercase border border-amber-300 dark:border-amber-700">
+          <div className="flex items-center gap-3 p-3 bg-white dark:bg-stone-900 rounded-xl border border-stone-200/80 dark:border-stone-800 mb-4 shadow-sm">
+            <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-200 flex items-center justify-center font-bold text-sm uppercase border border-amber-300 dark:border-amber-700/60">
               {user.fullName ? user.fullName.charAt(0) : <User className="w-5 h-5" />}
             </div>
             <div className="flex-1 min-w-0">
@@ -208,7 +208,7 @@ export function Navbar({ user, isAdmin = false }: NavbarProps) {
               className={cn(
                 "px-2 py-0.5 rounded text-[11px] font-bold uppercase",
                 isAdmin
-                  ? "bg-amber-100 text-amber-800 dark:bg-amber-900/60 dark:text-amber-300 border border-amber-200 dark:border-amber-700"
+                  ? "bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-200 dark:border-amber-800"
                   : "bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-300 border border-stone-200 dark:border-stone-700"
               )}
             >
@@ -237,15 +237,15 @@ export function Navbar({ user, isAdmin = false }: NavbarProps) {
                   className={cn(
                     "flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium transition-colors",
                     isActive
-                      ? "bg-amber-600 text-white font-semibold shadow-md shadow-amber-600/20"
-                      : "text-stone-700 dark:text-stone-200 hover:bg-stone-200/60 dark:hover:bg-stone-800/80 bg-white dark:bg-stone-850/60 border border-stone-200/60 dark:border-stone-800/60"
+                      ? "bg-amber-600 text-white font-semibold shadow-md shadow-amber-600/30"
+                      : "text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800/80 bg-white dark:bg-stone-900 border border-stone-200/80 dark:border-stone-800"
                   )}
                 >
                   <div className="flex items-center gap-3">
                     <Icon className={cn("w-5 h-5", isActive ? "text-white" : "text-amber-600 dark:text-amber-400")} />
                     <span>{link.name}</span>
                   </div>
-                  <ChevronRight className={cn("w-4 h-4", isActive ? "text-white/80" : "text-stone-400")} />
+                  <ChevronRight className={cn("w-4 h-4", isActive ? "text-white/80" : "text-stone-400 dark:text-stone-500")} />
                 </Link>
               );
             })}
@@ -256,7 +256,7 @@ export function Navbar({ user, isAdmin = false }: NavbarProps) {
             <button
               onClick={handleLogout}
               disabled={isPending}
-              className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 border border-rose-200 dark:border-rose-900/40 transition-colors cursor-pointer bg-white dark:bg-stone-850"
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 border border-rose-200 dark:border-rose-900/40 transition-colors cursor-pointer bg-white dark:bg-stone-900"
             >
               <LogOut className="w-4 h-4" />
               <span>{isPending ? "Cerrando sesión..." : "Cerrar Sesión"}</span>

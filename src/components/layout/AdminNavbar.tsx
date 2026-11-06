@@ -140,7 +140,7 @@ export function AdminNavbar() {
                     "flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium transition-colors",
                     isActive
                       ? "bg-amber-600 text-white font-semibold shadow-md shadow-amber-600/30"
-                      : "text-stone-200 hover:bg-stone-850 bg-stone-900 border border-stone-800"
+                      : "text-stone-200 hover:bg-stone-800 bg-stone-900 border border-stone-800"
                   )}
                 >
                   <div className="flex items-center gap-3">
