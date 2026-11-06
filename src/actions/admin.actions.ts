@@ -3,6 +3,7 @@
 import { createAdminClient } from "@/lib/supabase/admin";
 import { getCurrentUser } from "@/actions/auth.actions";
 import { revalidatePath } from "next/cache";
+import { mapAuthError } from "@/lib/auth-errors";
 
 async function ensureAdmin() {
   const auth = await getCurrentUser();
@@ -309,6 +310,75 @@ export async function deleteParticipantAction(
     return {
       success: false,
       error: err.message || "Error al eliminar el participante.",
+    };
+  }
+}
+
+/**
+ * Crear un participante directamente como administrador (sin límites de tasa de correo)
+ */
+export async function createParticipantAction(data: {
+  fullName: string;
+  email: string;
+  password: string;
+  role: "admin" | "participant";
+}): Promise<{ success: boolean; error?: string }> {
+  try {
+    await ensureAdmin();
+    const adminSupabase = createAdminClient();
+
+    const trimmedName = data.fullName.trim();
+    const trimmedEmail = data.email.trim().toLowerCase();
+
+    if (!trimmedEmail) {
+      return { success: false, error: "El correo electrónico es obligatorio." };
+    }
+    if (!data.password || data.password.length < 6) {
+      return { success: false, error: "La contraseña debe tener al menos 6 caracteres." };
+    }
+
+    // 1. Crear el usuario en auth.users con correo confirmado (omite el envío de correo y el rate limit)
+    const { data: userData, error: authError } = await adminSupabase.auth.admin.createUser({
+      email: trimmedEmail,
+      password: data.password,
+      email_confirm: true,
+      user_metadata: {
+        full_name: trimmedName,
+      },
+    });
+
+    if (authError || !userData?.user) {
+      return {
+        success: false,
+        error: mapAuthError(authError?.message || "Error al crear el usuario."),
+      };
+    }
+
+    const userId = userData.user.id;
+
+    // 2. Asegurar que el perfil exista en profiles
+    await (adminSupabase.from("profiles") as any).upsert({
+      id: userId,
+      email: trimmedEmail,
+      full_name: trimmedName,
+      updated_at: new Date().toISOString(),
+    });
+
+    // 3. Si el rol es admin, actualizarlo en user_roles
+    if (data.role === "admin") {
+      await (adminSupabase.from("user_roles") as any)
+        .update({ role: "admin" })
+        .eq("user_id", userId);
+    }
+
+    revalidatePath("/admin/participantes");
+    revalidatePath("/admin");
+
+    return { success: true };
+  } catch (err: any) {
+    return {
+      success: false,
+      error: err.message || "Error inesperado al crear el participante.",
     };
   }
 }

@@ -8,6 +8,7 @@ import {
   Search,
   Shield,
   User,
+  UserPlus,
   Eye,
   Edit2,
   KeyRound,
@@ -26,6 +27,7 @@ import { ParticipantWithStats } from "@/services/admin.service";
 import { EditParticipantModal } from "./EditParticipantModal";
 import { ResetPasswordModal } from "./ResetPasswordModal";
 import { DeleteParticipantModal } from "./DeleteParticipantModal";
+import { CreateParticipantModal } from "./CreateParticipantModal";
 import { cn } from "@/lib/utils";
 
 interface ParticipantListClientProps {
@@ -40,6 +42,7 @@ export function ParticipantListClient({
   const [searchTerm, setSearchTerm] = useState("");
   const [roleFilter, setRoleFilter] = useState<"all" | "participant" | "admin">("all");
 
+  const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [editingParticipant, setEditingParticipant] = useState<ParticipantWithStats | null>(null);
   const [resettingParticipant, setResettingParticipant] = useState<ParticipantWithStats | null>(null);
   const [deletingParticipant, setDeletingParticipant] = useState<ParticipantWithStats | null>(null);
@@ -163,7 +166,7 @@ export function ParticipantListClient({
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="flex flex-col sm:flex-row gap-3 sm:items-center justify-between bg-white dark:bg-stone-900 p-4 rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm">
+      <div className="flex flex-col md:flex-row gap-3 md:items-center justify-between bg-white dark:bg-stone-900 p-4 rounded-2xl border border-stone-200 dark:border-stone-800 shadow-sm">
         {/* Search */}
         <div className="relative flex-1 max-w-md">
           <Search className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
@@ -176,41 +179,54 @@ export function ParticipantListClient({
           />
         </div>
 
-        {/* Role Filters */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0">
-          <button
-            onClick={() => setRoleFilter("all")}
-            className={cn(
-              "px-3 py-1.5 rounded-lg text-xs font-bold transition-colors whitespace-nowrap cursor-pointer",
-              roleFilter === "all"
-                ? "bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900"
-                : "bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-300 hover:bg-stone-200"
-            )}
+        <div className="flex items-center gap-2.5 justify-between md:justify-end flex-wrap sm:flex-nowrap">
+          {/* Role Filters */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0">
+            <button
+              onClick={() => setRoleFilter("all")}
+              className={cn(
+                "px-3 py-1.5 rounded-lg text-xs font-bold transition-colors whitespace-nowrap cursor-pointer",
+                roleFilter === "all"
+                  ? "bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900"
+                  : "bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-300 hover:bg-stone-200"
+              )}
+            >
+              Todos ({totalUsers})
+            </button>
+            <button
+              onClick={() => setRoleFilter("participant")}
+              className={cn(
+                "px-3 py-1.5 rounded-lg text-xs font-bold transition-colors whitespace-nowrap cursor-pointer",
+                roleFilter === "participant"
+                  ? "bg-amber-600 text-white shadow-sm"
+                  : "bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-300 hover:bg-stone-200"
+              )}
+            >
+              Estudiantes ({totalStudents})
+            </button>
+            <button
+              onClick={() => setRoleFilter("admin")}
+              className={cn(
+                "px-3 py-1.5 rounded-lg text-xs font-bold transition-colors whitespace-nowrap cursor-pointer",
+                roleFilter === "admin"
+                  ? "bg-indigo-600 text-white shadow-sm"
+                  : "bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-300 hover:bg-stone-200"
+              )}
+            >
+              Admins ({totalAdmins})
+            </button>
+          </div>
+
+          {/* Botón para crear participante sin límite de correos */}
+          <Button
+            variant="primary"
+            size="sm"
+            onClick={() => setIsCreateOpen(true)}
+            className="text-xs whitespace-nowrap py-2"
           >
-            Todos ({totalUsers})
-          </button>
-          <button
-            onClick={() => setRoleFilter("participant")}
-            className={cn(
-              "px-3 py-1.5 rounded-lg text-xs font-bold transition-colors whitespace-nowrap cursor-pointer",
-              roleFilter === "participant"
-                ? "bg-amber-600 text-white shadow-sm"
-                : "bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-300 hover:bg-stone-200"
-            )}
-          >
-            Estudiantes ({totalStudents})
-          </button>
-          <button
-            onClick={() => setRoleFilter("admin")}
-            className={cn(
-              "px-3 py-1.5 rounded-lg text-xs font-bold transition-colors whitespace-nowrap cursor-pointer",
-              roleFilter === "admin"
-                ? "bg-indigo-600 text-white shadow-sm"
-                : "bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-300 hover:bg-stone-200"
-            )}
-          >
-            Admins ({totalAdmins})
-          </button>
+            <UserPlus className="w-3.5 h-3.5 mr-1" />
+            Nuevo Participante
+          </Button>
         </div>
       </div>
 
@@ -531,6 +547,14 @@ export function ParticipantListClient({
           isOpen={Boolean(deletingParticipant)}
           onClose={() => setDeletingParticipant(null)}
           onSuccess={handleDeleteSuccess}
+        />
+      )}
+
+      {isCreateOpen && (
+        <CreateParticipantModal
+          isOpen={isCreateOpen}
+          onClose={() => setIsCreateOpen(false)}
+          onSuccess={handleUpdateSuccess}
         />
       )}
     </div>
