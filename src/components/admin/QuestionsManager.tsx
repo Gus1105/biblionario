@@ -9,6 +9,7 @@ import {
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
+import { cn } from "@/lib/utils";
 import {
   PlusCircle,
   Trash2,
@@ -220,13 +221,30 @@ export function QuestionsManager({ initialQuestions, chapters }: QuestionsManage
                 <div className="space-y-1.5 max-w-3xl">
                   <div className="flex flex-wrap items-center gap-2">
                     <Badge variant="outline" className="text-[11px]">
-                      {q.question_type}
+                      {q.question_type === "multiple_choice" && "Selección Múltiple"}
+                      {q.question_type === "fill_blank" && "Completar Versículo"}
+                      {q.question_type === "reference_identification" && "Identificar Referencia"}
+                      {q.question_type === "true_false" && "Verdadero o Falso"}
+                      {q.question_type === "order_events" && "Ordenar Conceptos"}
+                      {!["multiple_choice", "fill_blank", "reference_identification", "true_false", "order_events"].includes(q.question_type) && q.question_type}
                     </Badge>
                     <span className="text-xs font-bold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-2 py-0.5 rounded">
                       {q.verse_reference}
                     </span>
                     <span className="text-xs text-stone-400">
-                      {q.points} pts • {q.difficulty}
+                      {q.points} pts
+                    </span>
+                    <span
+                      className={cn(
+                        "text-[10px] font-bold uppercase px-2 py-0.5 rounded border",
+                        q.difficulty === "easy"
+                          ? "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800"
+                          : q.difficulty === "hard"
+                          ? "bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-800"
+                          : "bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800"
+                      )}
+                    >
+                      {q.difficulty === "easy" ? "Fácil" : q.difficulty === "hard" ? "Difícil" : "Media"}
                     </span>
                     <Badge variant={q.is_active ? "success" : "danger"} className="text-[10px]">
                       {q.is_active ? "Activa" : "Desactivada"}
@@ -344,6 +362,37 @@ export function QuestionsManager({ initialQuestions, chapters }: QuestionsManage
                     <option value="true_false">Verdadero o Falso</option>
                     <option value="order_events">Ordenar Conceptos</option>
                   </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-stone-700 dark:text-stone-300 mb-1">
+                    Dificultad de la Pregunta
+                  </label>
+                  <select
+                    value={newDifficulty}
+                    onChange={(e: any) => setNewDifficulty(e.target.value)}
+                    className="w-full p-2 text-sm rounded-lg border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100"
+                  >
+                    <option value="easy">Fácil (Observación directa)</option>
+                    <option value="medium">Media (Memoria / Referencia)</option>
+                    <option value="hard">Difícil (Doctrina / Ordenamiento)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-stone-700 dark:text-stone-300 mb-1">
+                    Puntos Asignados
+                  </label>
+                  <input
+                    type="number"
+                    min="1"
+                    max="100"
+                    value={newPoints}
+                    onChange={(e) => setNewPoints(Number(e.target.value) || 10)}
+                    className="w-full p-2 text-sm rounded-lg border border-stone-300 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100"
+                  />
                 </div>
               </div>
 
