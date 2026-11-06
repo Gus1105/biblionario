@@ -4,10 +4,13 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { loginSchema, registerSchema } from "@/lib/validations/auth";
 import { redirect } from "next/navigation";
+import { headers } from "next/headers";
+import { mapAuthError } from "@/lib/auth-errors";
 
 export interface AuthActionResult {
   success: boolean;
   error?: string;
+  isUnconfirmedEmail?: boolean;
 }
 
 export async function loginAction(formData: FormData): Promise<AuthActionResult> {
@@ -33,12 +36,14 @@ export async function loginAction(formData: FormData): Promise<AuthActionResult>
   });
 
   if (error) {
+    const isUnconfirmed =
+      error.message.toLowerCase().includes("email not confirmed") ||
+      error.message.toLowerCase().includes("not confirmed");
+
     return {
       success: false,
-      error:
-        error.message === "Invalid login credentials"
-          ? "Credenciales incorrectas. Verifica tu correo y contraseña."
-          : error.message,
+      error: mapAuthError(error.message),
+      isUnconfirmedEmail: isUnconfirmed,
     };
   }
 
@@ -64,6 +69,16 @@ export async function registerAction(formData: FormData): Promise<AuthActionResu
   const { fullName, email, password } = parsed.data;
   const supabase = await createClient();
 
+  // Obtener la URL base para configurar la redirección del correo de confirmación
+  const headersList = await headers();
+  const host = headersList.get("x-forwarded-host") || headersList.get("host");
+  const protocol = headersList.get("x-forwarded-proto") || "http";
+  const origin =
+    headersList.get("origin") ||
+    (host ? `${protocol}://${host}` : process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000");
+
+  const emailRedirectTo = `${origin}/api/auth/callback?next=/dashboard`;
+
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
@@ -71,19 +86,61 @@ export async function registerAction(formData: FormData): Promise<AuthActionResu
       data: {
         full_name: fullName,
       },
+      emailRedirectTo,
     },
   });
 
   if (error) {
     return {
       success: false,
-      error: error.message,
+      error: mapAuthError(error.message),
     };
   }
 
   // Si Supabase no requiere confirmación por correo para iniciar sesión
   if (data.session) {
     redirect("/dashboard");
+  }
+
+  return {
+    success: true,
+  };
+}
+
+export async function resendConfirmationEmailAction(
+  email: string
+): Promise<AuthActionResult> {
+  const trimmed = email.trim().toLowerCase();
+  if (!trimmed) {
+    return {
+      success: false,
+      error: "Por favor, ingresa tu correo electrónico para reenviar la confirmación.",
+    };
+  }
+
+  const headersList = await headers();
+  const host = headersList.get("x-forwarded-host") || headersList.get("host");
+  const protocol = headersList.get("x-forwarded-proto") || "http";
+  const origin =
+    headersList.get("origin") ||
+    (host ? `${protocol}://${host}` : process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000");
+
+  const emailRedirectTo = `${origin}/api/auth/callback?next=/dashboard`;
+  const supabase = await createClient();
+
+  const { error } = await supabase.auth.resend({
+    type: "signup",
+    email: trimmed,
+    options: {
+      emailRedirectTo,
+    },
+  });
+
+  if (error) {
+    return {
+      success: false,
+      error: mapAuthError(error.message),
+    };
   }
 
   return {

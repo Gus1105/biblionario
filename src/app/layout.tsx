@@ -13,11 +13,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Biblionario – Plataforma Interactiva de Aprendizaje Bíblico",
+  title: "Biblionario",
   description:
     "Estudia, comprende, memoriza y aprende la Biblia con una metodología progresiva de 4 niveles basada en la Reina-Valera 1960. Comienza hoy con Efesios.",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
 };
 

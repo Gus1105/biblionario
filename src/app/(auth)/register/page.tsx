@@ -3,7 +3,7 @@
 import React, { useState, useTransition } from "react";
 import Link from "next/link";
 import { registerAction } from "@/actions/auth.actions";
-import { Mail, Lock, User, UserPlus, AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
+import { Mail, Lock, User, UserPlus, AlertCircle, CheckCircle2, Loader2, Sparkles } from "lucide-react";
 
 export default function RegisterPage() {
   const [isPending, startTransition] = useTransition();
@@ -23,7 +23,7 @@ export default function RegisterPage() {
           setErrorMessage(result.error);
         } else if (result.success) {
           setSuccessMessage(
-            "¡Registro completado con éxito! Por favor revisa tu correo electrónico para confirmar tu cuenta si es necesario, o inicia sesión."
+            "¡Registro completado con éxito! Hemos enviado un correo de verificación a tu casilla. Al hacer clic en el enlace, tu cuenta quedará activada y serás redirigido directamente a tu Dashboard."
           );
         }
       }
@@ -42,25 +42,35 @@ export default function RegisterPage() {
       </div>
 
       {errorMessage && (
-        <div className="mb-5 rounded-lg bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/60 p-3 flex items-start gap-3 text-red-700 dark:text-red-400 text-sm">
-          <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-red-500" />
-          <span>{errorMessage}</span>
+        <div className="mb-5 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/60 p-3.5 flex items-start gap-3 text-rose-800 dark:text-rose-300 text-sm">
+          <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-rose-500" />
+          <span className="leading-relaxed">{errorMessage}</span>
         </div>
       )}
 
       {successMessage && (
-        <div className="mb-5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/60 p-3 flex items-start gap-3 text-emerald-700 dark:text-emerald-400 text-sm">
-          <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5 text-emerald-500" />
-          <div>
-            <span>{successMessage}</span>
-            <div className="mt-2">
-              <Link
-                href="/login"
-                className="font-bold underline hover:text-emerald-800 dark:hover:text-emerald-300"
-              >
-                Ir a Iniciar Sesión →
-              </Link>
-            </div>
+        <div className="mb-5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/60 p-4 space-y-3 text-emerald-800 dark:text-emerald-300 text-sm">
+          <div className="flex items-start gap-3">
+            <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5 text-emerald-600" />
+            <span className="leading-relaxed font-medium">{successMessage}</span>
+          </div>
+
+          <div className="p-3 bg-white/80 dark:bg-stone-900/80 rounded-xl border border-emerald-200/60 dark:border-emerald-800/60 text-xs text-stone-600 dark:text-stone-400 space-y-1">
+            <p className="font-semibold text-emerald-900 dark:text-emerald-300 flex items-center gap-1.5">
+              <Mail className="w-4 h-4 text-emerald-600" /> Revisa tu correo electrónico
+            </p>
+            <p>
+              Busca el mensaje de <strong>Biblionario</strong> en tu bandeja de entrada o en la carpeta de <strong>spam / correo no deseado</strong>.
+            </p>
+          </div>
+
+          <div className="pt-1">
+            <Link
+              href="/login"
+              className="inline-flex items-center gap-1 font-bold text-amber-700 dark:text-amber-400 hover:underline text-xs"
+            >
+              ¿Ya confirmaste? Ir a Iniciar Sesión →
+            </Link>
           </div>
         </div>
       )}
@@ -189,4 +199,3 @@ export default function RegisterPage() {
     </div>
   );
 }
-
