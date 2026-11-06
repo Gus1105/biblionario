@@ -106,6 +106,7 @@ export function Navbar({ user, isAdmin = false }: NavbarProps) {
                 <Link
                   key={link.href}
                   href={link.href}
+                  prefetch={true}
                   className={cn(
                     "flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium transition-colors",
                     isActive
@@ -231,6 +232,7 @@ export function Navbar({ user, isAdmin = false }: NavbarProps) {
                 <Link
                   key={link.href}
                   href={link.href}
+                  prefetch={true}
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
                     "flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium transition-colors",

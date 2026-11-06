@@ -356,99 +356,94 @@ export async function getParticipantProgressDetails(
 
   if (!profile) return null;
 
-  // Obtener info de login de auth.users si es posible
-  let lastSignIn: string | null = null;
-  try {
-    const { data: authUser } = await adminSupabase.auth.admin.getUserById(participantId);
-    lastSignIn = authUser?.user?.last_sign_in_at || null;
-  } catch {}
-
-  // 2. Obtener el libro de Efesios y sus capítulos con bloques y exámenes
-  const { data: book } = await adminSupabase
-    .from("books")
-    .select(`
-      id,
-      slug,
-      name,
-      chapters_count,
-      chapters:chapters(
+  // 2. Ejecutar todas las consultas restantes en paralelo para máxima velocidad
+  const [
+    authResult,
+    { data: book },
+    { data: assessments },
+    { data: userBlocks },
+    { data: userChapters },
+    { data: userBook },
+    { data: attempts },
+  ] = await Promise.all([
+    adminSupabase.auth.admin.getUserById(participantId).catch(() => ({ data: { user: null } })),
+    adminSupabase
+      .from("books")
+      .select(`
         id,
-        chapter_number,
-        title,
-        summary,
-        study_blocks:study_blocks(
+        slug,
+        name,
+        chapters_count,
+        chapters:chapters(
           id,
-          block_number,
+          chapter_number,
           title,
-          verse_range,
-          order_index
+          summary,
+          study_blocks:study_blocks(
+            id,
+            block_number,
+            title,
+            verse_range,
+            order_index
+          )
         )
-      )
-    `)
-    .eq("slug", "efesios")
-    .single<any>();
+      `)
+      .eq("slug", "efesios")
+      .single<any>(),
+    adminSupabase
+      .from("assessments")
+      .select("id, title, type, block_id, chapter_id, book_id, passing_score_percentage")
+      .returns<any[]>(),
+    adminSupabase
+      .from("user_block_progress")
+      .select("block_id, reading_completed, quiz_passed, best_score, attempts_count, last_studied_at")
+      .eq("user_id", participantId)
+      .returns<any[]>(),
+    adminSupabase
+      .from("user_chapter_progress")
+      .select("chapter_id, all_blocks_completed, exam_unlocked, exam_passed, best_score, completed_at")
+      .eq("user_id", participantId)
+      .returns<any[]>(),
+    adminSupabase
+      .from("user_book_progress")
+      .select("final_exam_unlocked, final_exam_passed, overall_percentage, completed_chapters_count")
+      .eq("user_id", participantId)
+      .maybeSingle<any>(),
+    adminSupabase
+      .from("assessment_attempts")
+      .select(`
+        id,
+        score,
+        max_score,
+        percentage,
+        passed,
+        status,
+        started_at,
+        completed_at,
+        assessment:assessments!inner(
+          id,
+          title,
+          type,
+          passing_score_percentage
+        )
+      `)
+      .eq("user_id", participantId)
+      .order("started_at", { ascending: false })
+      .returns<any[]>(),
+  ]);
 
-  // 3. Obtener todas las evaluaciones (quizzes, exámenes de capítulo, final)
-  const { data: assessments } = await adminSupabase
-    .from("assessments")
-    .select("id, title, type, block_id, chapter_id, book_id, passing_score_percentage")
-    .returns<any[]>();
-
+  const lastSignIn = (authResult as any)?.data?.user?.last_sign_in_at || null;
   const assessmentsList = assessments || [];
-
-  // 4. Obtener progreso de bloques del usuario
-  const { data: userBlocks } = await adminSupabase
-    .from("user_block_progress")
-    .select("block_id, reading_completed, quiz_passed, best_score, attempts_count, last_studied_at")
-    .eq("user_id", participantId)
-    .returns<any[]>();
 
   const userBlockMap = new Map<string, any>();
   (userBlocks || []).forEach((ub) => {
     userBlockMap.set(ub.block_id, ub);
   });
 
-  // 5. Obtener progreso de capítulos del usuario
-  const { data: userChapters } = await adminSupabase
-    .from("user_chapter_progress")
-    .select("chapter_id, all_blocks_completed, exam_unlocked, exam_passed, best_score, completed_at")
-    .eq("user_id", participantId)
-    .returns<any[]>();
-
   const userChapterMap = new Map<string, any>();
   (userChapters || []).forEach((uc) => {
     userChapterMap.set(uc.chapter_id, uc);
   });
-
-  // 6. Obtener progreso del libro
-  const { data: userBook } = await adminSupabase
-    .from("user_book_progress")
-    .select("final_exam_unlocked, final_exam_passed, overall_percentage, completed_chapters_count")
-    .eq("user_id", participantId)
-    .maybeSingle<any>();
-
-  // 7. Obtener todos los intentos de evaluación del usuario
-  const { data: attempts } = await adminSupabase
-    .from("assessment_attempts")
-    .select(`
-      id,
-      score,
-      max_score,
-      percentage,
-      passed,
-      status,
-      started_at,
-      completed_at,
-      assessment:assessments!inner(
-        id,
-        title,
-        type,
-        passing_score_percentage
-      )
-    `)
-    .eq("user_id", participantId)
-    .order("started_at", { ascending: false })
-    .returns<any[]>();
 
   const attemptsHistory = (attempts || []).map((a) => ({
     id: a.id,

@@ -20,75 +20,6 @@ export interface DashboardStats {
 export async function getUserDashboardStats(userId: string): Promise<DashboardStats> {
   const supabase = await createClient();
 
-  // 1. Obtener el libro de Efesios
-  const { data: book } = await supabase
-    .from("books")
-    .select("id, chapters_count")
-    .eq("slug", "efesios")
-    .maybeSingle<{ id: string; chapters_count: number }>();
-
-  const totalChapters = book?.chapters_count || 6;
-
-  // 2. Obtener total de bloques de Efesios
-  const { count: totalBlocksCount } = await supabase
-    .from("study_blocks")
-    .select("id", { count: "exact", head: true });
-
-  const totalBlocks = totalBlocksCount || 22;
-
-  // 3. Obtener bloques completados por el usuario
-  const { data: userBlocks } = await supabase
-    .from("user_block_progress")
-    .select("block_id, reading_completed, quiz_passed, best_score")
-    .eq("user_id", userId)
-    .returns<
-      Array<{
-        block_id: string;
-        reading_completed: boolean;
-        quiz_passed: boolean;
-        best_score: number;
-      }>
-    >();
-
-  const completedBlocks =
-    userBlocks?.filter((b) => b.reading_completed && b.quiz_passed).length || 0;
-
-  // 4. Obtener capítulos aprobados por el usuario
-  const { data: userChapters } = await supabase
-    .from("user_chapter_progress")
-    .select("chapter_id, exam_passed, best_score")
-    .eq("user_id", userId)
-    .returns<
-      Array<{
-        chapter_id: string;
-        exam_passed: boolean;
-        best_score: number;
-      }>
-    >();
-
-  const passedChapters = userChapters?.filter((c) => c.exam_passed).length || 0;
-
-  // 5. Obtener intentos para calcular el promedio de puntuación
-  const { data: attempts } = await supabase
-    .from("assessment_attempts")
-    .select("percentage, passed")
-    .eq("user_id", userId)
-    .eq("status", "completed")
-    .returns<Array<{ percentage: number; passed: boolean }>>();
-
-  const averageScore =
-    attempts && attempts.length > 0
-      ? Math.round(
-          attempts.reduce((acc, curr) => acc + Number(curr.percentage), 0) / attempts.length
-        )
-      : 0;
-
-  const overallPercentage =
-    totalBlocks > 0 ? Math.round((completedBlocks / totalBlocks) * 100) : 0;
-
-  // 6. Determinar el siguiente paso sugerido
-  let nextStep: DashboardStats["nextStep"] = null;
-
   interface BlockWithChapterRelation {
     id: string;
     block_number: number;
@@ -100,20 +31,94 @@ export async function getUserDashboardStats(userId: string): Promise<DashboardSt
     };
   }
 
-  const { data: allBlocks } = await supabase
-    .from("study_blocks")
-    .select(`
-      id,
-      block_number,
-      title,
-      verse_range,
-      chapter:chapters!inner(
-        chapter_number,
-        book:books!inner(slug)
-      )
-    `)
-    .order("order_index", { ascending: true })
-    .returns<BlockWithChapterRelation[]>();
+  // 1. Ejecutar todas las consultas del dashboard en paralelo para máxima velocidad
+  const [
+    { data: book },
+    { count: totalBlocksCount },
+    { data: userBlocks },
+    { data: userChapters },
+    { data: attempts },
+    { data: allBlocks },
+    { data: chaptersList },
+  ] = await Promise.all([
+    supabase
+      .from("books")
+      .select("id, chapters_count")
+      .eq("slug", "efesios")
+      .maybeSingle<{ id: string; chapters_count: number }>(),
+    supabase
+      .from("study_blocks")
+      .select("id", { count: "exact", head: true }),
+    supabase
+      .from("user_block_progress")
+      .select("block_id, reading_completed, quiz_passed, best_score")
+      .eq("user_id", userId)
+      .returns<
+        Array<{
+          block_id: string;
+          reading_completed: boolean;
+          quiz_passed: boolean;
+          best_score: number;
+        }>
+      >(),
+    supabase
+      .from("user_chapter_progress")
+      .select("chapter_id, exam_passed, best_score")
+      .eq("user_id", userId)
+      .returns<
+        Array<{
+          chapter_id: string;
+          exam_passed: boolean;
+          best_score: number;
+        }>
+      >(),
+    supabase
+      .from("assessment_attempts")
+      .select("percentage, passed")
+      .eq("user_id", userId)
+      .eq("status", "completed")
+      .returns<Array<{ percentage: number; passed: boolean }>>(),
+    supabase
+      .from("study_blocks")
+      .select(`
+        id,
+        block_number,
+        title,
+        verse_range,
+        chapter:chapters!inner(
+          chapter_number,
+          book:books!inner(slug)
+        )
+      `)
+      .order("order_index", { ascending: true })
+      .returns<BlockWithChapterRelation[]>(),
+    supabase
+      .from("chapters")
+      .select("id, chapter_number, title")
+      .order("chapter_number", { ascending: true })
+      .returns<Array<{ id: string; chapter_number: number; title: string }>>(),
+  ]);
+
+  const totalChapters = book?.chapters_count || 6;
+  const totalBlocks = totalBlocksCount || 22;
+
+  const completedBlocks =
+    userBlocks?.filter((b) => b.reading_completed && b.quiz_passed).length || 0;
+
+  const passedChapters = userChapters?.filter((c) => c.exam_passed).length || 0;
+
+  const averageScore =
+    attempts && attempts.length > 0
+      ? Math.round(
+          attempts.reduce((acc, curr) => acc + Number(curr.percentage), 0) / attempts.length
+        )
+      : 0;
+
+  const overallPercentage =
+    totalBlocks > 0 ? Math.round((completedBlocks / totalBlocks) * 100) : 0;
+
+  // Determinar el siguiente paso sugerido
+  let nextStep: DashboardStats["nextStep"] = null;
 
   if (allBlocks && allBlocks.length > 0) {
     const completedBlockIds = new Set(
@@ -121,13 +126,6 @@ export async function getUserDashboardStats(userId: string): Promise<DashboardSt
         ?.filter((b) => b.reading_completed && b.quiz_passed)
         .map((b) => b.block_id) || []
     );
-
-    const { data: chaptersList } = await supabase
-      .from("chapters")
-      .select("id, chapter_number, title")
-      .eq("book_id", book?.id || "")
-      .order("chapter_number", { ascending: true })
-      .returns<Array<{ id: string; chapter_number: number; title: string }>>();
 
     const passedChapterIds = new Set(
       userChapters?.filter((c) => c.exam_passed).map((c) => c.chapter_id) || []
@@ -240,40 +238,48 @@ export async function getBookWithChapters(slug: string, userId?: string) {
 
   if (!book) return null;
 
-  // Obtener examen final del libro
-  const { data: finalExam } = await supabase
-    .from("assessments")
-    .select("id, title, type, passing_score_percentage, questions_count")
-    .eq("book_id", book.id)
-    .eq("type", "book_final")
-    .maybeSingle<{
-      id: string;
-      title: string;
-      type: string;
-      passing_score_percentage: number;
-      questions_count: number;
-    }>();
-
   let userBookProgress: any = null;
   let userChaptersProgress: Record<string, any> = {};
 
-  if (userId) {
-    const { data: bookProg } = await supabase
-      .from("user_book_progress")
-      .select("*")
-      .eq("user_id", userId)
+  // Ejecutar en paralelo la consulta de examen final y progresos del usuario
+  const [
+    { data: finalExam },
+    bookProgResult,
+    chapProgResult,
+  ] = await Promise.all([
+    supabase
+      .from("assessments")
+      .select("id, title, type, passing_score_percentage, questions_count")
       .eq("book_id", book.id)
-      .maybeSingle<Database["public"]["Tables"]["user_book_progress"]["Row"]>();
-    userBookProgress = bookProg;
+      .eq("type", "book_final")
+      .maybeSingle<{
+        id: string;
+        title: string;
+        type: string;
+        passing_score_percentage: number;
+        questions_count: number;
+      }>(),
+    userId
+      ? supabase
+          .from("user_book_progress")
+          .select("*")
+          .eq("user_id", userId)
+          .eq("book_id", book.id)
+          .maybeSingle<Database["public"]["Tables"]["user_book_progress"]["Row"]>()
+      : Promise.resolve({ data: null }),
+    userId
+      ? supabase
+          .from("user_chapter_progress")
+          .select("*")
+          .eq("user_id", userId)
+          .returns<Database["public"]["Tables"]["user_chapter_progress"]["Row"][]>()
+      : Promise.resolve({ data: null }),
+  ]);
 
-    const { data: chapProg } = await supabase
-      .from("user_chapter_progress")
-      .select("*")
-      .eq("user_id", userId)
-      .returns<Database["public"]["Tables"]["user_chapter_progress"]["Row"][]>();
-
-    if (chapProg) {
-      chapProg.forEach((cp) => {
+  if (userId) {
+    userBookProgress = bookProgResult.data;
+    if (chapProgResult.data) {
+      chapProgResult.data.forEach((cp: any) => {
         userChaptersProgress[cp.chapter_id] = cp;
       });
     }

@@ -6,6 +6,7 @@ import { loginSchema, registerSchema } from "@/lib/validations/auth";
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";
 import { mapAuthError } from "@/lib/auth-errors";
+import { cache } from "react";
 
 export interface AuthActionResult {
   success: boolean;
@@ -154,7 +155,7 @@ export async function logoutAction(): Promise<void> {
   redirect("/login");
 }
 
-export async function getCurrentUser() {
+const getCachedUser = cache(async () => {
   const supabase = await createClient();
   const {
     data: { user },
@@ -162,17 +163,18 @@ export async function getCurrentUser() {
 
   if (!user) return null;
 
-  // Obtener perfil y rol
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("*")
-    .eq("id", user.id)
-    .single();
-
-  const { data: userRoles } = await supabase
-    .from("user_roles")
-    .select("role")
-    .eq("user_id", user.id);
+  // Ejecutar en paralelo la consulta de perfil y de roles
+  const [{ data: profile }, { data: userRoles }] = await Promise.all([
+    supabase
+      .from("profiles")
+      .select("*")
+      .eq("id", user.id)
+      .maybeSingle(),
+    supabase
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", user.id),
+  ]);
 
   const roles = (userRoles || []) as { role: string }[];
   const isAdmin = roles.some((r) => r.role === "admin");
@@ -191,4 +193,8 @@ export async function getCurrentUser() {
     role,
     isAdmin: role === "admin",
   };
+});
+
+export async function getCurrentUser() {
+  return getCachedUser();
 }
