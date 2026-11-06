@@ -159,11 +159,11 @@ VALUES (
 - "Para que podáis estar firmes contra las asechanzas del diablo": el enemigo ataca con maquinaciones, engaños y mentiras astutas.
 
 2. Las seis piezas de la armadura de Dios (v. 13-17):
-Inspirado por el soldado romano encadenado a él y por profecías mesiánicas de Isaías, Pablo describe la panoplia divina:
+Inspirado por el soldado romano encadenado a él y por profecías mesiánicas de Isaías, Pablo describe la armadura completa de Dios:
 a) El cinturón de la verdad (v. 14a): ceñirse con la verdad objetiva de la Palabra y la sinceridad interior.
 b) La coraza de justicia (v. 14b): protege el corazón; la justicia imputada de Cristo y una vida diaria de integridad moral.
 c) El calzado del apresto del evangelio de la paz (v. 15): pies firmes y dispuestos a proclamar la paz de Cristo.
-d) El escudo de la fe (v. 16): el scutum grande que cubría todo el cuerpo para apagar las flechas incendiadas del maligno (dudas, temores, tentaciones impuras).
+d) El escudo de la fe (v. 16): el gran escudo que cubría todo el cuerpo para apagar las flechas incendiadas del maligno (dudas, temores, tentaciones impuras).
 e) El yelmo de la salvación (v. 17a): protege la mente y los pensamientos con la certeza inamovible de la redención presente y futura.
 f) La espada del Espíritu (v. 17b): la única arma ofensiva, "la palabra de Dios" (el rhema específico de la Escritura proclamado con poder, como Jesús hizo en el desierto).
 
